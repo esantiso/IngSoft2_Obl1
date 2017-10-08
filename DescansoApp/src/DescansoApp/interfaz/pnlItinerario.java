@@ -47,7 +47,7 @@ public class pnlItinerario extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnVolver.png"))); // NOI18N
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVolverMouseClicked(evt);
@@ -99,7 +99,7 @@ public class pnlItinerario extends javax.swing.JPanel {
 
         ArrayList<Evento> resultados = viaje.getItinerario();
         Collections.sort(resultados);
-
+        cantResultados = resultados.size();
        
         if (cantResultados > 0) {
             lblNoHay.setVisible(false);
