@@ -1,4 +1,4 @@
-package DescansoApp;
+package descansoApp;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import descansoApp.Informacion;
 import descansoApp.dominio.Ciudad;
 import descansoApp.dominio.Sistema;
+import descansoApp.dominio.XMLReader;
 import descansoApp.interfaz.Principal;
 import descansoApp.interfaz.pnlInicio;
 
@@ -43,7 +44,7 @@ public class Main {
             //Si no puedo abrir el archivo, creo un modelo nuevo
             unModelo = new Sistema();
 
-            ArrayList<Ciudad> cdads = Informacion.ciudades();
+            ArrayList<Ciudad> cdads = XMLReader.cargarCiudades();//Informacion.ciudades();
             for (int i=0; i < cdads.size(); i++)
                 unModelo.agregarCiudad(cdads.get(i));
         }

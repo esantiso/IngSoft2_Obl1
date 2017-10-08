@@ -31,6 +31,7 @@ public class pnlInicio extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(840, 500));
         setLayout(null);
 
+        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViaje.png"))); // NOI18N
         lblNuevoViaje.setText("Nuevo Viaje");
         lblNuevoViaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblNuevoViaje.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -45,7 +46,7 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblNuevoViaje);
-        lblNuevoViaje.setBounds(60, 100, 60, 40);
+        lblNuevoViaje.setBounds(230, 250, 130, 40);
 
         lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajes.png"))); // NOI18N
         lblMisViajes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -61,7 +62,7 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblMisViajes);
-        lblMisViajes.setBounds(110, 280, 132, 40);
+        lblMisViajes.setBounds(520, 250, 132, 40);
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Lupa.png"))); // NOI18N
         lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -71,7 +72,7 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblBuscar);
-        lblBuscar.setBounds(720, 290, 20, 20);
+        lblBuscar.setBounds(600, 180, 20, 20);
 
         txtBuscador.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtBuscador.setBorder(null);
@@ -81,11 +82,11 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(txtBuscador);
-        txtBuscador.setBounds(370, 290, 340, 22);
+        txtBuscador.setBounds(250, 180, 340, 22);
 
         lblBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Buscador.png"))); // NOI18N
         add(lblBuscador);
-        lblBuscador.setBounds(340, 190, 440, 160);
+        lblBuscador.setBounds(220, 80, 440, 160);
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/FondoInicio.png"))); // NOI18N
         lblImagen.setPreferredSize(new java.awt.Dimension(800, 450));
