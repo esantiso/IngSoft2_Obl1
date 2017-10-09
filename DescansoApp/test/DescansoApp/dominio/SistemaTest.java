@@ -126,7 +126,6 @@ public class SistemaTest {
     
     @Test
     public void testAgregarCiudad() {
-        //Unica prueba de agregar ciudad, ya que las ciudades las agregamos nosotros por codigo, en usuario no interactua
         System.out.println("agregarCiudad(agrega ciudad que no existe)");
         Ciudad ciudad = new Ciudad();
         ciudad.setNombre("Fray Bentos");

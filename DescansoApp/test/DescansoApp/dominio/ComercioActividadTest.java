@@ -2,9 +2,9 @@ package descansoApp.dominio;
 
 import descansoApp.dominio.ComercioActividad;
 import descansoApp.herramientas.TipoCA;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import org.junit.Test;
+
+import javax.swing.ImageIcon;
 import static descansoApp.herramientas.TipoCA.*;
 import static org.junit.Assert.*;
 

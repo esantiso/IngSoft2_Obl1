@@ -37,7 +37,6 @@ class pnlInformacionCiudad extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -329,7 +328,7 @@ class pnlInformacionCiudad extends javax.swing.JPanel {
 
     private void lblQueEstaCercaMouseClicked() {//GEN-FIRST:event_lblQueEstaCercaMouseClicked
         padre.remove(this);
-        padre.add(new pnlInicio(modelo, padre));
+        padre.add(new pnlMapas(modelo,ciudad ,padre));
         padre.pack();
     }//GEN-LAST:event_lblQueEstaCercaMouseClicked
 

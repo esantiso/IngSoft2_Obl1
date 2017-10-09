@@ -21,10 +21,11 @@
     <Component class="javax.swing.JLabel" name="lblVolver">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/sobrinoPatrone/imagenes/btnVolver.png"/>
+          <Image iconType="3" name="/descansoApp/imagenes/btnVolver.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Volver"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
       <Events>
@@ -37,11 +38,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMapa">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/sobrinoPatrone/imagenes/mapaaa.jpg"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="18" y="88" width="810" height="400"/>
@@ -54,7 +50,7 @@
           <Font name="Arial" size="26" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="33" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Mapa de Fray Bentos"/>
       </Properties>
@@ -67,7 +63,7 @@
     <Component class="javax.swing.JLabel" name="lblFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/sobrinoPatrone/imagenes/Fondo.png"/>
+          <Image iconType="3" name="/descansoApp/imagenes/Fondo2.1.jpg.png"/>
         </Property>
       </Properties>
       <Constraints>

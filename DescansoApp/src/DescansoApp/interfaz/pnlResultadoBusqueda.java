@@ -16,7 +16,6 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
 
     public pnlResultadoBusqueda(Sistema unModelo, JFrame unPadre, String palabra) {
         initComponents();
-        //lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo.png")));
         pnlResultados.setOpaque(false);
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
@@ -29,7 +28,6 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblHome = new javax.swing.JLabel();
@@ -45,19 +43,20 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
 
         lblHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnHome.png"))); // NOI18N
         lblHome.setToolTipText("Inicio");
-        lblHome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblHomeMouseClicked(evt);
+                lblHomeMouseClicked();
             }
         });
         add(lblHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 38, 30, 30));
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Lupa.png"))); // NOI18N
-        lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblBuscar.setToolTipText("Buscar");
+        lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBuscarMouseClicked(evt);
+                lblBuscarMouseClicked();
             }
         });
         add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(787, 38, 20, 20));
@@ -66,7 +65,7 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
         txtBuscador.setBorder(null);
         txtBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscadorActionPerformed(evt);
+                txtBuscadorActionPerformed();
             }
         });
         txtBuscador.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -102,15 +101,14 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
         add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 770, 370));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo2.1.jpg.png"))); // NOI18N
-        lblFondo.setPreferredSize(new java.awt.Dimension(840, 500));
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadorActionPerformed
+    private void txtBuscadorActionPerformed() {//GEN-FIRST:event_txtBuscadorActionPerformed
 
     }//GEN-LAST:event_txtBuscadorActionPerformed
 
-    private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
+    private void lblBuscarMouseClicked() {//GEN-FIRST:event_lblBuscarMouseClicked
         if (txtBuscador.getText().length() <= 3) {
             JOptionPane.showMessageDialog(this, "Debe ingresar una palabra clave (más de tres letras) en el cuadro de busqueda", "Busqueda Vacía", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -130,7 +128,7 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBuscadorKeyReleased
 
-    private void lblHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseClicked
+    private void lblHomeMouseClicked() {//GEN-FIRST:event_lblHomeMouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();

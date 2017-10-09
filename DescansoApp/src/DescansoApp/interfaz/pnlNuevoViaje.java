@@ -24,9 +24,7 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         if (modViaje == null) {      
             lblVolver.setVisible(false);
             lblEliminar.setVisible(false);
-            //lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardarONN.png")));
         } else {
-            //lblCancelar.setVisible(false);
             lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/ModificarViaje.png")));
             txtNombre.setText(modViaje.getNombre());
             dChooserFechaI.setCalendar(modViaje.getFechaI());
@@ -35,7 +33,6 @@ class pnlNuevoViaje extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         txtNombre = new javax.swing.JTextField();
@@ -53,7 +50,7 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtNombreActionPerformed();
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 200, 20));
@@ -62,13 +59,13 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         lblCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCancelarMouseClicked(evt);
+                lblCancelarMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblCancelarMouseEntered(evt);
+                lblCancelarMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblCancelarMouseExited(evt);
+                lblCancelarMouseExited();
             }
         });
         add(lblCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 120, 30));
@@ -77,13 +74,13 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         lblEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEliminarMouseClicked(evt);
+                lblEliminarMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEliminarMouseEntered(evt);
+                lblEliminarMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblEliminarMouseExited(evt);
+                lblEliminarMouseExited();
             }
         });
         add(lblEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 120, 30));
@@ -94,13 +91,13 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         lblBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBotonMouseClicked(evt);
+                lblBotonMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblBotonMouseEntered(evt);
+                lblBotonMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblBotonMouseExited(evt);
+                lblBotonMouseExited();
             }
         });
         add(lblBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 130, 30));
@@ -110,7 +107,7 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
+                lblVolverMouseClicked();
             }
         });
         add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 35, -1, -1));
@@ -119,19 +116,19 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreActionPerformed() {//GEN-FIRST:event_txtNombreActionPerformed
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void lblEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseEntered
+    private void lblEliminarMouseEntered() {//GEN-FIRST:event_lblEliminarMouseEntered
         lblEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarClicked2.png")));
     }//GEN-LAST:event_lblEliminarMouseEntered
 
-    private void lblEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseExited
+    private void lblEliminarMouseExited() {//GEN-FIRST:event_lblEliminarMouseExited
         lblEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarUnclicked2.png")));
     }//GEN-LAST:event_lblEliminarMouseExited
 
-    private void lblEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseClicked
+    private void lblEliminarMouseClicked() {//GEN-FIRST:event_lblEliminarMouseClicked
         int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el viaje?", "Eliminar Viaje", JOptionPane.OK_CANCEL_OPTION);
         if (respuesta == JOptionPane.OK_OPTION) {
             modelo.eliminarViaje(modViaje);
@@ -140,7 +137,7 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lblEliminarMouseClicked
 
-    private void lblBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseClicked
+    private void lblBotonMouseClicked() {//GEN-FIRST:event_lblBotonMouseClicked
         if (txtNombre.getText().length() > 0 && dChooserFechaI != null && dChooserFechaF != null) {
             Viaje viaje;
             int respuesta;
@@ -181,21 +178,21 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lblBotonMouseClicked
 
-    private void lblBotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseEntered
+    private void lblBotonMouseEntered() {//GEN-FIRST:event_lblBotonMouseEntered
         lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardarONN.png")));
     }//GEN-LAST:event_lblBotonMouseEntered
 
-    private void lblBotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseExited
+    private void lblBotonMouseExited() {//GEN-FIRST:event_lblBotonMouseExited
         lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardar.png")));
     }//GEN-LAST:event_lblBotonMouseExited
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlMisViajes(modelo, miVentana));
         miVentana.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 
-    private void lblCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseClicked
+    private void lblCancelarMouseClicked() {//GEN-FIRST:event_lblCancelarMouseClicked
         if (modViaje == null) {
                 miVentana.dispose();
             } else {
@@ -205,11 +202,11 @@ class pnlNuevoViaje extends javax.swing.JPanel {
             }
     }//GEN-LAST:event_lblCancelarMouseClicked
 
-    private void lblCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseEntered
+    private void lblCancelarMouseEntered() {//GEN-FIRST:event_lblCancelarMouseEntered
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarClicked.png")));
     }//GEN-LAST:event_lblCancelarMouseEntered
 
-    private void lblCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseExited
+    private void lblCancelarMouseExited() {//GEN-FIRST:event_lblCancelarMouseExited
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarUnclicked.png")));
     }//GEN-LAST:event_lblCancelarMouseExited
 

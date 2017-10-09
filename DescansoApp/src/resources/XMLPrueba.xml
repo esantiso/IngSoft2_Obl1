@@ -4,6 +4,7 @@
       <Nombre>Montevideo</Nombre>
       <Descripcion>Linda ciudad</Descripcion>
       <InfoGral>ESTA ES UNA DESCRIPCION GENERAL</InfoGral>
+	  <Mapa>/resources/montevideo.jpg</Mapa>
       <Imagenes>
           <Imagen>
                <Ruta>/resources/montevideo.jpg</Ruta>

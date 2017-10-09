@@ -9,10 +9,19 @@ public class Ciudad implements Serializable {
     private String nombre;
     private String descripcion;
     private String infoGral;
+    private ImageIcon mapa;
     private final ArrayList<ImageIcon> imagenes;
     private final ArrayList<ComercioActividad> actividades;
     private final ArrayList<ComercioActividad> estGastronomicos;
     private final ArrayList<ComercioActividad> alojamientos;
+    
+    public ImageIcon getMapa() {
+        return mapa;
+    }
+
+    public void setMapa(String mapa) {
+        this.mapa = new ImageIcon(getClass().getResource(mapa));
+    }
     
     public String getNombre() {
         return nombre;
@@ -106,7 +115,7 @@ public class Ciudad implements Serializable {
     }
     
     public void agregarImagen(String ruta){
-        imagenes.add(new javax.swing.ImageIcon(getClass().getResource(ruta)));
+        imagenes.add(new ImageIcon(getClass().getResource(ruta)));
     }
 
     public ArrayList<ImageIcon> getImagenes() {

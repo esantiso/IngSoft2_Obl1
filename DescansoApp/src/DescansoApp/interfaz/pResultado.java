@@ -28,7 +28,6 @@ class pResultado extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
@@ -51,8 +50,8 @@ class pResultado extends javax.swing.JPanel {
         lblDes.setOpaque(false);
         scroll.setViewportView(lblDes);
 
-        lblNombre.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 204, 204));
         lblNombre.setText("Nombre Ciudad");
         lblNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -61,7 +60,7 @@ class pResultado extends javax.swing.JPanel {
         lblBuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBuscar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBuscar1MouseClicked(evt);
+                lblBuscar1MouseClicked();
             }
         });
 
@@ -89,7 +88,7 @@ class pResultado extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblBuscar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscar1MouseClicked
+    private void lblBuscar1MouseClicked() {//GEN-FIRST:event_lblBuscar1MouseClicked
             ventana.remove(padre);
         ventana.add(new pnlInformacionCiudad(modelo, ciudad, ventana));
         ventana.pack();

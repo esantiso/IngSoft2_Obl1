@@ -45,7 +45,6 @@ class pnlEvento extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -85,7 +84,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtNombreActionPerformed();
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 130, 18));
@@ -95,7 +94,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtHoraIMinutos.setBorder(null);
         txtHoraIMinutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHoraIMinutosActionPerformed(evt);
+                txtHoraIMinutosActionPerformed();
             }
         });
         txtHoraIMinutos.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -108,7 +107,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtUbicacion.setBorder(null);
         txtUbicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUbicacionActionPerformed(evt);
+                txtUbicacionActionPerformed();
             }
         });
         add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 130, 18));
@@ -122,7 +121,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtHoraFHoras.setBorder(null);
         txtHoraFHoras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHoraFHorasActionPerformed(evt);
+                txtHoraFHorasActionPerformed();
             }
         });
         txtHoraFHoras.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -135,7 +134,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtHoraIHoras.setBorder(null);
         txtHoraIHoras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHoraIHorasActionPerformed(evt);
+                txtHoraIHorasActionPerformed();
             }
         });
         txtHoraIHoras.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -148,7 +147,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtHoraFMinutos.setBorder(null);
         txtHoraFMinutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHoraFMinutosActionPerformed(evt);
+                txtHoraFMinutosActionPerformed();
             }
         });
         txtHoraFMinutos.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -162,13 +161,13 @@ class pnlEvento extends javax.swing.JPanel {
         lblGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblGuardarMouseClicked(evt);
+                lblGuardarMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblGuardarMouseEntered(evt);
+                lblGuardarMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblGuardarMouseExited(evt);
+                lblGuardarMouseExited();
             }
         });
         add(lblGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 250, -1, 30));
@@ -177,13 +176,13 @@ class pnlEvento extends javax.swing.JPanel {
         lblCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCancelarMouseClicked(evt);
+                lblCancelarMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblCancelarMouseEntered(evt);
+                lblCancelarMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblCancelarMouseExited(evt);
+                lblCancelarMouseExited();
             }
         });
         add(lblCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 30));
@@ -192,13 +191,13 @@ class pnlEvento extends javax.swing.JPanel {
         lblEliminar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblEliminar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEliminar1MouseClicked(evt);
+                lblEliminar1MouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEliminar1MouseEntered(evt);
+                lblEliminar1MouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblEliminar1MouseExited(evt);
+                lblEliminar1MouseExited();
             }
         });
         add(lblEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, 30));
@@ -208,7 +207,7 @@ class pnlEvento extends javax.swing.JPanel {
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
+                lblVolverMouseClicked();
             }
         });
         add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 28, -1, -1));
@@ -217,39 +216,39 @@ class pnlEvento extends javax.swing.JPanel {
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreActionPerformed() {//GEN-FIRST:event_txtNombreActionPerformed
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtHoraIMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraIMinutosActionPerformed
+    private void txtHoraIMinutosActionPerformed() {//GEN-FIRST:event_txtHoraIMinutosActionPerformed
 
     }//GEN-LAST:event_txtHoraIMinutosActionPerformed
 
-    private void txtUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicacionActionPerformed
+    private void txtUbicacionActionPerformed() {//GEN-FIRST:event_txtUbicacionActionPerformed
 
     }//GEN-LAST:event_txtUbicacionActionPerformed
 
-    private void txtHoraFHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraFHorasActionPerformed
+    private void txtHoraFHorasActionPerformed() {//GEN-FIRST:event_txtHoraFHorasActionPerformed
 
     }//GEN-LAST:event_txtHoraFHorasActionPerformed
 
-    private void txtHoraIHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraIHorasActionPerformed
+    private void txtHoraIHorasActionPerformed() {//GEN-FIRST:event_txtHoraIHorasActionPerformed
 
     }//GEN-LAST:event_txtHoraIHorasActionPerformed
 
-    private void txtHoraFMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraFMinutosActionPerformed
+    private void txtHoraFMinutosActionPerformed() {//GEN-FIRST:event_txtHoraFMinutosActionPerformed
 
     }//GEN-LAST:event_txtHoraFMinutosActionPerformed
 
-    private void lblGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseEntered
+    private void lblGuardarMouseEntered() {//GEN-FIRST:event_lblGuardarMouseEntered
         lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardarONN.png")));
     }//GEN-LAST:event_lblGuardarMouseEntered
 
-    private void lblGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseExited
+    private void lblGuardarMouseExited() {//GEN-FIRST:event_lblGuardarMouseExited
         lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardar.png")));
     }//GEN-LAST:event_lblGuardarMouseExited
 
-    private void lblGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseClicked
+    private void lblGuardarMouseClicked() {//GEN-FIRST:event_lblGuardarMouseClicked
         if (txtNombre.getText().length() == 0){
            JOptionPane.showMessageDialog(null,"Debe ingresar un nombre", "Error", JOptionPane.ERROR_MESSAGE);
         }else if (dChooserFechaI.getDate() == null) {
@@ -284,7 +283,7 @@ class pnlEvento extends javax.swing.JPanel {
                 int hFHoras = Integer.parseInt(txtHoraFHoras.getText());
                 int hFMinutos = Integer.parseInt(txtHoraFMinutos.getText());
 
-                if ((hIHoras >= 0 && hIHoras <= 23) && (hIMinutos >= 0 && hIMinutos <= 59) && (hFHoras >= 0 && hFHoras <= 23) && (hFMinutos >= 0 && hFMinutos <= 59)) {
+                if (hIHoras >= 0 && hIHoras <= 23 && hIMinutos >= 0 && hIMinutos <= 59 && hFHoras >= 0 && hFHoras <= 23 && hFMinutos >= 0 && hFMinutos <= 59) {
 
                     Calendar cFechaI = dChooserFechaI.getCalendar();
                     Calendar cFechaF = dChooserFechaF.getCalendar();
@@ -340,7 +339,7 @@ class pnlEvento extends javax.swing.JPanel {
         return correcto;
     }
     
-    private void lblEliminar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseClicked
+    private void lblEliminar1MouseClicked() {//GEN-FIRST:event_lblEliminar1MouseClicked
         int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el evento?", "Eliminar Evento", JOptionPane.OK_CANCEL_OPTION);
         if (respuesta == JOptionPane.OK_OPTION) {
             viaje.eliminarEvento(modEvento);
@@ -351,15 +350,15 @@ class pnlEvento extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lblEliminar1MouseClicked
 
-    private void lblEliminar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseEntered
+    private void lblEliminar1MouseEntered() {//GEN-FIRST:event_lblEliminar1MouseEntered
         lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarClicked2.png")));
     }//GEN-LAST:event_lblEliminar1MouseEntered
 
-    private void lblEliminar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseExited
+    private void lblEliminar1MouseExited() {//GEN-FIRST:event_lblEliminar1MouseExited
         lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarUnclicked2.png")));
     }//GEN-LAST:event_lblEliminar1MouseExited
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
         miVentana.pack();
@@ -401,7 +400,7 @@ class pnlEvento extends javax.swing.JPanel {
     }               // TODO add your handling code here:
     }//GEN-LAST:event_txtHoraFMinutosKeyTyped
 
-    private void lblCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseClicked
+    private void lblCancelarMouseClicked() {//GEN-FIRST:event_lblCancelarMouseClicked
          if (modEvento == null) {
                 miVentana.dispose();
             } else {
@@ -411,11 +410,11 @@ class pnlEvento extends javax.swing.JPanel {
             }
     }//GEN-LAST:event_lblCancelarMouseClicked
 
-    private void lblCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseEntered
+    private void lblCancelarMouseEntered() {//GEN-FIRST:event_lblCancelarMouseEntered
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarClicked.png")));        // TODO add your handling code here:
     }//GEN-LAST:event_lblCancelarMouseEntered
 
-    private void lblCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseExited
+    private void lblCancelarMouseExited() {//GEN-FIRST:event_lblCancelarMouseExited
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarUnclicked.png")));    // TODO add your handling code here:
     }//GEN-LAST:event_lblCancelarMouseExited
 

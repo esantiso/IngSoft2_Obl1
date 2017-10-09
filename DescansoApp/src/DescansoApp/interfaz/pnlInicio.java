@@ -18,7 +18,6 @@ public class pnlInicio extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblNuevoViaje = new javax.swing.JLabel();
@@ -36,13 +35,13 @@ public class pnlInicio extends javax.swing.JPanel {
         lblNuevoViaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblNuevoViaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblNuevoViajeMouseClicked(evt);
+                lblNuevoViajeMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblNuevoViajeMouseEntered(evt);
+                lblNuevoViajeMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblNuevoViajeMouseExited(evt);
+                lblNuevoViajeMouseExited();
             }
         });
         add(lblNuevoViaje);
@@ -52,13 +51,13 @@ public class pnlInicio extends javax.swing.JPanel {
         lblMisViajes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblMisViajes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblMisViajesMouseClicked(evt);
+                lblMisViajesMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblMisViajesMouseEntered(evt);
+                lblMisViajesMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblMisViajesMouseExited(evt);
+                lblMisViajesMouseExited();
             }
         });
         add(lblMisViajes);
@@ -69,7 +68,7 @@ public class pnlInicio extends javax.swing.JPanel {
         lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBuscarMouseClicked(evt);
+                lblBuscarMouseClicked();
             }
         });
         add(lblBuscar);
@@ -96,23 +95,23 @@ public class pnlInicio extends javax.swing.JPanel {
         lblImagen.setBounds(0, 0, 840, 500);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblNuevoViajeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoViajeMouseEntered
+    private void lblNuevoViajeMouseEntered() {//GEN-FIRST:event_lblNuevoViajeMouseEntered
         lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViajeON.png")));
     }//GEN-LAST:event_lblNuevoViajeMouseEntered
 
-    private void lblNuevoViajeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoViajeMouseExited
+    private void lblNuevoViajeMouseExited() {//GEN-FIRST:event_lblNuevoViajeMouseExited
         lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViaje.png")));
     }//GEN-LAST:event_lblNuevoViajeMouseExited
 
-    private void lblMisViajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisViajesMouseEntered
+    private void lblMisViajesMouseEntered() {//GEN-FIRST:event_lblMisViajesMouseEntered
         lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajesON.png")));
     }//GEN-LAST:event_lblMisViajesMouseEntered
 
-    private void lblMisViajesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisViajesMouseExited
+    private void lblMisViajesMouseExited() {//GEN-FIRST:event_lblMisViajesMouseExited
         lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajes.png")));
     }//GEN-LAST:event_lblMisViajesMouseExited
 
-    private void lblNuevoViajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoViajeMouseClicked
+    private void lblNuevoViajeMouseClicked() {//GEN-FIRST:event_lblNuevoViajeMouseClicked
         PopUp p= new PopUp();
         p.add(new pnlNuevoViaje(modelo, p, null));
         p.pack();
@@ -120,7 +119,7 @@ public class pnlInicio extends javax.swing.JPanel {
         p.setVisible(true);
     }//GEN-LAST:event_lblNuevoViajeMouseClicked
 
-    private void lblMisViajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisViajesMouseClicked
+    private void lblMisViajesMouseClicked() {//GEN-FIRST:event_lblMisViajesMouseClicked
         PopUp p= new PopUp();
         p.add(new pnlMisViajes(modelo, p));
         p.pack();
@@ -128,7 +127,7 @@ public class pnlInicio extends javax.swing.JPanel {
         p.setVisible(true);
     }//GEN-LAST:event_lblMisViajesMouseClicked
 
-    private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
+    private void lblBuscarMouseClicked() {//GEN-FIRST:event_lblBuscarMouseClicked
         buscar();
     }//GEN-LAST:event_lblBuscarMouseClicked
 

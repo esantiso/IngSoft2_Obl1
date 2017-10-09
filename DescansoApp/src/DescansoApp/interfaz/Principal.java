@@ -14,7 +14,6 @@ public class Principal extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -29,14 +28,11 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void formWindowClosing() {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing() {
         try {
             Main.guardarModelo(modelo);
         } catch (IOException e) { }
-    }//GEN-LAST:event_formWindowClosing
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
+    }
 }

@@ -34,7 +34,6 @@ class pResultadoDondeQue extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblNombre = new javax.swing.JLabel();
@@ -45,7 +44,7 @@ class pResultadoDondeQue extends javax.swing.JPanel {
         setOpaque(false);
 
         lblNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setForeground(new java.awt.Color(0, 204, 204));
         lblNombre.setText("Nombre de DondeQue");
         lblNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -63,10 +62,11 @@ class pResultadoDondeQue extends javax.swing.JPanel {
         scroll.setViewportView(txtDes);
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Lupa.png"))); // NOI18N
+        lblBuscar.setToolTipText("Ver");
         lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBuscarMouseClicked(evt);
+                lblBuscarMouseClicked();
             }
         });
 
@@ -92,7 +92,7 @@ class pResultadoDondeQue extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
+    private void lblBuscarMouseClicked() {//GEN-FIRST:event_lblBuscarMouseClicked
         ventana.remove(padre);
         ventana.add(new pnlInformacionComercioActividad(modelo, cA, ventana,ciudad));
         ventana.pack();

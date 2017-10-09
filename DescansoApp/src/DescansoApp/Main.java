@@ -51,8 +51,6 @@ public class Main {
 
         return unModelo;
     }
-
-    //Metodo encargado de guardar los datos de esta sesión para poder recuperarlos luego
     public static void guardarModelo(Sistema unModelo) throws IOException {
         FileOutputStream archivo = new FileOutputStream("Sistema");
         ObjectOutputStream grab = new ObjectOutputStream(archivo);

@@ -2,7 +2,6 @@ package descansoApp.interfaz;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import descansoApp.dominio.ComercioActividad;
@@ -57,7 +56,6 @@ class pnlDondeQue extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -76,7 +74,7 @@ class pnlDondeQue extends javax.swing.JPanel {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jLabel1MouseClicked();
             }
         });
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 38, 30, 30));
@@ -96,7 +94,7 @@ class pnlDondeQue extends javax.swing.JPanel {
         lstFiltros.setSelectionBackground(new java.awt.Color(51, 255, 0));
         lstFiltros.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstFiltrosValueChanged(evt);
+                lstFiltrosValueChanged();
             }
         });
         scroll2.setViewportView(lstFiltros);
@@ -130,7 +128,7 @@ class pnlDondeQue extends javax.swing.JPanel {
         lblVolver1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolver1MouseClicked(evt);
+                lblVolver1MouseClicked();
             }
         });
         add(lblVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 38, 30, 30));
@@ -140,7 +138,7 @@ class pnlDondeQue extends javax.swing.JPanel {
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lstFiltrosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstFiltrosValueChanged
+    private void lstFiltrosValueChanged() {//GEN-FIRST:event_lstFiltrosValueChanged
         pnlResultados.removeAll();
         pnlResultados.repaint();
 
@@ -156,13 +154,13 @@ class pnlDondeQue extends javax.swing.JPanel {
         pnlResultados.repaint();
     }//GEN-LAST:event_lstFiltrosValueChanged
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jLabel1MouseClicked() {//GEN-FIRST:event_jLabel1MouseClicked
         padre.remove(this);
         padre.add(new pnlInformacionCiudad(modelo, ciudad, padre));
         padre.pack();
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void lblVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolver1MouseClicked
+    private void lblVolver1MouseClicked() {//GEN-FIRST:event_lblVolver1MouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();

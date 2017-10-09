@@ -46,7 +46,6 @@ class pnlInformacionEvento extends javax.swing.JPanel {
 
    
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         scroll4 = new javax.swing.JScrollPane();
@@ -175,7 +174,7 @@ class pnlInformacionEvento extends javax.swing.JPanel {
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
+                lblVolverMouseClicked();
             }
         });
         add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 28, -1, -1));
@@ -184,7 +183,7 @@ class pnlInformacionEvento extends javax.swing.JPanel {
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
         miVentana.pack();

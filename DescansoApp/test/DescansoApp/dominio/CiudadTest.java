@@ -1,7 +1,12 @@
 package descansoApp.dominio;
 
 import descansoApp.herramientas.TipoCA;
+import org.junit.Test;
+
 import java.util.ArrayList;
+
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class CiudadTest {
     

@@ -34,7 +34,6 @@ class pnlItinerario extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblVolver = new javax.swing.JLabel();
@@ -141,7 +140,7 @@ class pnlItinerario extends javax.swing.JPanel {
         
         if (f1.get(Calendar.DAY_OF_MONTH) == f2.get(Calendar.DAY_OF_MONTH))
             if (f1.get(Calendar.MONTH) == f2.get(Calendar.MONTH))
-                if (f1.get((Calendar.YEAR)) == f1.get((Calendar.YEAR)))
+                if (f1.get(Calendar.YEAR) == f1.get(Calendar.YEAR))
                     return true;
         
         return false;

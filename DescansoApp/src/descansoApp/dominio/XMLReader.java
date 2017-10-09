@@ -26,11 +26,9 @@ import org.xml.sax.SAXException;
  * @author usuario
  */
 public class XMLReader {
-    
     public static ArrayList<Ciudad> cargarCiudades() {
         ArrayList<Ciudad> ciudadList = new ArrayList<>();
         String filePath = "./src/resources/XMLPrueba.xml";
-        
         File xmlFile = new File(filePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
@@ -56,7 +54,7 @@ public class XMLReader {
             ciudad.setNombre(getTagValue("Nombre", element));
             ciudad.setDescripcion(getTagValue("Descripcion", element));
             ciudad.setInfoGral(getTagValue("InfoGral", element));
-
+            ciudad.setMapa(getTagValue("Mapa", element));
             Node imagenes = element.getElementsByTagName("Imagenes").item(0);
                 Element imagenesElement = (Element) imagenes;//.item(l);
                 NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");

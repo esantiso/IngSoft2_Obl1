@@ -28,7 +28,6 @@ class pResultadoIt3 extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblHora = new javax.swing.JLabel();
@@ -54,7 +53,7 @@ class pResultadoIt3 extends javax.swing.JPanel {
         lblEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEditarMouseClicked(evt);
+                lblEditarMouseClicked();
             }
         });
 
@@ -63,7 +62,7 @@ class pResultadoIt3 extends javax.swing.JPanel {
         lblEditar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblEditar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEditar1MouseClicked(evt);
+                lblEditar1MouseClicked();
             }
         });
 
@@ -96,13 +95,13 @@ class pResultadoIt3 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEditarMouseClicked
+    private void lblEditarMouseClicked() {//GEN-FIRST:event_lblEditarMouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlEvento(modelo, viaje, evento.getCiudad(),null, evento, miVentana));
         miVentana.pack();
     }//GEN-LAST:event_lblEditarMouseClicked
 
-    private void lblEditar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEditar1MouseClicked
+    private void lblEditar1MouseClicked() {//GEN-FIRST:event_lblEditar1MouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlInformacionEvento(modelo, viaje, evento, miVentana));
         miVentana.pack(); 
