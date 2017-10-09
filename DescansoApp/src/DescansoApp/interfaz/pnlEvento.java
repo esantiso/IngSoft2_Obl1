@@ -61,6 +61,7 @@ class pnlEvento extends javax.swing.JPanel {
         txtHoraIHoras = new javax.swing.JFormattedTextField();
         txtHoraFMinutos = new javax.swing.JFormattedTextField();
         lblGuardar = new javax.swing.JLabel();
+        lblCancelar = new javax.swing.JLabel();
         lblEliminar1 = new javax.swing.JLabel();
         lblVolver = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
@@ -172,7 +173,22 @@ class pnlEvento extends javax.swing.JPanel {
         });
         add(lblGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 250, -1, 30));
 
-        lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Eliminar.png"))); // NOI18N
+        lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarUnclicked.png"))); // NOI18N
+        lblCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCancelarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCancelarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCancelarMouseExited(evt);
+            }
+        });
+        add(lblCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 30));
+
+        lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarUnclicked2.png"))); // NOI18N
         lblEliminar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblEliminar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,10 +201,11 @@ class pnlEvento extends javax.swing.JPanel {
                 lblEliminar1MouseExited(evt);
             }
         });
-        add(lblEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, 30));
+        add(lblEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, 30));
 
         lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnVolver.png"))); // NOI18N
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblVolver.setToolTipText("Volver");
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVolverMouseClicked(evt);
@@ -233,8 +250,17 @@ class pnlEvento extends javax.swing.JPanel {
     }//GEN-LAST:event_lblGuardarMouseExited
 
     private void lblGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseClicked
-        if (txtNombre.getText().length() > 0 && txtHoraIHoras.getText().length() > 0 && txtHoraIMinutos.getText().length() > 0 && txtHoraFHoras.getText().length() > 0
-                && txtHoraFMinutos.getText().length() > 0 && dChooserFechaI != null && dChooserFechaF != null) {
+        if (txtNombre.getText().length() == 0){
+           JOptionPane.showMessageDialog(null,"Debe ingresar un nombre", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if (dChooserFechaI.getDate() == null) {
+           JOptionPane.showMessageDialog(null,"Debe seleccionar una fecha de inicio", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if (txtHoraIHoras.getText().length() == 0 || txtHoraIMinutos.getText().length() == 0){
+           JOptionPane.showMessageDialog(null,"Debe ingresar hora y minutos de inicio", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(dChooserFechaF.getDate() == null) {
+           JOptionPane.showMessageDialog(null,"Debe seleccionar una fecha de fin", "Error", JOptionPane.ERROR_MESSAGE);            
+        }else if (txtHoraFHoras.getText().length() == 0 || txtHoraFMinutos.getText().length() == 0) {
+           JOptionPane.showMessageDialog(null,"Debe ingresar hora y minutos de fin", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
 
             Evento evento;
             if (modEvento == null) {
@@ -271,16 +297,25 @@ class pnlEvento extends javax.swing.JPanel {
                     try {
                         evento.setFechaHoraI(cFechaI);
                         evento.setFechaHoraF(cFechaI, cFechaF);
-
-                        if (modEvento == null) {
-                            viaje.agregarEvento(evento);
-                            miVentana.dispose();
-                        } else {
-                            miVentana.remove(this);
-                            miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
-                            miVentana.pack();
+                        
+                       int respuesta;
+                       if (modEvento == null) {
+                           respuesta = JOptionPane.showConfirmDialog(null, "¿Desea agregar el evento al viaje?", "Agregar Evento", JOptionPane.OK_CANCEL_OPTION);
+                       }else{
+                           respuesta = JOptionPane.showConfirmDialog(null, "¿Desea modificar el evento del viaje?", "Modificar Evento", JOptionPane.OK_CANCEL_OPTION);   
+                       }
+                       if (respuesta == JOptionPane.OK_OPTION) {
+                            if (modEvento == null) {
+                                viaje.agregarEvento(evento);
+                                JOptionPane.showMessageDialog(null, "El evento se agregó correctamente","Agregar Evento", WIDTH);
+                                miVentana.dispose();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "El evento se modificó correctamente","Modiicar Evento", WIDTH);
+                                miVentana.remove(this);
+                                miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
+                                miVentana.pack();
+                            }
                         }
-
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -288,8 +323,7 @@ class pnlEvento extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Formato incorrecto de la hora ingresada", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(miVentana, viaje, TOOL_TIP_TEXT_KEY, WIDTH);
+        
         }
     }//GEN-LAST:event_lblGuardarMouseClicked
 
@@ -318,11 +352,11 @@ class pnlEvento extends javax.swing.JPanel {
     }//GEN-LAST:event_lblEliminar1MouseClicked
 
     private void lblEliminar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseEntered
-        
+        lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarClicked2.png")));
     }//GEN-LAST:event_lblEliminar1MouseEntered
 
     private void lblEliminar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseExited
-
+        lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarUnclicked2.png")));
     }//GEN-LAST:event_lblEliminar1MouseExited
 
     private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
@@ -367,6 +401,24 @@ class pnlEvento extends javax.swing.JPanel {
     }               // TODO add your handling code here:
     }//GEN-LAST:event_txtHoraFMinutosKeyTyped
 
+    private void lblCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseClicked
+         if (modEvento == null) {
+                miVentana.dispose();
+            } else {
+               miVentana.remove(this);
+               miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
+               miVentana.pack();
+            }
+    }//GEN-LAST:event_lblCancelarMouseClicked
+
+    private void lblCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseEntered
+        lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarClicked.png")));        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCancelarMouseEntered
+
+    private void lblCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarMouseExited
+        lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarUnclicked.png")));    // TODO add your handling code here:
+    }//GEN-LAST:event_lblCancelarMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser dChooserFechaF;
@@ -374,6 +426,7 @@ class pnlEvento extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCancelar;
     private javax.swing.JLabel lblEliminar1;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblGuardar;
