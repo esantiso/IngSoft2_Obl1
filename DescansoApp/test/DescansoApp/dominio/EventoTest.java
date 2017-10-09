@@ -27,11 +27,11 @@ public class EventoTest {
     }
 
     @Test
-    public void testSetFechaHoraI() throws Exception { ;
-        final Calendar fechaHoraI= new GregorianCalendar(2015, 9, 20, 21, 30);
+    public void testSetFechaHoraI() throws Exception {
+        final Calendar fechaHoraI= new GregorianCalendar(2020, 9, 20, 21, 30);
         final Evento instance = new Evento();
         instance.setFechaHoraI(fechaHoraI);
-        final Calendar expResult = new GregorianCalendar(2015, 9, 20,21,30);
+        final Calendar expResult = new GregorianCalendar(2020, 9, 20,21,30);
         final Calendar result = instance.getFechaHoraI();
         assertEquals("testSetFechaHoraI",expResult, result);
     }
@@ -81,8 +81,8 @@ public class EventoTest {
 
     @Test
     public void testSetFechaHoraF2(){
-        final Calendar fechaHoraI= new GregorianCalendar(2013 ,9, 20 ,10 ,10);
-        final Calendar fechaHoraF= new GregorianCalendar(2013, 9, 15, 20, 20);
+        final Calendar fechaHoraI= new GregorianCalendar(2020 ,9, 20 ,10 ,10);
+        final Calendar fechaHoraF= new GregorianCalendar(2020, 9, 15, 20, 20);
         final Evento instance = new Evento();
         Exception error= null;
         try {
@@ -97,8 +97,8 @@ public class EventoTest {
     
     @Test 
     public void testSetFechaHoraF3(){
-        final Calendar fechaHoraI= new GregorianCalendar(2013, 10, 10, 10, 20);
-        final Calendar fechaHoraF= new GregorianCalendar(2013, 10, 10, 5, 10);
+        final Calendar fechaHoraI= new GregorianCalendar(2020, 10, 10, 10, 20);
+        final Calendar fechaHoraF= new GregorianCalendar(2020, 10, 10, 5, 10);
         final Evento instance = new Evento();
         Exception error= null;
         try {
@@ -119,7 +119,8 @@ public class EventoTest {
         final String result = instance.getDescripcion();
         assertEquals("testGetDescripcion",expResult, result);
     }
-    
+
+    @Test
     public void testSetDescripcion() {
         final String descripcion = "Aqui va la descripcion";
         final Evento instance = new Evento();
@@ -172,7 +173,7 @@ public class EventoTest {
     public void testToString() throws Exception {
         final Evento evento = new Evento();
         evento.setNombre("Evento");
-        final Calendar calendar = new GregorianCalendar(2015, 11, 3, 10, 8);
+        final Calendar calendar = new GregorianCalendar(2020, 11, 3, 10, 8);
         evento.setFechaHoraI(calendar);
         evento.setUbicacion("Ubicacion");
         final String expResult = "10:08 - Evento (Ubicacion)";
@@ -184,7 +185,7 @@ public class EventoTest {
     @Test
     public void testHoraInicioToString() throws Exception {
         final Evento evento = new Evento();
-        final Calendar calendar = new GregorianCalendar(2015, 11, 3, 10, 8);
+        final Calendar calendar = new GregorianCalendar(2020, 11, 3, 10, 8);
         evento.setFechaHoraI(calendar);
         final String expResult = "10:08";
         final String result = evento.horaInicioToString();
@@ -205,9 +206,9 @@ public class EventoTest {
     @Test
     public void testFechaInicioToString() throws Exception{
         final Evento evento= new Evento();
-        final Calendar calendar= new GregorianCalendar(2015, 10, 3, 2, 15);
+        final Calendar calendar= new GregorianCalendar(2020, 10, 3, 2, 15);
         evento.setFechaHoraI(calendar);
-        final String expResult= "03/11/2015";
+        final String expResult= "03/11/2020";
         final String result= evento.fechaInicioToString();
         assertEquals("testFechaInicioToString",expResult, result);
     }
@@ -246,10 +247,10 @@ public class EventoTest {
     @Test
     public void testCompareTo() throws Exception {
         final Evento evento= new Evento();
-        final Calendar calendar= new GregorianCalendar(2015, 10, 3, 2, 15);
+        final Calendar calendar= new GregorianCalendar(2020, 10, 3, 2, 15);
         evento.setFechaHoraI(calendar);
         final Evento evento1= new Evento();
-        final Calendar calendar1= new GregorianCalendar(2015, 10, 3, 2, 15);
+        final Calendar calendar1= new GregorianCalendar(2020, 10, 3, 2, 15);
         evento1.setFechaHoraI(calendar1);
         final int expResult = 0;
         final int result = evento.compareTo(evento1);
@@ -259,10 +260,10 @@ public class EventoTest {
      @Test
     public void testCompareTo2() throws Exception {
          final Evento evento= new Evento();
-         final Calendar calendar= new GregorianCalendar(2015, 10, 3, 2, 15);
+         final Calendar calendar= new GregorianCalendar(2020, 10, 3, 2, 15);
          evento.setFechaHoraI(calendar);
          final Evento evento1= new Evento();
-         final Calendar calendar1= new GregorianCalendar(2015, 9, 4, 12, 34);
+         final Calendar calendar1= new GregorianCalendar(2020, 9, 4, 12, 34);
          evento1.setFechaHoraI(calendar1);
          final int expResult = 1;
          final int result = evento.compareTo(evento1);
@@ -272,10 +273,10 @@ public class EventoTest {
     @Test
     public void testCompareTo3() throws Exception {
         final Evento evento= new Evento();
-        final Calendar calendar= new GregorianCalendar(2015, 9, 4, 12, 34);
+        final Calendar calendar= new GregorianCalendar(2020, 9, 4, 12, 34);
         evento.setFechaHoraI(calendar);
         final Evento evento1= new Evento();
-        final Calendar calendar1= new GregorianCalendar(2015, 10, 3, 2, 15);
+        final Calendar calendar1= new GregorianCalendar(2020, 10, 3, 2, 15);
         evento1.setFechaHoraI(calendar1);
         final int expResult = -1;
         final int result = evento.compareTo(evento1);

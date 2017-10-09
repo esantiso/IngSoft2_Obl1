@@ -1,7 +1,5 @@
 package descansoApp.dominio;
 
-import descansoApp.dominio.Evento;
-import descansoApp.dominio.Viaje;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -31,10 +29,10 @@ public class ViajeTest {
 
     @Test
     public void testSetFechaI() throws Exception {
-        final Calendar fechaI = new GregorianCalendar(2013, 11, 2);
+        final Calendar fechaI = new GregorianCalendar(2020, 11, 2);
         final Viaje instance = new Viaje();
         instance.setFechaI(fechaI);
-        final Calendar expResult = new GregorianCalendar(2013, 11, 2);
+        final Calendar expResult = new GregorianCalendar(2020, 11, 2);
         final Calendar result = instance.getFechaI();
         assertEquals("testSetFechaI",expResult, result);
     }
@@ -181,11 +179,11 @@ public class ViajeTest {
     @Test
     public void testToString() throws Exception {
         final Viaje viaje = new Viaje();
-        final Calendar calendar = new GregorianCalendar(2015, 11, 3);
+        final Calendar calendar = new GregorianCalendar(2020, 11, 3);
         viaje.setFechaI(calendar);
-        Calendar calendar1 = new GregorianCalendar(2015, 11, 5);
+        Calendar calendar1 = new GregorianCalendar(2020, 11, 5);
         viaje.setFechaF(calendar, calendar1);
-        String expResult = " (03/12/2015 - 05/12/2015)";
+        String expResult = " (03/12/2020 - 05/12/2020)";
         final String result = viaje.toString();
         assertEquals("testToString",expResult, result);
     }
@@ -194,11 +192,11 @@ public class ViajeTest {
     @Test
     public void  testFechaToString() throws Exception{
         final Viaje viaje = new Viaje();
-        final Calendar calendar = new GregorianCalendar(2015, 5, 3);
+        final Calendar calendar = new GregorianCalendar(2020, 5, 3);
         viaje.setFechaI(calendar);
-        final Calendar calendar1 = new GregorianCalendar(2015, 8, 15);
+        final Calendar calendar1 = new GregorianCalendar(2020, 8, 15);
         viaje.setFechaF(calendar, calendar1);
-        final String expResult = " (03/06/2015 - 15/09/2015)";
+        final String expResult = " (03/06/2020 - 15/09/2020)";
         final String result = viaje.fechaToString();
         assertEquals("testFechaToString",expResult, result);
     }

@@ -1,8 +1,5 @@
 package descansoApp.dominio;
 
-import descansoApp.dominio.Sistema;
-import descansoApp.dominio.Ciudad;
-import descansoApp.dominio.Viaje;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;

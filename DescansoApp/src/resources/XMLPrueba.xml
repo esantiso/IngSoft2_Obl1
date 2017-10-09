@@ -2,24 +2,25 @@
 <Ciudades>
   <Ciudad>
       <Nombre>Montevideo</Nombre>
-      <Descripcion>Linda ciudad</Descripcion>
-      <InfoGral>ESTA ES UNA DESCRIPCION GENERAL</InfoGral>
-	  <Mapa>/resources/montevideo.jpg</Mapa>
+      <Descripcion>Montevideo es la capital y ciudad más poblada de la República Oriental del Uruguay. Asimismo, es sede del Mercosur y de la ALADI. Los resultados finales del censo de 2011 estimaban una población de 1 319 108 habitantes en el departamento, y de 1 947 604 habitantes en su área metropolitana.3​ Se ubica en la zona meridional del país,4​ y es la capital más austral de América. Limita al oeste con el departamento de San José, y al norte y este con el de Canelones. Al sur tiene costas sobre el Río de la Plata, donde se ubican la bahía de Montevideo y el principal puerto de la región. La ciudad está dividida en 8 municipios y 62 barrios.</Descripcion>
+      <InfoGral>La llegada de los primeros pobladores, en diciembre de 1726, se toma justamente como el momento culminante del proceso fundacional de la ciudad de Montevideo, que se desarrolla entre los años 1724 y 1730.
+Entre 1680 y 1683, el Reino de Portugal fundó en la región la Colonia do Sacramento, frente a la ciudad de Buenos Aires. A pesar de que la tomaron el mismo año de su fundación, los españoles debieron devolverla y no efectuaron ningún otro intento para desalojar a los portugueses hasta 1723, cuando éstos comenzaron a fortificar las alturas que rodean la bahía de Montevideo.</InfoGral>
+	  <Mapa>/resources/mapaMontevideo.jpg</Mapa>
       <Imagenes>
           <Imagen>
-               <Ruta>/resources/montevideo.jpg</Ruta>
+               <Ruta>/resources/fotoMontevideo.jpg</Ruta>
            </Imagen>
       </Imagenes>
       <Actividades>
           <Actividad>
                <Nombre>Cartel de Montevideo</Nombre>
-               <Detalles>Cartel con el nombre de Montevideo.</Detalles>
+               <Detalles>El cartel con la palabra “Montevideo” ubicado sobre la rambla de Pocitos es uno de los puntos imperdibles del barrio, donde los visitantes pueden tomarse fotografías acompañados por el espectacular paisaje de la costa pocitense..</Detalles>
                <Tipo>actividad</Tipo>
-               <Categoria>Paisajimo</Categoria>
+               <Categoria>Turismo</Categoria>
                <Horario>24horas</Horario>
-               <Ubicacion>Rambla</Ubicacion>
-               <Telefono>No Aplica</Telefono>
-               <Web>No Aplica</Web>
+               <Ubicacion>Rambla República del Perú</Ubicacion>
+               <Telefono>2613 5454</Telefono>
+               <Web>https://www.descubrimontevideo.uy/es/cartel-de-montevideo</Web>
                <Precio>Gratis</Precio>
                 <Imagenes>
 					<Imagen>
@@ -30,54 +31,54 @@
       </Actividades>
       <EstGastronomicos>
           <EstGastronomico>
-               <Nombre>Bangalore</Nombre>
-               <Detalles>Restorante nuevo con comida exotica.</Detalles>
+               <Nombre>La casa Violeta</Nombre>
+               <Detalles>Este clásico restoran de Pocitos nunca defrauda. Su excelente mesa de ensaladas, sus carnes y embutidos y sus postres, junto a una vista privilegiada: el Puerto del Buceo, redundan en una experiencia imperdible.</Detalles>
                <Tipo>estGastronomico</Tipo>
-               <Categoria>Bangalore</Categoria>
-               <Horario>12:00 a 24:00</Horario>
-               <Ubicacion>Rambla</Ubicacion>
-               <Telefono>25248795</Telefono>
-               <Web>Karnataka</Web>
+               <Categoria>Restaurante</Categoria>
+               <Horario>09:00 a 24:00</Horario>
+               <Ubicacion>Rambla Armenia 3667</Ubicacion>
+               <Telefono>2628 7626</Telefono>
+               <Web>http://www.lacasavioleta.com/</Web>
                <Precio>$$$$</Precio>
                 <Imagenes>
 					<Imagen>
-						<Ruta>/resources/restaurant.jpg</Ruta>
+						<Ruta>/resources/restaurantMontevideo.jpg</Ruta>
 					</Imagen>
                 </Imagenes>
            </EstGastronomico>
       </EstGastronomicos>
 	  <EstGastronomicos>
           <EstGastronomico>
-               <Nombre>La Casa Violeta</Nombre>
-               <Detalles>Restorante.</Detalles>
+               <Nombre>El Gaucho</Nombre>
+               <Detalles>Este restaurante se encuentra en un punto centrico de la ciudad. El menú es variado y los precios estan bien.</Detalles>
                <Tipo>estGastronomico</Tipo>
-               <Categoria>Cena</Categoria>
+               <Categoria>Restaurante</Categoria>
                <Horario>12:00 a 5:00. 20:00 a 24:00</Horario>
-               <Ubicacion> Rambla Armenia 3667</Ubicacion>
-               <Telefono>26287626</Telefono>
-               <Web>www.lacasavioleta.com.uy</Web>
+               <Ubicacion> Av. 18 de Julio 1449</Ubicacion>
+               <Telefono>29003914</Telefono>
+               <Web>http://www.elgaucho.com.uy/</Web>
                <Precio>$$$</Precio>
                 <Imagenes>
 					<Imagen>
-						<Ruta>/resources/restaurant.jpg</Ruta>
+						<Ruta>/resources/restaurantMontevideo2.jpg</Ruta>
 					</Imagen>
                 </Imagenes>
            </EstGastronomico>
       </EstGastronomicos>
       <Alojamientos>
           <Alojamiento>
-               <Nombre>Bangalore</Nombre>
-               <Detalles>Hotel moderno.</Detalles>
+               <Nombre>Hotel Argentino</Nombre>
+               <Detalles>Las características paisajísticas de Piriápolis y su energía relacionada a la alquimia promovida por Don Francisco Piria están concentradas en su máxima obra: el Argentino Hotel.</Detalles>
                <Tipo>alojamiento</Tipo>
-               <Categoria>Bangalore</Categoria>
+               <Categoria>Hotel</Categoria>
                <Horario>24 horas</Horario>
-               <Ubicacion>Rambla</Ubicacion>
-               <Telefono>Bangalore</Telefono>
-               <Web>www.bangalore.com.uy</Web>
-               <Precio>$$$</Precio>
+               <Ubicacion>Rambla de los Argentinos </Ubicacion>
+               <Telefono>4432 2791</Telefono>
+               <Web>http://www.argentinohotel.com/</Web>
+               <Precio>$$$$</Precio>
                 <Imagenes>
 					<Imagen>
-						<Ruta>/resources/hotel.jpg</Ruta>
+						<Ruta>/resources/hotelMontevideo.jpg</Ruta>
 					</Imagen>
                 </Imagenes>
            </Alojamiento>

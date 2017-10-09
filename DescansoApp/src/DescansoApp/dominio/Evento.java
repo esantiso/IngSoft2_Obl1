@@ -80,8 +80,8 @@ public class Evento implements Serializable, Comparable<Evento> {
 
             if (unaFechaHoraI.compareTo(unaFechaHoraF) <= 0) {
                 this.fechaHoraF = unaFechaHoraF;
-            } else throw new Exception("La hora de inicio debe ser mayor a la hora de inicio del evento.");
-        } else throw new Exception("La fecha de inicio del evento debe ser la actual o una futura.");
+            } else throw new Exception("La hora de finalización debe ser mayor a la hora de inicio del evento.");
+        } else throw new Exception("La fecha final debe ser mayor a la fecha de inicio.");
     }
 
     public String getDescripcion() {

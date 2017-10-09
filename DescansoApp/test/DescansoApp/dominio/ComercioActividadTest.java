@@ -1,10 +1,8 @@
 package descansoApp.dominio;
 
-import descansoApp.dominio.ComercioActividad;
 import descansoApp.herramientas.TipoCA;
 import org.junit.Test;
 
-import javax.swing.ImageIcon;
 import static descansoApp.herramientas.TipoCA.*;
 import static org.junit.Assert.*;
 
@@ -190,8 +188,8 @@ public class ComercioActividadTest {
         instance.agregarImagen(ruta);
         final String expResult= "basedatos/fiesta1.jpg";
         final String aux = instance.getImagenes().get(0).getDescription();
-        final String [] result= aux.toLowerCase().split("/turismoapp/");
-        assertEquals("testGetImagenes",expResult, result[2]);
+        final String [] result= aux.toLowerCase().split("/descansoapp/descansoapp/");
+        assertEquals("testGetImagenes",expResult, result[1]);
     }
     
 
@@ -202,8 +200,8 @@ public class ComercioActividadTest {
         instance.agregarImagen(ruta);
         final String expResult= "basedatos/fiesta1.jpg";
         final String aux = instance.getImagenes().get(0).getDescription();
-        final String [] result= aux.toLowerCase().split("/turismoapp/");
-        assertEquals("testSetImagenes",expResult, result[2]);
+        final String [] result= aux.toLowerCase().split("/descansoapp/descansoapp/");
+        assertEquals("testSetImagenes",expResult, result[1]);
     }
 
     @Test

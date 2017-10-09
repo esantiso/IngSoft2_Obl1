@@ -12,9 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoApp/src/DescansoApp/interfaz/pResultado.java</file>
-            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoApp/src/DescansoApp/herramientas/Buscador.java</file>
-            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoApp/src/DescansoApp/dominio/XMLReader.java</file>
+            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoAppPruebasNbean/src/descansoApp/interfaz/pResultadoDondeQue.java</file>
+            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoAppPruebasNbean/src/descansoApp/interfaz/pnlInformacionComercioActividad.java</file>
+            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoAppPruebasNbean/src/descansoApp/interfaz/pnlDondeQue.java</file>
+            <file>file:/C:/Users/usuario/Documents/IngSoft2_Obl1/DescansoAppPruebasNbean/src/descansoApp/interfaz/pnlResultadoBusqueda.java</file>
         </group>
     </open-files>
 </project-private>

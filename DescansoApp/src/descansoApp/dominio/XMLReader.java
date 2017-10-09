@@ -46,7 +46,6 @@ public class XMLReader {
         return ciudadList;
     }
 
-
     private static Ciudad getCiudad(final Node node) {
         final Ciudad ciudad = new Ciudad();
         if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -76,7 +75,7 @@ public class XMLReader {
         return ciudad;
     }
 
-        private static void cargarActividades(final NodeList activades, final  Ciudad ciudad) {
+    private static void cargarActividades(final NodeList activades, final  Ciudad ciudad) {
         for (int j = 0; j < activades.getLength(); ++j) {
             final Element actividadesElement = (Element) activades.item(j);
             final NodeList actividadNodo = actividadesElement.getElementsByTagName("Actividad");
@@ -138,7 +137,7 @@ public class XMLReader {
         }
     }
 
- private static void cargarAlojamientos(final NodeList alojamientos, final Ciudad ciudad) {
+    private static void cargarAlojamientos(final NodeList alojamientos, final Ciudad ciudad) {
         for (int j = 0; j < alojamientos.getLength(); ++j) {
             final Element alojamientosElement = (Element) alojamientos.item(j);
             final NodeList alojamientoNodo = alojamientosElement.getElementsByTagName("Alojamiento");

@@ -19,7 +19,7 @@ public class Principal extends javax.swing.JFrame {
         setTitle("descansoApp");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing();
             }
         });
