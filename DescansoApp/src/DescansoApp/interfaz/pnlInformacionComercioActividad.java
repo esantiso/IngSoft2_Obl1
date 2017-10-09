@@ -15,24 +15,55 @@ import descansoApp.dominio.Viaje;
 class pnlInformacionComercioActividad extends javax.swing.JPanel {
 
     private final Sistema modelo;
-    private final ComercioActividad cA;
+    private final ComercioActividad comercioActividad;
     private final JFrame padre;
     private final ArrayList<ImageIcon> listaImagenes;
     private int contador = 0;
     private final descansoApp.dominio.Ciudad ciudad;
+    private javax.swing.JComboBox comboViajes;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAnterior;
+    private javax.swing.JLabel lblBoton;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblGaleria;
+    private javax.swing.JLabel lblHorarios;
+    private javax.swing.JLabel lblNombreEst;
+    private javax.swing.JLabel lblPrecio1;
+    private javax.swing.JLabel lblRepercusiones;
+    private javax.swing.JLabel lblSiguiente;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblUbicacion;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JLabel lblVolver1;
+    private javax.swing.JLabel lblWeb;
+    private javax.swing.JLabel lblpagina;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JScrollPane scroll4;
+    private javax.swing.JScrollPane scroll5;
+    private javax.swing.JTextArea txtHorarios;
+    private javax.swing.JTextArea txtIntroduccion;
+    private javax.swing.JTextArea txtPrecio;
+    private javax.swing.JTextArea txtTelefono;
+    private javax.swing.JTextArea txtUbicacion;
 
-    public pnlInformacionComercioActividad(Sistema unModelo, ComercioActividad unCA, JFrame unPadre, descansoApp.dominio.Ciudad unaCiudad) {
+    pnlInformacionComercioActividad(final Sistema unModelo,final ComercioActividad unCA,final JFrame unPadre,final descansoApp.dominio.Ciudad unaCiudad) {
         initComponents();
         modelo = unModelo;
-        cA = unCA;
+        comercioActividad = unCA;
         padre = unPadre;
         ciudad = unaCiudad;
 
-        listaImagenes = cA.getImagenes();
+        listaImagenes = comercioActividad.getImagenes();
         lblGaleria.setIcon(listaImagenes.get(0));
 
         if (!modelo.getListaViajes().isEmpty()) {
-            for (Viaje viaje : modelo.getListaViajes()) {
+            for (final Viaje viaje : modelo.getListaViajes()) {
                 //noinspection unchecked
                 comboViajes.addItem(viaje);
             }
@@ -297,7 +328,7 @@ class pnlInformacionComercioActividad extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,115 +338,75 @@ class pnlInformacionComercioActividad extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolver
         padre.remove(this);
-        padre.add(new pnlDondeQue(modelo,ciudad , padre, cA.getTipo()));
+        padre.add(new pnlDondeQue(modelo, ciudad, padre, comercioActividad.getTipo()));
         padre.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
+    } //GEN-LAST:event_lblVolverMouseClicked
 
-    private void lblAnteriorMouseClicked() {//GEN-FIRST:event_lblAnteriorMouseClicked
+    private void lblAnteriorMouseClicked() { //GEN-FIRST:event_lblAnteriorMouseClicked
         if (contador == 0) {
             contador = listaImagenes.size() - 1;
         } else {
             contador--;
         }
         lblGaleria.setIcon(listaImagenes.get(contador));
-    }//GEN-LAST:event_lblAnteriorMouseClicked
+    } //GEN-LAST:event_lblAnteriorMouseClicked
 
-    private void lblBotonMouseClicked() {//GEN-FIRST:event_lblBotonMouseClicked
-        PopUp p = new PopUp();
-        p.add(new pnlEvento(modelo, (Viaje) comboViajes.getSelectedItem(), ciudad,this.cA, null, p));
-        p.pack();
-        p.setLocationRelativeTo(null);
-        p.setVisible(true);
-    }//GEN-LAST:event_lblBotonMouseClicked
+    private void lblBotonMouseClicked() { //GEN-FIRST:event_lblBotonMouseClicked
+        final PopUp popUp = new PopUp();
+        popUp.add(new pnlEvento(modelo, (Viaje) comboViajes.getSelectedItem(), ciudad, this.comercioActividad, null, popUp));
+        popUp.pack();
+        popUp.setLocationRelativeTo(null);
+        popUp.setVisible(true);
+    } //GEN-LAST:event_lblBotonMouseClicked
 
-    private void lblBotonMouseEntered() {//GEN-FIRST:event_lblBotonMouseEntered
+    private void lblBotonMouseEntered() { //GEN-FIRST:event_lblBotonMouseEntered
          lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregarClicked.png")));
-    }//GEN-LAST:event_lblBotonMouseEntered
+    } //GEN-LAST:event_lblBotonMouseEntered
 
-    private void lblBotonMouseExited() {//GEN-FIRST:event_lblBotonMouseExited
+    private void lblBotonMouseExited() { //GEN-FIRST:event_lblBotonMouseExited
         lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregarUnclicked.png")));
-    }//GEN-LAST:event_lblBotonMouseExited
+    } //GEN-LAST:event_lblBotonMouseExited
 
-    private void lblpaginaMouseClicked() {//GEN-FIRST:event_lblpaginaMouseClicked
+    private void lblpaginaMouseClicked() { //GEN-FIRST:event_lblpaginaMouseClicked
         try {
-            URI ruta= new URI(cA.getWeb());
-            if(java.awt.Desktop.isDesktopSupported()){
-                try{
-                    Desktop dk = Desktop.getDesktop();
+            final URI ruta = new URI(comercioActividad.getWeb());
+            if (java.awt.Desktop.isDesktopSupported()) {
+                try {
+                    final Desktop desktop = Desktop.getDesktop();
 
-                    dk.browse(ruta);
-                }catch(Exception e){
-                    System.out.println("Error al abrir URL: "+e.getMessage());
+                    desktop.browse(ruta);
+                } catch (Exception e) {
+                    System.out.println("Error al abrir URL: " + e.getMessage());
                 }
             }
         } catch (URISyntaxException ex) {
             Logger.getLogger(pnlInformacionComercioActividad.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_lblpaginaMouseClicked
+    } //GEN-LAST:event_lblpaginaMouseClicked
 
-    private void lblVolver1MouseClicked() {//GEN-FIRST:event_lblVolver1MouseClicked
+    private void lblVolver1MouseClicked() { //GEN-FIRST:event_lblVolver1MouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();
-    }//GEN-LAST:event_lblVolver1MouseClicked
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox comboViajes;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAnterior;
-    private javax.swing.JLabel lblBoton;
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblGaleria;
-    private javax.swing.JLabel lblHorarios;
-    private javax.swing.JLabel lblNombreEst;
-    private javax.swing.JLabel lblPrecio1;
-    private javax.swing.JLabel lblRepercusiones;
-    private javax.swing.JLabel lblSiguiente;
-    private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblUbicacion;
-    private javax.swing.JLabel lblVolver;
-    private javax.swing.JLabel lblVolver1;
-    private javax.swing.JLabel lblWeb;
-    private javax.swing.JLabel lblpagina;
-    private javax.swing.JScrollPane scroll;
-    private javax.swing.JScrollPane scroll1;
-    private javax.swing.JScrollPane scroll2;
-    private javax.swing.JScrollPane scroll4;
-    private javax.swing.JScrollPane scroll5;
-    private javax.swing.JTextArea txtHorarios;
-    private javax.swing.JTextArea txtIntroduccion;
-    private javax.swing.JTextArea txtPrecio;
-    private javax.swing.JTextArea txtTelefono;
-    private javax.swing.JTextArea txtUbicacion;
-    // End of variables declaration//GEN-END:variables
+    } //GEN-LAST:event_lblVolver1MouseClicked
 
     private void cargar() {
-        lblNombreEst.setText(cA.getNombre());
-        txtIntroduccion.setText(cA.getDetalles());
-        txtHorarios.setText(cA.getHorario());
-        txtTelefono.setText(cA.getTelefono());
-        txtPrecio.setText(cA.getPrecio());
-        txtUbicacion.setText(cA.getUbicacion());
-        lblpagina.setText(cA.getWeb());
-        
-        
-        
-        
+        lblNombreEst.setText(comercioActividad.getNombre());
+        txtIntroduccion.setText(comercioActividad.getDetalles());
+        txtHorarios.setText(comercioActividad.getHorario());
+        txtTelefono.setText(comercioActividad.getTelefono());
+        txtPrecio.setText(comercioActividad.getPrecio());
+        txtUbicacion.setText(comercioActividad.getUbicacion());
+        lblpagina.setText(comercioActividad.getWeb());
         txtIntroduccion.setOpaque(false);
         txtHorarios.setOpaque(false);
         txtTelefono.setOpaque(false);
         txtPrecio.setOpaque(false);
         txtUbicacion.setOpaque(false);
-        
-        
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
         scroll.setBorder(null);
@@ -425,19 +416,11 @@ class pnlInformacionComercioActividad extends javax.swing.JPanel {
         scroll2.setOpaque(false);
         scroll2.getViewport().setOpaque(false);
         scroll2.setBorder(null);
-        
         scroll4.setOpaque(false);
         scroll4.getViewport().setOpaque(false);
         scroll4.setBorder(null);
         scroll5.setOpaque(false);
         scroll5.getViewport().setOpaque(false);
         scroll5.setBorder(null);
-        
-        
-        
-        
-        
     }
-    
-
 }

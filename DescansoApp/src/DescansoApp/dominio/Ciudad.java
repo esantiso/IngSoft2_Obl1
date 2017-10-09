@@ -2,7 +2,7 @@ package descansoApp.dominio;
 
 import descansoApp.herramientas.TipoCA;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class Ciudad implements Serializable {
@@ -14,39 +14,36 @@ public class Ciudad implements Serializable {
     private final ArrayList<ComercioActividad> actividades;
     private final ArrayList<ComercioActividad> estGastronomicos;
     private final ArrayList<ComercioActividad> alojamientos;
-    
     public ImageIcon getMapa() {
         return mapa;
     }
 
-    public void setMapa(String mapa) {
-        this.mapa = new ImageIcon(getClass().getResource(mapa));
+    public void setMapa(final String  unMapa) {
+        this.mapa = new ImageIcon(getClass().getResource(unMapa));
     }
-    
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(final String unNombre) {
+        this.nombre = unNombre;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(final String unaDescripcion) {
+        this.descripcion = unaDescripcion;
     }
 
     public String getInfoGral() {
         return infoGral;
     }
 
-    public void setInfoGral(String infoGral) {
-        this.infoGral = infoGral;
+    public void setInfoGral(final String unaInfoGral) {
+        this.infoGral = unaInfoGral;
     }
-   
     public ArrayList<ComercioActividad> getActividades() {
         return actividades;
     }
@@ -58,34 +55,32 @@ public class Ciudad implements Serializable {
     public ArrayList<ComercioActividad> getAlojamientos() {
         return alojamientos;
     }
-    
-    public boolean perteneceComercioActividad(TipoCA tipo, ComercioActividad cA){
+    public boolean perteneceComercioActividad(final TipoCA tipo, final ComercioActividad comercioActividad) {
         switch (tipo) {
             case alojamiento:
-                return alojamientos.contains(cA);
+                return alojamientos.contains(comercioActividad);
             case estGastronomico:
-                return estGastronomicos.contains(cA);
+                return estGastronomicos.contains(comercioActividad);
             case actividad:
-                return alojamientos.contains(cA);
+                return alojamientos.contains(comercioActividad);
+            default :
+                return false;
         }
-
-        return false;
     }
-    
-    public void agregarComercioActividad(TipoCA tipo, ComercioActividad cA){
+    public void agregarComercioActividad(final TipoCA tipo, final ComercioActividad comercioActividad) {
         switch (tipo) {
             case alojamiento:
-                alojamientos.add(cA);
-                break;
+                alojamientos.add(comercioActividad);
+            break;
             case estGastronomico:
-               estGastronomicos.add(cA);
-                break;
+                estGastronomicos.add(comercioActividad);
+            break;
             case actividad:
-                actividades.add(cA);
-                break;
+                actividades.add(comercioActividad);
+            break;
+            default:
         }
     }
-    
     public Ciudad() {
         nombre = "";
         infoGral = "";
@@ -94,8 +89,7 @@ public class Ciudad implements Serializable {
         estGastronomicos = new ArrayList<>();
         alojamientos = new ArrayList<>();
     }
-    
-    public Ciudad(String unNombre) {
+    public Ciudad(final String unNombre) {
         nombre = unNombre;
         infoGral = "";
         imagenes = new ArrayList<>();
@@ -103,18 +97,16 @@ public class Ciudad implements Serializable {
         estGastronomicos = new ArrayList<>();
         alojamientos = new ArrayList<>();
     }
-    
-    @Override 
-    public boolean equals(Object obj){
+    @Override
+    public boolean equals(final Object obj) {
         boolean valido = false;
-        Ciudad ci= (Ciudad) obj;
-        if (ci.getNombre().equalsIgnoreCase(this.getNombre())) {
+        final Ciudad ciudad = (Ciudad) obj;
+        if (ciudad.getNombre().equalsIgnoreCase(this.getNombre())) {
             valido = true;
         }
         return valido;
     }
-    
-    public void agregarImagen(String ruta){
+    public void agregarImagen(final String ruta) {
         imagenes.add(new ImageIcon(getClass().getResource(ruta)));
     }
 

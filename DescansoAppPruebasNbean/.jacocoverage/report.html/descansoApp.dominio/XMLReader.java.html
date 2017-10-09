@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>XMLReader.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;DescansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.dominio</a> &gt; <span class="el_source">XMLReader.java</span></div><h1>XMLReader.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package descansoApp.dominio;
+
+
+import descansoApp.herramientas.TipoCA;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+/**
+ *
+ * @author usuario
+ */
+<span class="nc" id="L29">public class XMLReader {</span>
+    
+    public static ArrayList&lt;Ciudad&gt; cargarCiudades() {
+<span class="nc" id="L32">        ArrayList&lt;Ciudad&gt; ciudadList = new ArrayList&lt;Ciudad&gt;();</span>
+<span class="nc" id="L33">        String filePath = &quot;./src/resources/XMLPrueba.xml&quot;;</span>
+        
+<span class="nc" id="L35">        File xmlFile = new File(filePath);</span>
+<span class="nc" id="L36">        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+        DocumentBuilder dBuilder;
+        try {
+<span class="nc" id="L39">            dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="nc" id="L40">            Document doc = dBuilder.parse(xmlFile);</span>
+<span class="nc" id="L41">            doc.getDocumentElement().normalize();</span>
+<span class="nc" id="L42">            NodeList nodeList = doc.getElementsByTagName(&quot;Ciudad&quot;);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            for (int i = 0; i &lt; nodeList.getLength(); i++) {</span>
+<span class="nc" id="L44">                ciudadList.add(getCiudad(nodeList.item(i)));</span>
+            }
+<span class="nc" id="L46">        } catch (SAXException | ParserConfigurationException | IOException e1) {</span>
+<span class="nc" id="L47">            e1.printStackTrace();</span>
+<span class="nc" id="L48">        }</span>
+<span class="nc" id="L49">        return ciudadList;</span>
+    }
+
+
+    private static Ciudad getCiudad(Node node) {
+<span class="nc" id="L54">        Ciudad ciudad = new Ciudad();</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        if (node.getNodeType() == Node.ELEMENT_NODE) {</span>
+<span class="nc" id="L56">            Element element = (Element) node;</span>
+<span class="nc" id="L57">            ciudad.setNombre(getTagValue(&quot;Nombre&quot;, element));</span>
+<span class="nc" id="L58">            ciudad.setDescripcion(getTagValue(&quot;Descripcion&quot;, element));</span>
+<span class="nc" id="L59">            ciudad.setInfoGral(getTagValue(&quot;InfoGral&quot;, element));</span>
+
+<span class="nc" id="L61">            Node imagenes = element.getElementsByTagName(&quot;Imagenes&quot;).item(0);</span>
+<span class="nc" id="L62">                Element imagenesElement = (Element) imagenes;//.item(l);</span>
+<span class="nc" id="L63">                NodeList imagenNodo = imagenesElement.getElementsByTagName(&quot;Imagen&quot;);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">                for (int m = 0; m &lt; imagenNodo.getLength(); ++m) </span>
+                   { 
+<span class="nc" id="L66">                        Element imagenElement = (Element) imagenNodo.item(m);</span>
+<span class="nc" id="L67">                        ciudad.agregarImagen(getTagValue(&quot;Ruta&quot;, imagenElement));</span>
+                   }
+
+<span class="nc" id="L70">            NodeList activades = element.getElementsByTagName(&quot;Actividades&quot;);</span>
+<span class="nc" id="L71">            cargarActividades(activades, ciudad);</span>
+            
+<span class="nc" id="L73">            NodeList estGastronomicos = element.getElementsByTagName(&quot;EstGastronomicos&quot;);</span>
+<span class="nc" id="L74">            cargarEstGastronomicos(estGastronomicos, ciudad);</span>
+            
+<span class="nc" id="L76">            NodeList alojamientos = element.getElementsByTagName(&quot;Alojamientos&quot;);</span>
+<span class="nc" id="L77">            cargarAlojamientos(alojamientos, ciudad);</span>
+           
+        }
+
+<span class="nc" id="L81">        return ciudad;</span>
+    }
+
+        private static void cargarActividades(NodeList activades, Ciudad ciudad) {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        for (int j = 0; j &lt; activades.getLength(); ++j)</span>
+        {
+<span class="nc" id="L87">            Element actividadesElement = (Element) activades.item(j);</span>
+<span class="nc" id="L88">            NodeList actividadNodo = actividadesElement.getElementsByTagName(&quot;Actividad&quot;);</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            for (int k = 0; k &lt; actividadNodo.getLength(); ++k)</span>
+            {
+<span class="nc" id="L91">                Element actividadElement = (Element) actividadNodo.item(k);</span>
+<span class="nc" id="L92">                ComercioActividad actividad = new ComercioActividad();</span>
+<span class="nc" id="L93">                actividad.setNombre(getTagValue(&quot;Nombre&quot;, actividadElement));</span>
+<span class="nc" id="L94">                actividad.setDetalles(getTagValue(&quot;Detalles&quot;, actividadElement));</span>
+<span class="nc" id="L95">                actividad.setTipo(TipoCA.valueOf(getTagValue(&quot;Tipo&quot;, actividadElement)));</span>
+<span class="nc" id="L96">                actividad.setCategoria(getTagValue(&quot;Categoria&quot;, actividadElement));</span>
+<span class="nc" id="L97">                actividad.setHorario(getTagValue(&quot;Horario&quot;, actividadElement));</span>
+<span class="nc" id="L98">                actividad.setUbicacion(getTagValue(&quot;Ubicacion&quot;, actividadElement));</span>
+<span class="nc" id="L99">                actividad.setTelefono(getTagValue(&quot;Telefono&quot;, actividadElement));</span>
+<span class="nc" id="L100">                actividad.setWeb(getTagValue(&quot;Web&quot;, actividadElement));</span>
+<span class="nc" id="L101">                actividad.setPrecio(getTagValue(&quot;Precio&quot;, actividadElement));</span>
+                
+<span class="nc" id="L103">                NodeList imagenes = actividadElement.getElementsByTagName(&quot;Imagenes&quot;);</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">                for (int l= 0; l &lt; imagenes.getLength(); ++l)</span>
+                {
+<span class="nc" id="L106">                    Element imagenesElement = (Element) imagenes.item(l);</span>
+<span class="nc" id="L107">                    NodeList imagenNodo = imagenesElement.getElementsByTagName(&quot;Imagen&quot;);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">                    for (int m = 0; m &lt; imagenNodo.getLength(); ++m)</span>
+                    {
+<span class="nc" id="L110">                        Element imagenElement = (Element) imagenNodo.item(m);</span>
+<span class="nc" id="L111">                        actividad.agregarImagen(getTagValue(&quot;Ruta&quot;, imagenElement));</span>
+                    }
+                }
+                
+<span class="nc" id="L115">                ciudad.agregarComercioActividad(TipoCA.actividad, actividad);</span>
+            }
+            
+        }
+<span class="nc" id="L119">    }</span>
+
+    private static void cargarEstGastronomicos(NodeList estGastronomicos, Ciudad ciudad) {
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        for (int j = 0; j &lt; estGastronomicos.getLength(); ++j)</span>
+        {
+<span class="nc" id="L124">            Element estGastronomicosElement = (Element) estGastronomicos.item(j);</span>
+<span class="nc" id="L125">            NodeList estGastronomicoNodo = estGastronomicosElement.getElementsByTagName(&quot;EstGastronomico&quot;);</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">            for (int k = 0; k &lt; estGastronomicoNodo.getLength(); ++k)</span>
+            {
+<span class="nc" id="L128">                Element estGastronomicoElement = (Element) estGastronomicoNodo.item(k);</span>
+<span class="nc" id="L129">                ComercioActividad estGastronomico = new ComercioActividad();</span>
+<span class="nc" id="L130">                estGastronomico.setNombre(getTagValue(&quot;Nombre&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L131">                estGastronomico.setDetalles(getTagValue(&quot;Detalles&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L132">                estGastronomico.setTipo(TipoCA.valueOf(getTagValue(&quot;Tipo&quot;, estGastronomicoElement)));</span>
+<span class="nc" id="L133">                estGastronomico.setCategoria(getTagValue(&quot;Categoria&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L134">                estGastronomico.setHorario(getTagValue(&quot;Horario&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L135">                estGastronomico.setUbicacion(getTagValue(&quot;Ubicacion&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L136">                estGastronomico.setTelefono(getTagValue(&quot;Telefono&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L137">                estGastronomico.setWeb(getTagValue(&quot;Web&quot;, estGastronomicoElement));</span>
+<span class="nc" id="L138">                estGastronomico.setPrecio(getTagValue(&quot;Precio&quot;, estGastronomicoElement));</span>
+                
+<span class="nc" id="L140">                NodeList imagenes = estGastronomicoElement.getElementsByTagName(&quot;Imagenes&quot;);</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">                for (int l= 0; l &lt; imagenes.getLength(); ++l)</span>
+                {
+<span class="nc" id="L143">                    Element imagenesElement = (Element) imagenes.item(l);</span>
+<span class="nc" id="L144">                    NodeList imagenNodo = imagenesElement.getElementsByTagName(&quot;Imagen&quot;);</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">                    for (int m = 0; m &lt; imagenNodo.getLength(); ++m)</span>
+                    {
+<span class="nc" id="L147">                        Element imagenElement = (Element) imagenNodo.item(m);</span>
+<span class="nc" id="L148">                        estGastronomico.agregarImagen(getTagValue(&quot;Ruta&quot;, imagenElement));</span>
+                    }
+                }
+                
+<span class="nc" id="L152">                ciudad.agregarComercioActividad(TipoCA.estGastronomico, estGastronomico);</span>
+            }
+            
+        }
+<span class="nc" id="L156">    }</span>
+
+ private static void cargarAlojamientos(NodeList alojamientos, Ciudad ciudad) {
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        for (int j = 0; j &lt; alojamientos.getLength(); ++j)</span>
+        {
+<span class="nc" id="L161">            Element alojamientosElement = (Element) alojamientos.item(j);</span>
+<span class="nc" id="L162">            NodeList alojamientoNodo = alojamientosElement.getElementsByTagName(&quot;Alojamiento&quot;);</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">            for (int k = 0; k &lt; alojamientoNodo.getLength(); ++k)</span>
+            {
+<span class="nc" id="L165">                Element alojamientoElement = (Element) alojamientoNodo.item(k);</span>
+<span class="nc" id="L166">                ComercioActividad alojamiento = new ComercioActividad();</span>
+<span class="nc" id="L167">                alojamiento.setNombre(getTagValue(&quot;Nombre&quot;, alojamientoElement));</span>
+<span class="nc" id="L168">                alojamiento.setDetalles(getTagValue(&quot;Detalles&quot;, alojamientoElement));</span>
+<span class="nc" id="L169">                alojamiento.setTipo(TipoCA.valueOf(getTagValue(&quot;Tipo&quot;, alojamientoElement)));</span>
+<span class="nc" id="L170">                alojamiento.setCategoria(getTagValue(&quot;Categoria&quot;, alojamientoElement));</span>
+<span class="nc" id="L171">                alojamiento.setHorario(getTagValue(&quot;Horario&quot;, alojamientoElement));</span>
+<span class="nc" id="L172">                alojamiento.setUbicacion(getTagValue(&quot;Ubicacion&quot;, alojamientoElement));</span>
+<span class="nc" id="L173">                alojamiento.setTelefono(getTagValue(&quot;Telefono&quot;, alojamientoElement));</span>
+<span class="nc" id="L174">                alojamiento.setWeb(getTagValue(&quot;Web&quot;, alojamientoElement));</span>
+<span class="nc" id="L175">                alojamiento.setPrecio(getTagValue(&quot;Precio&quot;, alojamientoElement));</span>
+                
+                
+<span class="nc" id="L178">                NodeList imagenes = alojamientoElement.getElementsByTagName(&quot;Imagenes&quot;);</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">                for (int l= 0; l &lt; imagenes.getLength(); ++l)</span>
+                {
+<span class="nc" id="L181">                    Element imagenesElement = (Element) imagenes.item(l);</span>
+<span class="nc" id="L182">                    NodeList imagenNodo = imagenesElement.getElementsByTagName(&quot;Imagen&quot;);</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">                    for (int m = 0; m &lt; imagenNodo.getLength(); ++m)</span>
+                    {
+<span class="nc" id="L185">                        Element imagenElement = (Element) imagenNodo.item(m);</span>
+<span class="nc" id="L186">                        alojamiento.agregarImagen(getTagValue(&quot;Ruta&quot;, imagenElement));</span>
+                    }
+                }
+                
+<span class="nc" id="L190">                ciudad.agregarComercioActividad(TipoCA.alojamiento, alojamiento);</span>
+            }
+            
+        }
+<span class="nc" id="L194">    }</span>
+
+    private static String getTagValue(String tag, Element element) {
+<span class="nc" id="L197">        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();</span>
+<span class="nc" id="L198">        Node node = (Node) nodeList.item(0);</span>
+<span class="nc" id="L199">        return node.getNodeValue();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

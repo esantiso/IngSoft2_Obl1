@@ -11,15 +11,27 @@ class pnlInformacionEvento extends javax.swing.JPanel {
     private final JFrame miVentana;
     private final Viaje viaje;
     private final Sistema modelo;
-    
-    public pnlInformacionEvento(Sistema unModelo, Viaje unViaje, Evento unEvento, JFrame unContenedor) {
-      
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JScrollPane scroll3;
+    private javax.swing.JScrollPane scroll4;
+    private javax.swing.JScrollPane scroll5;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextArea txtFin;
+    private javax.swing.JTextField txtHoraFin;
+    private javax.swing.JTextField txtHoraInicio;
+    private javax.swing.JTextArea txtInicio;
+    private javax.swing.JTextArea txtNombre;
+    private javax.swing.JTextArea txtUbicacion;
+
+    pnlInformacionEvento(Sistema unModelo, Viaje unViaje, Evento unEvento, JFrame unContenedor) {
         initComponents();
         modelo = unModelo;
         evento = unEvento;
         viaje = unViaje;
         miVentana = unContenedor;
-        
         txtNombre.setOpaque(false);
         scroll1.setOpaque(false);
         scroll1.getViewport().setOpaque(false);
@@ -40,11 +52,9 @@ class pnlInformacionEvento extends javax.swing.JPanel {
         scroll5.setOpaque(false);
         scroll5.getViewport().setOpaque(false);
         scroll5.setBorder(null);
-        
         cargar();
     }
 
-   
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -181,31 +191,13 @@ class pnlInformacionEvento extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/InformacionEvento.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
         miVentana.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblVolver;
-    private javax.swing.JScrollPane scroll1;
-    private javax.swing.JScrollPane scroll2;
-    private javax.swing.JScrollPane scroll3;
-    private javax.swing.JScrollPane scroll4;
-    private javax.swing.JScrollPane scroll5;
-    private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextArea txtFin;
-    private javax.swing.JTextField txtHoraFin;
-    private javax.swing.JTextField txtHoraInicio;
-    private javax.swing.JTextArea txtInicio;
-    private javax.swing.JTextArea txtNombre;
-    private javax.swing.JTextArea txtUbicacion;
-    // End of variables declaration//GEN-END:variables
+    } //GEN-LAST:event_lblVolverMouseClicked
 
     private void cargar() {
         txtNombre.setText(evento.getNombre());

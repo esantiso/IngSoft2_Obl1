@@ -7,8 +7,7 @@ import descansoApp.dominio.Sistema;
 public class Principal extends javax.swing.JFrame {
 
     private final Sistema modelo;
-    
-    public Principal(Sistema unModelo) {
+    public Principal(final Sistema unModelo) {
         initComponents();
         modelo = unModelo;
     }
@@ -20,12 +19,11 @@ public class Principal extends javax.swing.JFrame {
         setTitle("descansoApp");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
+            public void windowClosing() {
                 formWindowClosing();
             }
         });
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
-
         pack();
         setLocationRelativeTo(null);
     }

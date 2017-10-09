@@ -2,7 +2,10 @@ package descansoApp.interfaz;
 
 class pResultadoIt2 extends javax.swing.JPanel {
 
-    public pResultadoIt2(String unaFecha) {
+    private javax.swing.JLabel lbl;
+    private javax.swing.JLabel lblFecha;
+
+    pResultadoIt2(final String unaFecha) {
         initComponents();
         lblFecha.setText(unaFecha);
     }
@@ -22,7 +25,7 @@ class pResultadoIt2 extends javax.swing.JPanel {
         lblFecha.setText("una fecha");
         lblFecha.setMaximumSize(new java.awt.Dimension(100, 18));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -39,10 +42,5 @@ class pResultadoIt2 extends javax.swing.JPanel {
                 .addComponent(lbl)
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-    }// </editor-fold>//GEN-END:initComponents
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lbl;
-    private javax.swing.JLabel lblFecha;
-    // End of variables declaration//GEN-END:variables
+    }
 }

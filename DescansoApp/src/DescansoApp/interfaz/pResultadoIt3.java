@@ -13,10 +13,15 @@ class pResultadoIt3 extends javax.swing.JPanel {
     private final JFrame miVentana;
     private final JPanel miPanel;
     private final Sistema modelo;
+    private javax.swing.JLabel lblEditar;
+    private javax.swing.JLabel lblEditar1;
+    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblUbicacion;
 
-    public pResultadoIt3(Sistema unModelo,Viaje unViaje, Evento unEvento, JFrame miContenedorPrincipal, JPanel miContenedor) {
+    pResultadoIt3(final Sistema unModelo, final Viaje unViaje, final Evento unEvento, final JFrame miContenedorPrincipal, final JPanel miContenedor) {
         initComponents();
-        modelo= unModelo;
+        modelo = unModelo;
         evento = unEvento;
         viaje = unViaje;
         miVentana = miContenedorPrincipal;
@@ -66,7 +71,7 @@ class pResultadoIt3 extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,25 +98,17 @@ class pResultadoIt3 extends javax.swing.JPanel {
                     .addComponent(lblNombre)
                     .addComponent(lblUbicacion)))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblEditarMouseClicked() {//GEN-FIRST:event_lblEditarMouseClicked
+    private void lblEditarMouseClicked() { //GEN-FIRST:event_lblEditarMouseClicked
         miVentana.remove(miPanel);
-        miVentana.add(new pnlEvento(modelo, viaje, evento.getCiudad(),null, evento, miVentana));
+        miVentana.add(new pnlEvento(modelo, viaje, evento.getCiudad(), null, evento, miVentana));
         miVentana.pack();
-    }//GEN-LAST:event_lblEditarMouseClicked
+    } //GEN-LAST:event_lblEditarMouseClicked
 
-    private void lblEditar1MouseClicked() {//GEN-FIRST:event_lblEditar1MouseClicked
+    private void lblEditar1MouseClicked() { //GEN-FIRST:event_lblEditar1MouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlInformacionEvento(modelo, viaje, evento, miVentana));
-        miVentana.pack(); 
-    }//GEN-LAST:event_lblEditar1MouseClicked
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblEditar;
-    private javax.swing.JLabel lblEditar1;
-    private javax.swing.JLabel lblHora;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblUbicacion;
-    // End of variables declaration//GEN-END:variables
+        miVentana.pack();
+    } //GEN-LAST:event_lblEditar1MouseClicked
 }

@@ -1,8 +1,9 @@
 package descansoApp.interfaz;
 
 class pResultadoIt1 extends javax.swing.JPanel {
+    private javax.swing.JLabel lblNombre;
 
-    public pResultadoIt1(String unaCiudad) {
+    pResultadoIt1(final String unaCiudad) {
         initComponents();
         lblNombre.setText(unaCiudad);
     }
@@ -17,7 +18,7 @@ class pResultadoIt1 extends javax.swing.JPanel {
         lblNombre.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         lblNombre.setText("Nombre de Ciudad");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -29,9 +30,6 @@ class pResultadoIt1 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblNombre)
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblNombre;
-    // End of variables declaration//GEN-END:variables
 }

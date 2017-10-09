@@ -30,16 +30,16 @@ public class ComercioActividad implements Serializable, Comparable<ComercioActiv
         this.imagenes = new ArrayList<>();
     }
 
-    public ComercioActividad(String nombre, String detalles,TipoCA tipo, String categoria, String horario, String ubicacion, String telefono, String web, String precio) {
-        this.nombre = nombre;
-        this.detalles = detalles;
-        this.tipo = tipo;
-        this.categoria = categoria;
-        this.horario = horario;
-        this.ubicacion = ubicacion;
-        this.telefono = telefono;
-        this.web = web;
-        this.precio = precio;
+    public ComercioActividad(final String unNombre, final String unosDetalles, TipoCA unTipo, final String unaCategoria, final String unHorario, final String unaUbicacion, final String unTelefono, final String unaWeb, final String unPrecio) {
+        this.nombre = unNombre;
+        this.detalles = unosDetalles;
+        this.tipo = unTipo;
+        this.categoria = unaCategoria;
+        this.horario = unHorario;
+        this.ubicacion = unaUbicacion;
+        this.telefono = unTelefono;
+        this.web = unaWeb;
+        this.precio = unPrecio;
         this.imagenes = new ArrayList<>();
     }
 
@@ -47,94 +47,92 @@ public class ComercioActividad implements Serializable, Comparable<ComercioActiv
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(final String unNombre) {
+        this.nombre = unNombre;
     }
 
     public String getDetalles() {
         return detalles;
     }
 
-    public void setDetalles(String detalles) {
-        this.detalles = detalles;
+    public void setDetalles(final String unosDetalles) {
+        this.detalles = unosDetalles;
     }
 
     public TipoCA getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoCA tipo) {
-        this.tipo = tipo;
+    public void setTipo(final TipoCA unTipo) {
+        this.tipo = unTipo;
     }
 
     public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategoria(final String unaCategoria) {
+        this.categoria = unaCategoria;
     }
 
     public String getHorario() {
         return horario;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHorario(final String unHorario) {
+        this.horario = unHorario;
     }
 
     public String getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setUbicacion(final String unaUbicacion) {
+        this.ubicacion = unaUbicacion;
     }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono(final String unTelefono) {
+        this.telefono = unTelefono;
     }
 
     public String getWeb() {
         return web;
     }
 
-    public void setWeb(String web) {
-        this.web = web;
+    public void setWeb(final String unaWeb) {
+        this.web = unaWeb;
     }
 
     public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
-        this.precio = precio;
+    public void setPrecio(final String unPrecio) {
+        this.precio = unPrecio;
     }
 
     public ArrayList<ImageIcon> getImagenes() {
         return imagenes;
     }
 
-    public void agregarImagen(String ruta){
+    public void agregarImagen(final String ruta) {
         imagenes.add(new javax.swing.ImageIcon(getClass().getResource(ruta)));
     }
-    
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         boolean valido = false;
-        ComercioActividad ca = (ComercioActividad) obj;
-        if (ca.getNombre().equalsIgnoreCase(this.getNombre())) {
+        final ComercioActividad comercioActividad = (ComercioActividad) obj;
+        if (comercioActividad.getNombre().equalsIgnoreCase(this.getNombre())) {
             valido = true;
         }
         return valido;
     }
-    
     @Override
-    public int compareTo(ComercioActividad cA){
-        return nombre.compareTo(cA.getNombre());
+    public int compareTo(final ComercioActividad comercioActividad) {
+        return nombre.compareTo(comercioActividad.getNombre());
     }
 }

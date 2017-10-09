@@ -11,8 +11,16 @@ class pnlNuevoViaje extends javax.swing.JPanel {
     private final Sistema modelo;
     private final JFrame miVentana;
     private final Viaje modViaje;
+    private com.toedter.calendar.JDateChooser dChooserFechaF;
+    private com.toedter.calendar.JDateChooser dChooserFechaI;
+    private javax.swing.JLabel lblBoton;
+    private javax.swing.JLabel lblCancelar;
+    private javax.swing.JLabel lblEliminar;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JTextField txtNombre;
 
-    public pnlNuevoViaje(Sistema unModelo, JFrame unContenedor, Viaje modificarViaje) {
+    pnlNuevoViaje(final Sistema unModelo, final JFrame unContenedor, final Viaje modificarViaje) {
         initComponents();
         modelo = unModelo;
         miVentana = unContenedor;
@@ -20,8 +28,7 @@ class pnlNuevoViaje extends javax.swing.JPanel {
         lblBoton.setVisible(true);
         dChooserFechaI.getDateEditor().setEnabled(false);
         dChooserFechaF.getDateEditor().setEnabled(false);
-        
-        if (modViaje == null) {      
+        if (modViaje == null) {
             lblVolver.setVisible(false);
             lblEliminar.setVisible(false);
         } else {
@@ -114,34 +121,33 @@ class pnlNuevoViaje extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/NuevoViaje.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed() {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreActionPerformed() { //GEN-FIRST:event_txtNombreActionPerformed
 
-    }//GEN-LAST:event_txtNombreActionPerformed
+    } //GEN-LAST:event_txtNombreActionPerformed
 
-    private void lblEliminarMouseEntered() {//GEN-FIRST:event_lblEliminarMouseEntered
+    private void lblEliminarMouseEntered() { //GEN-FIRST:event_lblEliminarMouseEntered
         lblEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarClicked2.png")));
-    }//GEN-LAST:event_lblEliminarMouseEntered
+    } //GEN-LAST:event_lblEliminarMouseEntered
 
-    private void lblEliminarMouseExited() {//GEN-FIRST:event_lblEliminarMouseExited
+    private void lblEliminarMouseExited() { //GEN-FIRST:event_lblEliminarMouseExited
         lblEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarUnclicked2.png")));
-    }//GEN-LAST:event_lblEliminarMouseExited
+    } //GEN-LAST:event_lblEliminarMouseExited
 
-    private void lblEliminarMouseClicked() {//GEN-FIRST:event_lblEliminarMouseClicked
-        int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el viaje?", "Eliminar Viaje", JOptionPane.OK_CANCEL_OPTION);
+    private void lblEliminarMouseClicked() { //GEN-FIRST:event_lblEliminarMouseClicked
+        final int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el viaje?", "Eliminar Viaje", JOptionPane.OK_CANCEL_OPTION);
         if (respuesta == JOptionPane.OK_OPTION) {
             modelo.eliminarViaje(modViaje);
-            JOptionPane.showMessageDialog(null, "El viaje se eliminó correctamente","Eliminar Viaje", WIDTH);
+            JOptionPane.showMessageDialog(null, "El viaje se eliminó correctamente", "Eliminar Viaje", WIDTH);
             miVentana.dispose();
         }
-    }//GEN-LAST:event_lblEliminarMouseClicked
+    } //GEN-LAST:event_lblEliminarMouseClicked
 
-    private void lblBotonMouseClicked() {//GEN-FIRST:event_lblBotonMouseClicked
+    private void lblBotonMouseClicked() { //GEN-FIRST:event_lblBotonMouseClicked
         if (txtNombre.getText().length() > 0 && dChooserFechaI != null && dChooserFechaF != null) {
             Viaje viaje;
             int respuesta;
-                    
             if (modViaje == null) {
                 respuesta = JOptionPane.showConfirmDialog(null, "¿Desea guardar el viaje?", "Guardar Viaje", JOptionPane.OK_CANCEL_OPTION);
                 viaje = new Viaje();
@@ -150,21 +156,20 @@ class pnlNuevoViaje extends javax.swing.JPanel {
                 viaje = modViaje;
             }
 
-            if (respuesta == JOptionPane.OK_OPTION){
-         
+            if (respuesta == JOptionPane.OK_OPTION) {
                 viaje.setNombre(txtNombre.getText());
-                Calendar c = dChooserFechaI.getCalendar();
+                final Calendar calendar = dChooserFechaI.getCalendar();
 
                 try {
-                    viaje.setFechaI(c);
+                    viaje.setFechaI(calendar);
                     viaje.setFechaF(dChooserFechaI.getCalendar(), dChooserFechaF.getCalendar());
 
                     if (modViaje == null) {
                         modelo.agregarViaje(viaje);
-                        JOptionPane.showMessageDialog(null, "El viaje se guardó correctamente","Guardar Viaje", WIDTH);
+                        JOptionPane.showMessageDialog(null, "El viaje se guardó correctamente", "Guardar Viaje", WIDTH);
                         miVentana.dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null, "El viaje se modificó correctamente","Modificar Viaje", WIDTH);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El viaje se modificó correctamente", "Modificar Viaje", WIDTH);
                                 miVentana.remove(this);
                                 miVentana.add(new pnlMisViajes(modelo, miVentana));
                                 miVentana.pack();
@@ -176,23 +181,23 @@ class pnlNuevoViaje extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Debe completar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }//GEN-LAST:event_lblBotonMouseClicked
+    } //GEN-LAST:event_lblBotonMouseClicked
 
-    private void lblBotonMouseEntered() {//GEN-FIRST:event_lblBotonMouseEntered
+    private void lblBotonMouseEntered() { //GEN-FIRST:event_lblBotonMouseEntered
         lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardarONN.png")));
-    }//GEN-LAST:event_lblBotonMouseEntered
+    } //GEN-LAST:event_lblBotonMouseEntered
 
-    private void lblBotonMouseExited() {//GEN-FIRST:event_lblBotonMouseExited
+    private void lblBotonMouseExited() { //GEN-FIRST:event_lblBotonMouseExited
         lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardar.png")));
-    }//GEN-LAST:event_lblBotonMouseExited
+    } //GEN-LAST:event_lblBotonMouseExited
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlMisViajes(modelo, miVentana));
         miVentana.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
+    } //GEN-LAST:event_lblVolverMouseClicked
 
-    private void lblCancelarMouseClicked() {//GEN-FIRST:event_lblCancelarMouseClicked
+    private void lblCancelarMouseClicked() { //GEN-FIRST:event_lblCancelarMouseClicked
         if (modViaje == null) {
                 miVentana.dispose();
             } else {
@@ -200,24 +205,13 @@ class pnlNuevoViaje extends javax.swing.JPanel {
                miVentana.add(new pnlMisViajes(modelo, miVentana));
                miVentana.pack();
             }
-    }//GEN-LAST:event_lblCancelarMouseClicked
+    } //GEN-LAST:event_lblCancelarMouseClicked
 
-    private void lblCancelarMouseEntered() {//GEN-FIRST:event_lblCancelarMouseEntered
+    private void lblCancelarMouseEntered() { //GEN-FIRST:event_lblCancelarMouseEntered
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarClicked.png")));
-    }//GEN-LAST:event_lblCancelarMouseEntered
+    } //GEN-LAST:event_lblCancelarMouseEntered
 
-    private void lblCancelarMouseExited() {//GEN-FIRST:event_lblCancelarMouseExited
+    private void lblCancelarMouseExited() { //GEN-FIRST:event_lblCancelarMouseExited
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarUnclicked.png")));
-    }//GEN-LAST:event_lblCancelarMouseExited
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser dChooserFechaF;
-    private com.toedter.calendar.JDateChooser dChooserFechaI;
-    private javax.swing.JLabel lblBoton;
-    private javax.swing.JLabel lblCancelar;
-    private javax.swing.JLabel lblEliminar;
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblVolver;
-    private javax.swing.JTextField txtNombre;
-    // End of variables declaration//GEN-END:variables
+    } //GEN-LAST:event_lblCancelarMouseExited
 }

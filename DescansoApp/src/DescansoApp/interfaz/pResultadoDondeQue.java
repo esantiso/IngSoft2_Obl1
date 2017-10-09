@@ -9,26 +9,27 @@ import descansoApp.dominio.Sistema;
 class pResultadoDondeQue extends javax.swing.JPanel {
 
     private final Sistema modelo;
-    private final ComercioActividad cA;
+    private final ComercioActividad comercioActividad;
     private final JPanel padre;
     private final JFrame ventana;
     private final descansoApp.dominio.Ciudad ciudad;
-   
-    public pResultadoDondeQue(Sistema unModelo, ComercioActividad unCA,  JFrame unaVentana, JPanel unPadre, descansoApp.dominio.Ciudad unaCiudad) {
+    private javax.swing.JLabel lblBuscar;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JTextArea txtDes;
+
+    pResultadoDondeQue(final Sistema unModelo, final ComercioActividad unCA,  final JFrame unaVentana, final JPanel unPadre, final descansoApp.dominio.Ciudad unaCiudad) {
         initComponents();
-       
         txtDes.setOpaque(false);
         txtDes.setLayout(new BoxLayout(txtDes, BoxLayout.PAGE_AXIS));
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
         scroll.setBorder(null);
-        
         modelo = unModelo;
-        cA = unCA;
+        comercioActividad = unCA;
         padre = unPadre;
         ventana = unaVentana;
         ciudad = unaCiudad;
-        
         lblNombre.setText(unCA.getNombre());
         txtDes.setText(unCA.getDetalles());
     }
@@ -70,7 +71,7 @@ class pResultadoDondeQue extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,19 +91,12 @@ class pResultadoDondeQue extends javax.swing.JPanel {
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblBuscarMouseClicked() {//GEN-FIRST:event_lblBuscarMouseClicked
+    private void lblBuscarMouseClicked() { //GEN-FIRST:event_lblBuscarMouseClicked
         ventana.remove(padre);
-        ventana.add(new pnlInformacionComercioActividad(modelo, cA, ventana,ciudad));
+        ventana.add(new pnlInformacionComercioActividad(modelo, comercioActividad, ventana, ciudad));
         ventana.pack();
-    }//GEN-LAST:event_lblBuscarMouseClicked
+    } //GEN-LAST:event_lblBuscarMouseClicked
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JScrollPane scroll;
-    private javax.swing.JTextArea txtDes;
-    // End of variables declaration//GEN-END:variables
 }

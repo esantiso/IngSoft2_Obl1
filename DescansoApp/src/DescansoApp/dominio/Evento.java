@@ -17,13 +17,13 @@ public class Evento implements Serializable, Comparable<Evento> {
     private String ubicacion;
     private Ciudad ciudad;
 
-    public Evento(String nombre, Calendar fechaHoraI, Calendar fechaHoraF, String descripcion, String ubicacion, Ciudad ciudad) {
-        this.nombre = nombre;
-        this.fechaHoraI = fechaHoraI;
-        this.fechaHoraF = fechaHoraF;
-        this.descripcion = descripcion;
-        this.ubicacion = ubicacion;
-        this.ciudad = ciudad;
+    public Evento(final String unNombre, final Calendar unaFechaHoraI, final Calendar unaFechaHoraF, final String unaDescripcion, final String unaUbicacion, final Ciudad unaCiudad) {
+        this.nombre = unNombre;
+        this.fechaHoraI = unaFechaHoraI;
+        this.fechaHoraF = unaFechaHoraF;
+        this.descripcion = unaDescripcion;
+        this.ubicacion = unaUbicacion;
+        this.ciudad = unaCiudad;
     }
 
     public Evento() {
@@ -39,33 +39,29 @@ public class Evento implements Serializable, Comparable<Evento> {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(final String unNombre) {
+        this.nombre = unNombre;
     }
 
     public Calendar getFechaHoraI() {
         return fechaHoraI;
     }
 
-    public void setFechaHoraI(Calendar unaFechaHoraI) throws Exception{
+    public void setFechaHoraI(final Calendar unaFechaHoraI) throws Exception {
         Calendar aux = (Calendar) unaFechaHoraI.clone();
-        Calendar c = soloFecha(Calendar.getInstance());
+        Calendar calendar = soloFecha(Calendar.getInstance());
         aux = soloFecha(aux);
-        
-        if (aux.compareTo(c) >= 0) {
-            c = Calendar.getInstance();
-            if (unaFechaHoraI.compareTo(c) >= 0) {
+        if (aux.compareTo(calendar) >= 0) {
+            calendar = Calendar.getInstance();
+            if (unaFechaHoraI.compareTo(calendar) >= 0) {
                 this.fechaHoraI = unaFechaHoraI;
 
 
             } else {
-                throw new Exception ("El evento esta programado para hoy, entonces la hora de inicio debe ser mayor a la actual.");
-                
+                throw new Exception("El evento esta programado para hoy, entonces la hora de inicio debe ser mayor a la actual.");
             }
-
         } else {
-            throw new Exception ("La fecha de inicio del evento debe ser la actual o una futura.");
-            
+            throw new Exception("La fecha de inicio del evento debe ser la actual o una futura.");
         }
     }
 
@@ -73,98 +69,88 @@ public class Evento implements Serializable, Comparable<Evento> {
         return fechaHoraF;
     }
 
-    public void setFechaHoraF(Calendar fechaHoraI, Calendar fechaHoraF) throws Exception{
-        Calendar auxFInicio = (Calendar) fechaHoraI.clone();
-        Calendar auxFFin = (Calendar) fechaHoraF.clone();
+    public void setFechaHoraF(final Calendar unaFechaHoraI, final Calendar unaFechaHoraF) throws Exception {
+        Calendar auxFInicio = (Calendar) unaFechaHoraI.clone();
+        Calendar auxFFin = (Calendar) unaFechaHoraF.clone();
 
         auxFInicio = soloFecha(auxFInicio);
         auxFFin = soloFecha(auxFFin);
 
         if (auxFInicio.compareTo(auxFFin) <= 0) {
 
-            if (fechaHoraI.compareTo(fechaHoraF) <= 0) {
-                this.fechaHoraF = fechaHoraF;
-            } else {
-                throw new Exception("La hora de inicio debe ser mayor a la hora de inicio del evento."); 
-            }
-        } else {
-            throw new Exception("La fecha de inicio del evento debe ser la actual o una futura.");
-        }
+            if (unaFechaHoraI.compareTo(unaFechaHoraF) <= 0) {
+                this.fechaHoraF = unaFechaHoraF;
+            } else throw new Exception("La hora de inicio debe ser mayor a la hora de inicio del evento.");
+        } else throw new Exception("La fecha de inicio del evento debe ser la actual o una futura.");
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(final String unaDescripcion) {
+        this.descripcion = unaDescripcion;
     }
 
     public String getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setUbicacion(final String unaUbicacion) {
+        this.ubicacion = unaUbicacion;
     }
 
     public Ciudad getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
+    public void setCiudad(final Ciudad unaCiudad) {
+        this.ciudad = unaCiudad;
     }
 
     @Override
     public String toString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-        String fI = formatter.format(fechaHoraI.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        final String fechaInicio = formatter.format(fechaHoraI.getTime());
 
-        return fI + " - " + nombre + " (" + ubicacion + ")";
+        return fechaInicio + " - " + nombre + " (" + ubicacion + ")";
     }
-    
     public String horaInicioToString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-        String fI = formatter.format(fechaHoraI.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        final String horaInicio = formatter.format(fechaHoraI.getTime());
 
-        return fI;
+        return horaInicio;
     }
-    
     public String fechaInicioToString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String fI = formatter.format(fechaHoraI.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        final String fechaInicio = formatter.format(fechaHoraI.getTime());
 
-        return fI;
+        return fechaInicio;
     }
-    
     public String horaFinToString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-        String fI = formatter.format(fechaHoraF.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        final String horaFin = formatter.format(fechaHoraF.getTime());
 
-        return fI;
+        return horaFin;
     }
-    
     public String fechaFinToString() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String fI = formatter.format(fechaHoraF.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        final String fechaFin = formatter.format(fechaHoraF.getTime());
 
-        return fI;
+        return fechaFin;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         boolean valido = false;
-        Evento ev = (Evento) obj;
-        if (ev.getNombre().equalsIgnoreCase(this.getNombre())) {
+        final Evento evento = (Evento) obj;
+        if (evento.getNombre().equalsIgnoreCase(this.getNombre())) {
             valido = true;
         }
-        
         return valido;
     }
-    
     @Override
-    public int compareTo(Evento e){
-        return fechaHoraI.compareTo(e.getFechaHoraI());
+    public int compareTo(final Evento evento) {
+        return fechaHoraI.compareTo(evento.getFechaHoraI());
     }
 }

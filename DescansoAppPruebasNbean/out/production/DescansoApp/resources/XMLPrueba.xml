@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<Ciudades>
+  <Ciudad>
+      <Nombre>Montevideo</Nombre>
+      <Descripcion>Linda ciudad</Descripcion>
+      <InfoGral>ESTA ES UNA DESCRIPCION GENERAL</InfoGral>
+	  <Mapa>/resources/montevideo.jpg</Mapa>
+      <Imagenes>
+          <Imagen>
+               <Ruta>/resources/montevideo.jpg</Ruta>
+           </Imagen>
+      </Imagenes>
+      <Actividades>
+          <Actividad>
+               <Nombre>Cartel de Montevideo</Nombre>
+               <Detalles>Cartel con el nombre de Montevideo.</Detalles>
+               <Tipo>actividad</Tipo>
+               <Categoria>Paisajimo</Categoria>
+               <Horario>24horas</Horario>
+               <Ubicacion>Rambla</Ubicacion>
+               <Telefono>No Aplica</Telefono>
+               <Web>No Aplica</Web>
+               <Precio>Gratis</Precio>
+                <Imagenes>
+					<Imagen>
+						<Ruta>/resources/montevideoCartel.jpg</Ruta>
+					</Imagen>
+                </Imagenes>
+            </Actividad>
+      </Actividades>
+      <EstGastronomicos>
+          <EstGastronomico>
+               <Nombre>Bangalore</Nombre>
+               <Detalles>Restorante nuevo con comida exotica.</Detalles>
+               <Tipo>estGastronomico</Tipo>
+               <Categoria>Bangalore</Categoria>
+               <Horario>12:00 a 24:00</Horario>
+               <Ubicacion>Rambla</Ubicacion>
+               <Telefono>25248795</Telefono>
+               <Web>Karnataka</Web>
+               <Precio>$$$$</Precio>
+                <Imagenes>
+					<Imagen>
+						<Ruta>/resources/restaurant.jpg</Ruta>
+					</Imagen>
+                </Imagenes>
+           </EstGastronomico>
+      </EstGastronomicos>
+	  <EstGastronomicos>
+          <EstGastronomico>
+               <Nombre>La Casa Violeta</Nombre>
+               <Detalles>Restorante.</Detalles>
+               <Tipo>estGastronomico</Tipo>
+               <Categoria>Cena</Categoria>
+               <Horario>12:00 a 5:00. 20:00 a 24:00</Horario>
+               <Ubicacion> Rambla Armenia 3667</Ubicacion>
+               <Telefono>26287626</Telefono>
+               <Web>www.lacasavioleta.com.uy</Web>
+               <Precio>$$$</Precio>
+                <Imagenes>
+					<Imagen>
+						<Ruta>/resources/restaurant.jpg</Ruta>
+					</Imagen>
+                </Imagenes>
+           </EstGastronomico>
+      </EstGastronomicos>
+      <Alojamientos>
+          <Alojamiento>
+               <Nombre>Bangalore</Nombre>
+               <Detalles>Hotel moderno.</Detalles>
+               <Tipo>alojamiento</Tipo>
+               <Categoria>Bangalore</Categoria>
+               <Horario>24 horas</Horario>
+               <Ubicacion>Rambla</Ubicacion>
+               <Telefono>Bangalore</Telefono>
+               <Web>www.bangalore.com.uy</Web>
+               <Precio>$$$</Precio>
+                <Imagenes>
+					<Imagen>
+						<Ruta>/resources/hotel.jpg</Ruta>
+					</Imagen>
+                </Imagenes>
+           </Alojamiento>
+      </Alojamientos>
+  </Ciudad>
+</Ciudades>

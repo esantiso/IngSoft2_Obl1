@@ -1,6 +1,6 @@
 package descansoApp.herramientas;
 
-public enum TipoCA{
+public enum TipoCA {
     alojamiento, estGastronomico, actividad, otros
 }
 

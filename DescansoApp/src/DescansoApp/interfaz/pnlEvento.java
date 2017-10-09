@@ -14,8 +14,25 @@ class pnlEvento extends javax.swing.JPanel {
     private final descansoApp.dominio.Ciudad ciudad;
     private final JFrame miVentana;
     private final Sistema modelo;
+    private com.toedter.calendar.JDateChooser dChooserFechaF;
+    private com.toedter.calendar.JDateChooser dChooserFechaI;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCancelar;
+    private javax.swing.JLabel lblEliminar1;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblGuardar;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JFormattedTextField txtHoraFHoras;
+    private javax.swing.JFormattedTextField txtHoraFMinutos;
+    private javax.swing.JFormattedTextField txtHoraIHoras;
+    private javax.swing.JFormattedTextField txtHoraIMinutos;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtUbicacion;
 
-    public pnlEvento(Sistema unModelo, Viaje unViaje, descansoApp.dominio.Ciudad unaCiudad, descansoApp.dominio.ComercioActividad Ca, Evento unEvento, JFrame unContenedor) {
+    pnlEvento(final Sistema unModelo, final Viaje unViaje, final descansoApp.dominio.Ciudad unaCiudad, final descansoApp.dominio.ComercioActividad comercioActividad, final Evento unEvento, final JFrame unContenedor) {
         initComponents();
         modelo = unModelo;
         viaje = unViaje;
@@ -25,11 +42,10 @@ class pnlEvento extends javax.swing.JPanel {
         txtUbicacion.setEnabled(false);
         dChooserFechaI.getDateEditor().setEnabled(false);
         dChooserFechaF.getDateEditor().setEnabled(false);
-        
         if (modEvento == null) {
             lblEliminar1.setVisible(false);
             lblVolver.setVisible(false);
-            txtUbicacion.setText(Ca.getUbicacion());
+            txtUbicacion.setText(comercioActividad.getUbicacion());
         } else {
             lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/ModificarEvento.png")));
             txtNombre.setText(modEvento.getNombre());
@@ -83,7 +99,7 @@ class pnlEvento extends javax.swing.JPanel {
 
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(final java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed();
             }
         });
@@ -93,12 +109,12 @@ class pnlEvento extends javax.swing.JPanel {
 
         txtHoraIMinutos.setBorder(null);
         txtHoraIMinutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(final java.awt.event.ActionEvent evt) {
                 txtHoraIMinutosActionPerformed();
             }
         });
         txtHoraIMinutos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(final java.awt.event.KeyEvent evt) {
                 txtHoraIMinutosKeyTyped(evt);
             }
         });
@@ -106,7 +122,7 @@ class pnlEvento extends javax.swing.JPanel {
 
         txtUbicacion.setBorder(null);
         txtUbicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(final java.awt.event.ActionEvent evt) {
                 txtUbicacionActionPerformed();
             }
         });
@@ -120,12 +136,12 @@ class pnlEvento extends javax.swing.JPanel {
 
         txtHoraFHoras.setBorder(null);
         txtHoraFHoras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(final java.awt.event.ActionEvent evt) {
                 txtHoraFHorasActionPerformed();
             }
         });
         txtHoraFHoras.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(final java.awt.event.KeyEvent evt) {
                 txtHoraFHorasKeyTyped(evt);
             }
         });
@@ -133,12 +149,12 @@ class pnlEvento extends javax.swing.JPanel {
 
         txtHoraIHoras.setBorder(null);
         txtHoraIHoras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(final java.awt.event.ActionEvent evt) {
                 txtHoraIHorasActionPerformed();
             }
         });
         txtHoraIHoras.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(final java.awt.event.KeyEvent evt) {
                 txtHoraIHorasKeyTyped(evt);
             }
         });
@@ -146,12 +162,12 @@ class pnlEvento extends javax.swing.JPanel {
 
         txtHoraFMinutos.setBorder(null);
         txtHoraFMinutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(final java.awt.event.ActionEvent evt) {
                 txtHoraFMinutosActionPerformed();
             }
         });
         txtHoraFMinutos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(final java.awt.event.KeyEvent evt) {
                 txtHoraFMinutosKeyTyped(evt);
             }
         });
@@ -214,52 +230,52 @@ class pnlEvento extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/AgregarEvento.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed() {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreActionPerformed() { //GEN-FIRST:event_txtNombreActionPerformed
 
-    }//GEN-LAST:event_txtNombreActionPerformed
+    } //GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtHoraIMinutosActionPerformed() {//GEN-FIRST:event_txtHoraIMinutosActionPerformed
+    private void txtHoraIMinutosActionPerformed() { //GEN-FIRST:event_txtHoraIMinutosActionPerformed
 
-    }//GEN-LAST:event_txtHoraIMinutosActionPerformed
+    } //GEN-LAST:event_txtHoraIMinutosActionPerformed
 
-    private void txtUbicacionActionPerformed() {//GEN-FIRST:event_txtUbicacionActionPerformed
+    private void txtUbicacionActionPerformed() { //GEN-FIRST:event_txtUbicacionActionPerformed
 
-    }//GEN-LAST:event_txtUbicacionActionPerformed
+    } //GEN-LAST:event_txtUbicacionActionPerformed
 
-    private void txtHoraFHorasActionPerformed() {//GEN-FIRST:event_txtHoraFHorasActionPerformed
+    private void txtHoraFHorasActionPerformed() { //GEN-FIRST:event_txtHoraFHorasActionPerformed
 
-    }//GEN-LAST:event_txtHoraFHorasActionPerformed
+    } //GEN-LAST:event_txtHoraFHorasActionPerformed
 
-    private void txtHoraIHorasActionPerformed() {//GEN-FIRST:event_txtHoraIHorasActionPerformed
+    private void txtHoraIHorasActionPerformed() { //GEN-FIRST:event_txtHoraIHorasActionPerformed
 
-    }//GEN-LAST:event_txtHoraIHorasActionPerformed
+    } //GEN-LAST:event_txtHoraIHorasActionPerformed
 
-    private void txtHoraFMinutosActionPerformed() {//GEN-FIRST:event_txtHoraFMinutosActionPerformed
+    private void txtHoraFMinutosActionPerformed() { //GEN-FIRST:event_txtHoraFMinutosActionPerformed
 
-    }//GEN-LAST:event_txtHoraFMinutosActionPerformed
+    } //GEN-LAST:event_txtHoraFMinutosActionPerformed
 
-    private void lblGuardarMouseEntered() {//GEN-FIRST:event_lblGuardarMouseEntered
+    private void lblGuardarMouseEntered() { //GEN-FIRST:event_lblGuardarMouseEntered
         lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardarONN.png")));
-    }//GEN-LAST:event_lblGuardarMouseEntered
+    } //GEN-LAST:event_lblGuardarMouseEntered
 
-    private void lblGuardarMouseExited() {//GEN-FIRST:event_lblGuardarMouseExited
+    private void lblGuardarMouseExited() { //GEN-FIRST:event_lblGuardarMouseExited
         lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGuardar.png")));
-    }//GEN-LAST:event_lblGuardarMouseExited
+    } //GEN-LAST:event_lblGuardarMouseExited
 
-    private void lblGuardarMouseClicked() {//GEN-FIRST:event_lblGuardarMouseClicked
-        if (txtNombre.getText().length() == 0){
-           JOptionPane.showMessageDialog(null,"Debe ingresar un nombre", "Error", JOptionPane.ERROR_MESSAGE);
-        }else if (dChooserFechaI.getDate() == null) {
-           JOptionPane.showMessageDialog(null,"Debe seleccionar una fecha de inicio", "Error", JOptionPane.ERROR_MESSAGE);
-        }else if (txtHoraIHoras.getText().length() == 0 || txtHoraIMinutos.getText().length() == 0){
-           JOptionPane.showMessageDialog(null,"Debe ingresar hora y minutos de inicio", "Error", JOptionPane.ERROR_MESSAGE);
-        }else if(dChooserFechaF.getDate() == null) {
-           JOptionPane.showMessageDialog(null,"Debe seleccionar una fecha de fin", "Error", JOptionPane.ERROR_MESSAGE);            
-        }else if (txtHoraFHoras.getText().length() == 0 || txtHoraFMinutos.getText().length() == 0) {
-           JOptionPane.showMessageDialog(null,"Debe ingresar hora y minutos de fin", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
+    private void lblGuardarMouseClicked() { //GEN-FIRST:event_lblGuardarMouseClicked
+        if (txtNombre.getText().length() == 0) {
+           JOptionPane.showMessageDialog(null, "Debe ingresar un nombre", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (dChooserFechaI.getDate() == null) {
+           JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha de inicio", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (txtHoraIHoras.getText().length() == 0 || txtHoraIMinutos.getText().length() == 0) {
+           JOptionPane.showMessageDialog(null, "Debe ingresar hora y minutos de inicio", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (dChooserFechaF.getDate() == null) {
+           JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha de fin", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (txtHoraFHoras.getText().length() == 0 || txtHoraFMinutos.getText().length() == 0) {
+           JOptionPane.showMessageDialog(null, "Debe ingresar hora y minutos de fin", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
 
             Evento evento;
             if (modEvento == null) {
@@ -278,15 +294,15 @@ class pnlEvento extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Formato incorrecto de la hora ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
 
             } else {
-                int hIHoras = Integer.parseInt(txtHoraIHoras.getText());
-                int hIMinutos = Integer.parseInt(txtHoraIMinutos.getText());
-                int hFHoras = Integer.parseInt(txtHoraFHoras.getText());
-                int hFMinutos = Integer.parseInt(txtHoraFMinutos.getText());
+                final int hIHoras = Integer.parseInt(txtHoraIHoras.getText());
+                final int hIMinutos = Integer.parseInt(txtHoraIMinutos.getText());
+                final int hFHoras = Integer.parseInt(txtHoraFHoras.getText());
+                final int hFMinutos = Integer.parseInt(txtHoraFMinutos.getText());
 
                 if (hIHoras >= 0 && hIHoras <= 23 && hIMinutos >= 0 && hIMinutos <= 59 && hFHoras >= 0 && hFHoras <= 23 && hFMinutos >= 0 && hFMinutos <= 59) {
 
-                    Calendar cFechaI = dChooserFechaI.getCalendar();
-                    Calendar cFechaF = dChooserFechaF.getCalendar();
+                    final Calendar cFechaI = dChooserFechaI.getCalendar();
+                    final Calendar cFechaF = dChooserFechaF.getCalendar();
 
                     cFechaI.set(Calendar.HOUR_OF_DAY, hIHoras);
                     cFechaI.set(Calendar.MINUTE, hIMinutos);
@@ -296,20 +312,19 @@ class pnlEvento extends javax.swing.JPanel {
                     try {
                         evento.setFechaHoraI(cFechaI);
                         evento.setFechaHoraF(cFechaI, cFechaF);
-                        
                        int respuesta;
                        if (modEvento == null) {
                            respuesta = JOptionPane.showConfirmDialog(null, "¿Desea agregar el evento al viaje?", "Agregar Evento", JOptionPane.OK_CANCEL_OPTION);
-                       }else{
-                           respuesta = JOptionPane.showConfirmDialog(null, "¿Desea modificar el evento del viaje?", "Modificar Evento", JOptionPane.OK_CANCEL_OPTION);   
+                       } else {
+                           respuesta = JOptionPane.showConfirmDialog(null, "¿Desea modificar el evento del viaje?", "Modificar Evento", JOptionPane.OK_CANCEL_OPTION);
                        }
                        if (respuesta == JOptionPane.OK_OPTION) {
                             if (modEvento == null) {
                                 viaje.agregarEvento(evento);
-                                JOptionPane.showMessageDialog(null, "El evento se agregó correctamente","Agregar Evento", WIDTH);
+                                JOptionPane.showMessageDialog(null, "El evento se agregó correctamente", "Agregar Evento", WIDTH);
                                 miVentana.dispose();
                             } else {
-                                JOptionPane.showMessageDialog(null, "El evento se modificó correctamente","Modiicar Evento", WIDTH);
+                                JOptionPane.showMessageDialog(null, "El evento se modificó correctamente", "Modiicar Evento", WIDTH);
                                 miVentana.remove(this);
                                 miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
                                 miVentana.pack();
@@ -322,11 +337,10 @@ class pnlEvento extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Formato incorrecto de la hora ingresada", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        
         }
-    }//GEN-LAST:event_lblGuardarMouseClicked
+    } //GEN-LAST:event_lblGuardarMouseClicked
 
-    private boolean esNumero(String texto) {
+    private boolean esNumero(final String texto) {
         boolean correcto;
 
         try {
@@ -338,69 +352,67 @@ class pnlEvento extends javax.swing.JPanel {
 
         return correcto;
     }
-    
-    private void lblEliminar1MouseClicked() {//GEN-FIRST:event_lblEliminar1MouseClicked
-        int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el evento?", "Eliminar Evento", JOptionPane.OK_CANCEL_OPTION);
+    private void lblEliminar1MouseClicked() { //GEN-FIRST:event_lblEliminar1MouseClicked
+        final int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el evento?", "Eliminar Evento", JOptionPane.OK_CANCEL_OPTION);
         if (respuesta == JOptionPane.OK_OPTION) {
             viaje.eliminarEvento(modEvento);
-            
             miVentana.remove(this);
             miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
             miVentana.pack();
         }
-    }//GEN-LAST:event_lblEliminar1MouseClicked
+    } //GEN-LAST:event_lblEliminar1MouseClicked
 
-    private void lblEliminar1MouseEntered() {//GEN-FIRST:event_lblEliminar1MouseEntered
+    private void lblEliminar1MouseEntered() { //GEN-FIRST:event_lblEliminar1MouseEntered
         lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarClicked2.png")));
-    }//GEN-LAST:event_lblEliminar1MouseEntered
+    } //GEN-LAST:event_lblEliminar1MouseEntered
 
-    private void lblEliminar1MouseExited() {//GEN-FIRST:event_lblEliminar1MouseExited
+    private void lblEliminar1MouseExited() { //GEN-FIRST:event_lblEliminar1MouseExited
         lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnEliminarUnclicked2.png")));
-    }//GEN-LAST:event_lblEliminar1MouseExited
+    } //GEN-LAST:event_lblEliminar1MouseExited
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
         miVentana.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
+    } //GEN-LAST:event_lblVolverMouseClicked
 
-    private void txtHoraIHorasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraIHorasKeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
+    private void txtHoraIHorasKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtHoraIHorasKeyTyped
+        final char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter))) {
             evt.consume();
-        }else if(txtHoraIHoras.getText().length()>=2) {  
+        } else if (txtHoraIHoras.getText().length() >= 2) {
         evt.consume();
     }        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraIHorasKeyTyped
+    } //GEN-LAST:event_txtHoraIHorasKeyTyped
 
-    private void txtHoraIMinutosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraIMinutosKeyTyped
-                char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
+    private void txtHoraIMinutosKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtHoraIMinutosKeyTyped
+        final char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter))) {
             evt.consume();
-        }else if(txtHoraIMinutos.getText().length()>=2) {  
+        } else if (txtHoraIMinutos.getText().length() >= 2) {
         evt.consume();
     }            // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraIMinutosKeyTyped
+    } //GEN-LAST:event_txtHoraIMinutosKeyTyped
 
-    private void txtHoraFHorasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraFHorasKeyTyped
-                        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
+    private void txtHoraFHorasKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtHoraFHorasKeyTyped
+        final char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter))) {
             evt.consume();
-        }else if(txtHoraFHoras.getText().length()>=2) {  
+        } else if (txtHoraFHoras.getText().length() >= 2) {
         evt.consume();
     }       // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraFHorasKeyTyped
+    } //GEN-LAST:event_txtHoraFHorasKeyTyped
 
-    private void txtHoraFMinutosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraFMinutosKeyTyped
-                char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
+    private void txtHoraFMinutosKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtHoraFMinutosKeyTyped
+        final char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter))) {
             evt.consume();
-        }else if(txtHoraFMinutos.getText().length()>=2) {  
+        } else if (txtHoraFMinutos.getText().length() >= 2) {
         evt.consume();
     }               // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraFMinutosKeyTyped
+    } //GEN-LAST:event_txtHoraFMinutosKeyTyped
 
-    private void lblCancelarMouseClicked() {//GEN-FIRST:event_lblCancelarMouseClicked
+    private void lblCancelarMouseClicked() { //GEN-FIRST:event_lblCancelarMouseClicked
          if (modEvento == null) {
                 miVentana.dispose();
             } else {
@@ -408,34 +420,13 @@ class pnlEvento extends javax.swing.JPanel {
                miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
                miVentana.pack();
             }
-    }//GEN-LAST:event_lblCancelarMouseClicked
+    } //GEN-LAST:event_lblCancelarMouseClicked
 
-    private void lblCancelarMouseEntered() {//GEN-FIRST:event_lblCancelarMouseEntered
+    private void lblCancelarMouseEntered() { //GEN-FIRST:event_lblCancelarMouseEntered
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarClicked.png")));        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCancelarMouseEntered
+    } //GEN-LAST:event_lblCancelarMouseEntered
 
-    private void lblCancelarMouseExited() {//GEN-FIRST:event_lblCancelarMouseExited
+    private void lblCancelarMouseExited() { //GEN-FIRST:event_lblCancelarMouseExited
         lblCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCancelarUnclicked.png")));    // TODO add your handling code here:
-    }//GEN-LAST:event_lblCancelarMouseExited
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser dChooserFechaF;
-    private com.toedter.calendar.JDateChooser dChooserFechaI;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCancelar;
-    private javax.swing.JLabel lblEliminar1;
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblGuardar;
-    private javax.swing.JLabel lblVolver;
-    private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JFormattedTextField txtHoraFHoras;
-    private javax.swing.JFormattedTextField txtHoraFMinutos;
-    private javax.swing.JFormattedTextField txtHoraIHoras;
-    private javax.swing.JFormattedTextField txtHoraIMinutos;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtUbicacion;
-    // End of variables declaration//GEN-END:variables
+    } //GEN-LAST:event_lblCancelarMouseExited
 }

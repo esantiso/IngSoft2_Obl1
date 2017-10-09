@@ -7,8 +7,12 @@ class pnlMapas extends javax.swing.JPanel {
     private final Sistema modelo;
     private final descansoApp.dominio.Ciudad ciudad;
     private final JFrame padre;
-    
-    public pnlMapas(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre)  {
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblMapa;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblVolver;
+
+    pnlMapas(final Sistema unModelo, final descansoApp.dominio.Ciudad unaCiudad, final JFrame unPadre)  {
         initComponents();
         modelo = unModelo;
         ciudad = unaCiudad;
@@ -17,8 +21,6 @@ class pnlMapas extends javax.swing.JPanel {
         lblTitulo.setText("Mapa de " + ciudad.getNombre());
         lblMapa.setIcon(ciudad.getMapa());
     }
-
-   
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -47,18 +49,12 @@ class pnlMapas extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo2.1.jpg.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolverMouseClicked
         padre.remove(this);
         padre.add(new pnlInformacionCiudad(modelo, ciudad, padre));
         padre.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
+    } //GEN-LAST:event_lblVolverMouseClicked
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblMapa;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblVolver;
-    // End of variables declaration//GEN-END:variables
 }

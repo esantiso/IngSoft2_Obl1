@@ -1,8 +1,10 @@
 package descansoApp.dominio;
 
 import java.io.Serializable;
-import java.util.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static descansoApp.herramientas.Utilidades.soloFecha;
 
@@ -21,7 +23,7 @@ public class Viaje implements Serializable {
         itinerario = new ArrayList<>();
     }
 
-    public Viaje(String unNombre, Calendar unaFInicio, Calendar unaFFinal) {
+    public Viaje(final String unNombre, final Calendar unaFInicio, final Calendar unaFFinal) {
         nombre = unNombre;
         fechaI = unaFInicio;
         fechaF = unaFFinal;
@@ -32,19 +34,19 @@ public class Viaje implements Serializable {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(final String unNombre) {
+        this.nombre = unNombre;
     }
 
     public Calendar getFechaI() {
         return fechaI;
     }
 
-    public void setFechaI(Calendar fechaI) throws Exception {
-        Calendar c = soloFecha(Calendar.getInstance());
+    public void setFechaI(final Calendar unaFechaI) throws Exception {
+        final Calendar calendar = soloFecha(Calendar.getInstance());
 
-        if (fechaI.compareTo(c) > 0) {
-            this.fechaI = fechaI;
+        if (unaFechaI.compareTo(calendar) > 0) {
+            this.fechaI = unaFechaI;
 
         } else {
             throw new Exception("La fecha de inicio del viaje debe ser la actual o una futura.");
@@ -56,12 +58,12 @@ public class Viaje implements Serializable {
         return fechaF;
     }
 
-    public void setFechaF(Calendar fechaI, Calendar fechaF) throws Exception {
-        Calendar fI = soloFecha(fechaI);
-        Calendar fF = soloFecha(fechaF);
+    public void setFechaF(final Calendar unaFechaI, final Calendar unaFechaF) throws Exception {
+        final Calendar fechaInicio = soloFecha(unaFechaI);
+        final Calendar fechaFin = soloFecha(unaFechaF);
 
-        if (fI.compareTo(fF) <= 0) {
-            this.fechaF = fechaF;
+        if (fechaInicio.compareTo(fechaFin) <= 0) {
+            this.fechaF = unaFechaF;
 
         } else {
             throw new Exception("La fecha final debe ser mayor a la fecha de inicio.");
@@ -73,7 +75,7 @@ public class Viaje implements Serializable {
         return itinerario;
     }
 
-    public void agregarEvento(Evento unEvento) throws Exception {
+    public void agregarEvento(final Evento unEvento) throws Exception {
         if (itinerario.contains(unEvento)) {
             throw new Exception("El nombre del evento ya existe. Por favor ingrese uno nuevo.");
         }
@@ -81,11 +83,11 @@ public class Viaje implements Serializable {
 
     }
 
-    public boolean eliminarEvento(Evento unEvento) {
+    public boolean eliminarEvento(final Evento unEvento) {
         return itinerario.remove(unEvento);
     }
 
-    public boolean pertenece(Evento unEvento) {
+    public boolean pertenece(final Evento unEvento) {
         return itinerario.contains(unEvento);
     }
 
@@ -93,33 +95,32 @@ public class Viaje implements Serializable {
     public String toString() {
         String ret = nombre;
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String fI = formatter.format(fechaI.getTime());
-        String fF = formatter.format(fechaF.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        final String fechaInicio = formatter.format(fechaI.getTime());
+        final String fechaFin = formatter.format(fechaF.getTime());
 
-        ret += " (" + fI + " - " + fF + ")";
+        ret += " (" + fechaInicio + " - " + fechaFin + ")";
 
         return ret;
     }
-    
     public String fechaToString() {
         String ret = "";
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String fI = formatter.format(fechaI.getTime());
-        String fF = formatter.format(fechaF.getTime());
+        final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        final String fechaInicio = formatter.format(fechaI.getTime());
+        final String fechaFin = formatter.format(fechaF.getTime());
 
-        ret += " (" + fI + " - " + fF + ")";
+        ret += " (" + fechaInicio + " - " + fechaFin + ")";
 
         return ret;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         boolean ret = false;
-        Viaje v2 = (Viaje) obj;
+        final Viaje viaje = (Viaje) obj;
 
-        if (nombre.equalsIgnoreCase(v2.getNombre())) {
+        if (nombre.equalsIgnoreCase(viaje.getNombre())) {
             ret = true;
         }
 

@@ -3,7 +3,8 @@ package descansoApp.interfaz;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import descansoApp.dominio.Ciudad;
 import descansoApp.dominio.Sistema;
@@ -13,8 +14,16 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
 
     private final Sistema modelo;
     private final JFrame padre;
+    private javax.swing.JLabel lblBuscar;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblHome;
+    private javax.swing.JLabel lblNoHay;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlResultados;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JTextField txtBuscador;
 
-    public pnlResultadoBusqueda(Sistema unModelo, JFrame unPadre, String palabra) {
+    pnlResultadoBusqueda(Sistema unModelo, JFrame unPadre, String palabra) {
         initComponents();
         pnlResultados.setOpaque(false);
         scroll.setOpaque(false);
@@ -85,7 +94,7 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
         lblTitulo.setText("Resultados de la búsqueda");
         add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 38, -1, -1));
 
-        javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
+        final javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
         pnlResultados.setLayout(pnlResultadosLayout);
         pnlResultadosLayout.setHorizontalGroup(
             pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,22 +111,22 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo2.1.jpg.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void txtBuscadorActionPerformed() {//GEN-FIRST:event_txtBuscadorActionPerformed
+    private void txtBuscadorActionPerformed() { //GEN-FIRST:event_txtBuscadorActionPerformed
 
-    }//GEN-LAST:event_txtBuscadorActionPerformed
+    } //GEN-LAST:event_txtBuscadorActionPerformed
 
-    private void lblBuscarMouseClicked() {//GEN-FIRST:event_lblBuscarMouseClicked
+    private void lblBuscarMouseClicked() { //GEN-FIRST:event_lblBuscarMouseClicked
         if (txtBuscador.getText().length() <= 3) {
             JOptionPane.showMessageDialog(this, "Debe ingresar una palabra clave (más de tres letras) en el cuadro de busqueda", "Busqueda Vacía", JOptionPane.INFORMATION_MESSAGE);
         } else {
             busqueda(txtBuscador.getText());
             txtBuscador.setText("");
         }
-    }//GEN-LAST:event_lblBuscarMouseClicked
+    } //GEN-LAST:event_lblBuscarMouseClicked
 
-    private void txtBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorKeyReleased
+    private void txtBuscadorKeyReleased(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtBuscadorKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (txtBuscador.getText().length() <= 3) {
                 JOptionPane.showMessageDialog(this, "Debe ingresar una palabra clave (más de tres letras) en el cuadro de busqueda", "Busqueda Vacía", JOptionPane.INFORMATION_MESSAGE);
@@ -126,51 +135,40 @@ class pnlResultadoBusqueda extends javax.swing.JPanel {
                 txtBuscador.setText("");
             }
         }
-    }//GEN-LAST:event_txtBuscadorKeyReleased
+    } //GEN-LAST:event_txtBuscadorKeyReleased
 
-    private void lblHomeMouseClicked() {//GEN-FIRST:event_lblHomeMouseClicked
+    private void lblHomeMouseClicked() { //GEN-FIRST:event_lblHomeMouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();
-    }//GEN-LAST:event_lblHomeMouseClicked
+    } //GEN-LAST:event_lblHomeMouseClicked
 
-    private void busqueda(String unaPalabra) {
+    private void busqueda(final String unaPalabra) {
         pnlResultados.removeAll();
         pnlResultados.revalidate();
         pnlResultados.repaint();
 
-        Buscador bus = new Buscador(modelo.getListaCiudades());
-        ArrayList<descansoApp.dominio.Ciudad> resultados = bus.buscar(unaPalabra);
+        final Buscador bus = new Buscador(modelo.getListaCiudades());
+        final ArrayList<descansoApp.dominio.Ciudad> resultados = bus.buscar(unaPalabra);
 
-        int cantResultados = resultados.size();
+        final int cantResultados = resultados.size();
         if (cantResultados > 0) {
             scroll.setVisible(true);
             lblNoHay.setVisible(false);
 
-            for (Ciudad resultado : resultados) {
-                pResultado pr = new pResultado(modelo, resultado, padre, this);
+            for (final Ciudad resultado : resultados) {
+                final pResultado pResultado = new pResultado(modelo, resultado, padre, this);
 
                 pnlResultados.setLayout(new BorderLayout());
-                pnlResultados.add(pr);
-                pr.setVisible(true);
+                pnlResultados.add(pResultado);
+                pResultado.setVisible(true);
                 pnlResultados.setVisible(true);
                 pnlResultados.revalidate();
                 pnlResultados.repaint();
             }
-        }
-        else {
+        } else {
             scroll.setVisible(false);
             lblNoHay.setVisible(true);
-        } 
+        }
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblHome;
-    private javax.swing.JLabel lblNoHay;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JPanel pnlResultados;
-    private javax.swing.JScrollPane scroll;
-    private javax.swing.JTextField txtBuscador;
-    // End of variables declaration//GEN-END:variables
 }

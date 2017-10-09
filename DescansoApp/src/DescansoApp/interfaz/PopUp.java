@@ -2,10 +2,9 @@ package descansoApp.interfaz;
 
 class PopUp extends javax.swing.JFrame {
 
-    public PopUp() {
+    PopUp() {
         initComponents();
     }
-    
     @SuppressWarnings("unchecked")
     private void initComponents() {
 

@@ -27,16 +27,16 @@ import org.xml.sax.SAXException;
  */
 public class XMLReader {
     public static ArrayList<Ciudad> cargarCiudades() {
-        ArrayList<Ciudad> ciudadList = new ArrayList<>();
-        String filePath = "./src/resources/XMLPrueba.xml";
-        File xmlFile = new File(filePath);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        final ArrayList<Ciudad> ciudadList = new ArrayList<>();
+        final String filePath = "./src/resources/XMLPrueba.xml";
+        final File xmlFile = new File(filePath);
+        final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
         try {
             dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
+            final Document doc = dBuilder.parse(xmlFile);
             doc.getDocumentElement().normalize();
-            NodeList nodeList = doc.getElementsByTagName("Ciudad");
+            final NodeList nodeList = doc.getElementsByTagName("Ciudad");
             for (int i = 0; i < nodeList.getLength(); i++) {
                 ciudadList.add(getCiudad(nodeList.item(i)));
             }
@@ -47,46 +47,42 @@ public class XMLReader {
     }
 
 
-    private static Ciudad getCiudad(Node node) {
-        Ciudad ciudad = new Ciudad();
+    private static Ciudad getCiudad(final Node node) {
+        final Ciudad ciudad = new Ciudad();
         if (node.getNodeType() == Node.ELEMENT_NODE) {
-            Element element = (Element) node;
+            final Element element = (Element) node;
             ciudad.setNombre(getTagValue("Nombre", element));
             ciudad.setDescripcion(getTagValue("Descripcion", element));
             ciudad.setInfoGral(getTagValue("InfoGral", element));
             ciudad.setMapa(getTagValue("Mapa", element));
-            Node imagenes = element.getElementsByTagName("Imagenes").item(0);
-                Element imagenesElement = (Element) imagenes;//.item(l);
-                NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
-                for (int m = 0; m < imagenNodo.getLength(); ++m) 
-                   { 
-                        Element imagenElement = (Element) imagenNodo.item(m);
+            final Node imagenes = element.getElementsByTagName("Imagenes").item(0);
+            final Element imagenesElement = (Element) imagenes;
+            final NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
+                for (int m = 0; m < imagenNodo.getLength(); ++m) {
+                       final Element imagenElement = (Element) imagenNodo.item(m);
                         ciudad.agregarImagen(getTagValue("Ruta", imagenElement));
                    }
 
-            NodeList activades = element.getElementsByTagName("Actividades");
+            final NodeList activades = element.getElementsByTagName("Actividades");
             cargarActividades(activades, ciudad);
-            
-            NodeList estGastronomicos = element.getElementsByTagName("EstGastronomicos");
+
+            final NodeList estGastronomicos = element.getElementsByTagName("EstGastronomicos");
             cargarEstGastronomicos(estGastronomicos, ciudad);
-            
-            NodeList alojamientos = element.getElementsByTagName("Alojamientos");
+
+            final NodeList alojamientos = element.getElementsByTagName("Alojamientos");
             cargarAlojamientos(alojamientos, ciudad);
-           
         }
 
         return ciudad;
     }
 
-        private static void cargarActividades(NodeList activades, Ciudad ciudad) {
-        for (int j = 0; j < activades.getLength(); ++j)
-        {
-            Element actividadesElement = (Element) activades.item(j);
-            NodeList actividadNodo = actividadesElement.getElementsByTagName("Actividad");
-            for (int k = 0; k < actividadNodo.getLength(); ++k)
-            {
-                Element actividadElement = (Element) actividadNodo.item(k);
-                ComercioActividad actividad = new ComercioActividad();
+        private static void cargarActividades(final NodeList activades, final  Ciudad ciudad) {
+        for (int j = 0; j < activades.getLength(); ++j) {
+            final Element actividadesElement = (Element) activades.item(j);
+            final NodeList actividadNodo = actividadesElement.getElementsByTagName("Actividad");
+            for (int k = 0; k < actividadNodo.getLength(); ++k) {
+                final Element actividadElement = (Element) actividadNodo.item(k);
+                final ComercioActividad actividad = new ComercioActividad();
                 actividad.setNombre(getTagValue("Nombre", actividadElement));
                 actividad.setDetalles(getTagValue("Detalles", actividadElement));
                 actividad.setTipo(TipoCA.valueOf(getTagValue("Tipo", actividadElement)));
@@ -96,34 +92,28 @@ public class XMLReader {
                 actividad.setTelefono(getTagValue("Telefono", actividadElement));
                 actividad.setWeb(getTagValue("Web", actividadElement));
                 actividad.setPrecio(getTagValue("Precio", actividadElement));
-                
-                NodeList imagenes = actividadElement.getElementsByTagName("Imagenes");
-                for (int l= 0; l < imagenes.getLength(); ++l)
-                {
-                    Element imagenesElement = (Element) imagenes.item(l);
-                    NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
-                    for (int m = 0; m < imagenNodo.getLength(); ++m)
-                    {
-                        Element imagenElement = (Element) imagenNodo.item(m);
+
+                final NodeList imagenes = actividadElement.getElementsByTagName("Imagenes");
+                for (int l = 0; l < imagenes.getLength(); ++l) {
+                    final Element imagenesElement = (Element) imagenes.item(l);
+                    final NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
+                    for (int m = 0; m < imagenNodo.getLength(); ++m) {
+                        final Element imagenElement = (Element) imagenNodo.item(m);
                         actividad.agregarImagen(getTagValue("Ruta", imagenElement));
                     }
                 }
-                
                 ciudad.agregarComercioActividad(TipoCA.actividad, actividad);
             }
-            
         }
     }
 
-    private static void cargarEstGastronomicos(NodeList estGastronomicos, Ciudad ciudad) {
-        for (int j = 0; j < estGastronomicos.getLength(); ++j)
-        {
-            Element estGastronomicosElement = (Element) estGastronomicos.item(j);
-            NodeList estGastronomicoNodo = estGastronomicosElement.getElementsByTagName("EstGastronomico");
-            for (int k = 0; k < estGastronomicoNodo.getLength(); ++k)
-            {
-                Element estGastronomicoElement = (Element) estGastronomicoNodo.item(k);
-                ComercioActividad estGastronomico = new ComercioActividad();
+    private static void cargarEstGastronomicos(final NodeList estGastronomicos, final Ciudad ciudad) {
+        for (int j = 0; j < estGastronomicos.getLength(); ++j) {
+            final Element estGastronomicosElement = (Element) estGastronomicos.item(j);
+            final NodeList estGastronomicoNodo = estGastronomicosElement.getElementsByTagName("EstGastronomico");
+            for (int k = 0; k < estGastronomicoNodo.getLength(); ++k) {
+                final Element estGastronomicoElement = (Element) estGastronomicoNodo.item(k);
+                final ComercioActividad estGastronomico = new ComercioActividad();
                 estGastronomico.setNombre(getTagValue("Nombre", estGastronomicoElement));
                 estGastronomico.setDetalles(getTagValue("Detalles", estGastronomicoElement));
                 estGastronomico.setTipo(TipoCA.valueOf(getTagValue("Tipo", estGastronomicoElement)));
@@ -133,34 +123,28 @@ public class XMLReader {
                 estGastronomico.setTelefono(getTagValue("Telefono", estGastronomicoElement));
                 estGastronomico.setWeb(getTagValue("Web", estGastronomicoElement));
                 estGastronomico.setPrecio(getTagValue("Precio", estGastronomicoElement));
-                
-                NodeList imagenes = estGastronomicoElement.getElementsByTagName("Imagenes");
-                for (int l= 0; l < imagenes.getLength(); ++l)
-                {
-                    Element imagenesElement = (Element) imagenes.item(l);
-                    NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
-                    for (int m = 0; m < imagenNodo.getLength(); ++m)
-                    {
-                        Element imagenElement = (Element) imagenNodo.item(m);
+
+                final NodeList imagenes = estGastronomicoElement.getElementsByTagName("Imagenes");
+                for (int l = 0; l < imagenes.getLength(); ++l) {
+                    final Element imagenesElement = (Element) imagenes.item(l);
+                    final NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
+                    for (int m = 0; m < imagenNodo.getLength(); ++m) {
+                        final Element imagenElement = (Element) imagenNodo.item(m);
                         estGastronomico.agregarImagen(getTagValue("Ruta", imagenElement));
                     }
                 }
-                
                 ciudad.agregarComercioActividad(TipoCA.estGastronomico, estGastronomico);
             }
-            
         }
     }
 
- private static void cargarAlojamientos(NodeList alojamientos, Ciudad ciudad) {
-        for (int j = 0; j < alojamientos.getLength(); ++j)
-        {
-            Element alojamientosElement = (Element) alojamientos.item(j);
-            NodeList alojamientoNodo = alojamientosElement.getElementsByTagName("Alojamiento");
-            for (int k = 0; k < alojamientoNodo.getLength(); ++k)
-            {
-                Element alojamientoElement = (Element) alojamientoNodo.item(k);
-                ComercioActividad alojamiento = new ComercioActividad();
+ private static void cargarAlojamientos(final NodeList alojamientos, final Ciudad ciudad) {
+        for (int j = 0; j < alojamientos.getLength(); ++j) {
+            final Element alojamientosElement = (Element) alojamientos.item(j);
+            final NodeList alojamientoNodo = alojamientosElement.getElementsByTagName("Alojamiento");
+            for (int k = 0; k < alojamientoNodo.getLength(); ++k) {
+                final Element alojamientoElement = (Element) alojamientoNodo.item(k);
+                final ComercioActividad alojamiento = new ComercioActividad();
                 alojamiento.setNombre(getTagValue("Nombre", alojamientoElement));
                 alojamiento.setDetalles(getTagValue("Detalles", alojamientoElement));
                 alojamiento.setTipo(TipoCA.valueOf(getTagValue("Tipo", alojamientoElement)));
@@ -170,29 +154,25 @@ public class XMLReader {
                 alojamiento.setTelefono(getTagValue("Telefono", alojamientoElement));
                 alojamiento.setWeb(getTagValue("Web", alojamientoElement));
                 alojamiento.setPrecio(getTagValue("Precio", alojamientoElement));
-                
-                
-                NodeList imagenes = alojamientoElement.getElementsByTagName("Imagenes");
-                for (int l= 0; l < imagenes.getLength(); ++l)
-                {
-                    Element imagenesElement = (Element) imagenes.item(l);
-                    NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
-                    for (int m = 0; m < imagenNodo.getLength(); ++m)
-                    {
-                        Element imagenElement = (Element) imagenNodo.item(m);
+
+
+                final NodeList imagenes = alojamientoElement.getElementsByTagName("Imagenes");
+                for (int l = 0; l < imagenes.getLength(); ++l) {
+                    final Element imagenesElement = (Element) imagenes.item(l);
+                    final NodeList imagenNodo = imagenesElement.getElementsByTagName("Imagen");
+                    for (int m = 0; m < imagenNodo.getLength(); ++m) {
+                        final Element imagenElement = (Element) imagenNodo.item(m);
                         alojamiento.agregarImagen(getTagValue("Ruta", imagenElement));
                     }
                 }
-                
                 ciudad.agregarComercioActividad(TipoCA.alojamiento, alojamiento);
             }
-            
         }
     }
 
-    private static String getTagValue(String tag, Element element) {
-        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
-        Node node = nodeList.item(0);
+    private static String getTagValue(final String tag, final Element element) {
+        final NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+        final Node node = nodeList.item(0);
         return node.getNodeValue();
     }
 

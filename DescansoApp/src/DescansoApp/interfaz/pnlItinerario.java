@@ -15,8 +15,14 @@ class pnlItinerario extends javax.swing.JPanel {
     private final Sistema modelo;
     private final Viaje viaje;
     private final JFrame miVentana;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblNoHay;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JPanel pnlResultados;
+    private javax.swing.JScrollPane scroll;
 
-    public pnlItinerario(Sistema unModelo, Viaje unViaje, JFrame unContenedor) {
+    pnlItinerario(final Sistema unModelo, final Viaje unViaje, final JFrame unContenedor) {
         initComponents();
         pnlResultados.setOpaque(false);
         pnlResultados.setLayout(new BoxLayout(pnlResultados, BoxLayout.PAGE_AXIS));
@@ -57,7 +63,7 @@ class pnlItinerario extends javax.swing.JPanel {
 
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
+        final javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
         pnlResultados.setLayout(pnlResultadosLayout);
         pnlResultadosLayout.setHorizontalGroup(
             pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,20 +90,20 @@ class pnlItinerario extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Itinerario.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlMisViajes(modelo, miVentana));
         miVentana.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
+    } //GEN-LAST:event_lblVolverMouseClicked
 
     private void cargarItinerario() {
         int cantResultados;
         pnlResultados.removeAll();
         pnlResultados.repaint();
 
-        ArrayList<Evento> resultados = viaje.getItinerario();
+        final ArrayList<Evento> resultados = viaje.getItinerario();
         Collections.sort(resultados);
         cantResultados = resultados.size();
        
@@ -108,22 +114,22 @@ class pnlItinerario extends javax.swing.JPanel {
 
             for (int i = 0; i < cantResultados; i++) {
 
-                Evento actual = resultados.get(i);
+                final Evento actual = resultados.get(i);
 
                 if (actual.getCiudad() != ciudad) {
                     ciudad = actual.getCiudad();
-                    pResultadoIt1 p = new pResultadoIt1(ciudad.getNombre());
-                    pnlResultados.add(p);
+                    final pResultadoIt1 pResultadoIt1 = new pResultadoIt1(ciudad.getNombre());
+                    pnlResultados.add(pResultadoIt1);
                 }
 
                 if (!fechasIguales(actual.getFechaHoraI(), fecha)) {
                     fecha = actual.getFechaHoraI();
-                    pResultadoIt2 p2 = new pResultadoIt2(actual.fechaInicioToString());
-                    pnlResultados.add(p2);
+                    final pResultadoIt2 pResultadoIt2 = new pResultadoIt2(actual.fechaInicioToString());
+                    pnlResultados.add(pResultadoIt2);
                 }
 
-                pResultadoIt3 p3 = new pResultadoIt3(modelo, viaje, actual, miVentana, this);
-                pnlResultados.add(p3);
+                final pResultadoIt3 pResultadoIt3 = new pResultadoIt3(modelo, viaje, actual, miVentana, this);
+                pnlResultados.add(pResultadoIt3);
 
                 pnlResultados.setVisible(true);
                 pnlResultados.revalidate();
@@ -134,24 +140,18 @@ class pnlItinerario extends javax.swing.JPanel {
         }
     }
     
-     private boolean fechasIguales(Calendar f1, Calendar f2){
-        if (f1 == null && f2 != null) return false;
-        if (f1 != null && f2 == null) return false;
-        
-        if (f1.get(Calendar.DAY_OF_MONTH) == f2.get(Calendar.DAY_OF_MONTH))
-            if (f1.get(Calendar.MONTH) == f2.get(Calendar.MONTH))
-                if (f1.get(Calendar.YEAR) == f1.get(Calendar.YEAR))
-                    return true;
-        
+     private boolean fechasIguales(final Calendar calendar1, final Calendar calendar2) {
+        if ((calendar1 == null) && (calendar2 != null)) {
+            return false;
+        }
+        if ((calendar1 != null) && (calendar2 == null)) {
+            return false;
+        }
+        if ((calendar1.get(Calendar.DAY_OF_MONTH) == calendar2.get(Calendar.DAY_OF_MONTH))
+            && (calendar1.get(Calendar.MONTH) == calendar2.get(Calendar.MONTH))
+                && (calendar1.get(Calendar.YEAR) == calendar1.get(Calendar.YEAR))) {
+            return true;
+        }
         return false;
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblNoHay;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblVolver;
-    private javax.swing.JPanel pnlResultados;
-    private javax.swing.JScrollPane scroll;
-    // End of variables declaration//GEN-END:variables
 }

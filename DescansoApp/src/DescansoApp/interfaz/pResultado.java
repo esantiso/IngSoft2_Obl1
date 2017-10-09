@@ -10,19 +10,21 @@ class pResultado extends javax.swing.JPanel {
     private final JPanel padre;
     private final Sistema modelo;
     private final descansoApp.dominio.Ciudad ciudad;
-    
-    public pResultado(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unaVentana, JPanel unPadre) {
+    private javax.swing.JLabel lblBuscar1;
+    private javax.swing.JTextArea lblDes;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JScrollPane scroll;
+
+    pResultado(final Sistema unModelo, final descansoApp.dominio.Ciudad unaCiudad, final JFrame unaVentana, final JPanel unPadre) {
         initComponents();
         modelo = unModelo;
         ciudad = unaCiudad;
         ventana = unaVentana;
         padre = unPadre;
-        
         lblDes.setOpaque(false);
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
         scroll.setBorder(null);
-        
         lblNombre.setText(ciudad.getNombre());
         lblDes.setText(ciudad.getDescripcion());
     }
@@ -64,7 +66,7 @@ class pResultado extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,18 +88,11 @@ class pResultado extends javax.swing.JPanel {
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblBuscar1MouseClicked() {//GEN-FIRST:event_lblBuscar1MouseClicked
-            ventana.remove(padre);
+    private void lblBuscar1MouseClicked() { //GEN-FIRST:event_lblBuscar1MouseClicked
+        ventana.remove(padre);
         ventana.add(new pnlInformacionCiudad(modelo, ciudad, ventana));
         ventana.pack();
-    }//GEN-LAST:event_lblBuscar1MouseClicked
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblBuscar1;
-    private javax.swing.JTextArea lblDes;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JScrollPane scroll;
-    // End of variables declaration//GEN-END:variables
+    } //GEN-LAST:event_lblBuscar1MouseClicked
 }

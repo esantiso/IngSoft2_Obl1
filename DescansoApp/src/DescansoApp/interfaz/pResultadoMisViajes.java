@@ -11,14 +11,16 @@ class pResultadoMisViajes extends javax.swing.JPanel {
     private final Viaje viaje;
     private final JFrame miVentana;
     private final JPanel miPanel;
-    
-    public pResultadoMisViajes(Sistema unModelo, Viaje unViaje, JFrame unContenedorPrincipal, JPanel miContenedor) {
+    private javax.swing.JLabel lblEditar;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblVisualizar;
+    pResultadoMisViajes(final Sistema unModelo, final Viaje unViaje, final JFrame unContenedorPrincipal, final JPanel miContenedor) {
         initComponents();
         modelo = unModelo;
         viaje = unViaje;
         miVentana = unContenedorPrincipal;
         miPanel = miContenedor;
-        
         lblNombre.setText(viaje.getNombre());
         lblFecha.setText(viaje.fechaToString());
     }
@@ -58,7 +60,7 @@ class pResultadoMisViajes extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,24 +84,17 @@ class pResultadoMisViajes extends javax.swing.JPanel {
                 .addComponent(lblEditar))
             .addComponent(lblVisualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblVisualizarMouseClicked() {//GEN-FIRST:event_lblVisualizarMouseClicked
+    private void lblVisualizarMouseClicked() { //GEN-FIRST:event_lblVisualizarMouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
         miVentana.pack();
-    }//GEN-LAST:event_lblVisualizarMouseClicked
+    } //GEN-LAST:event_lblVisualizarMouseClicked
 
-    private void lblEditarMouseClicked() {//GEN-FIRST:event_lblEditarMouseClicked
+    private void lblEditarMouseClicked() { //GEN-FIRST:event_lblEditarMouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlNuevoViaje(modelo, miVentana, viaje));
         miVentana.pack(); // TODO add your handling code here:
-    }//GEN-LAST:event_lblEditarMouseClicked
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblEditar;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblVisualizar;
-    // End of variables declaration//GEN-END:variables
+    } //GEN-LAST:event_lblEditarMouseClicked
 }

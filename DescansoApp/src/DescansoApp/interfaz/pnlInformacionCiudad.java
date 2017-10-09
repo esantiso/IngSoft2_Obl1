@@ -13,8 +13,29 @@ class pnlInformacionCiudad extends javax.swing.JPanel {
     private final JFrame padre;
     private int contador = 0;
     private final ArrayList<ImageIcon> listaImagenes;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAnterior;
+    private javax.swing.JLabel lblDondeComer;
+    private javax.swing.JLabel lblDondeDorimir;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblGaleria;
+    private javax.swing.JLabel lblNombreCiudad;
+    private javax.swing.JLabel lblQueEstaCerca;
+    private javax.swing.JLabel lblQueHacer;
+    private javax.swing.JLabel lblRepercusiones;
+    private javax.swing.JLabel lblSiguiente;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JPanel pnl;
+    private javax.swing.JPanel pnlContenedor;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JTextArea txtInfoGral;
+    private javax.swing.JTextArea txtIntroduccion;
 
-    public pnlInformacionCiudad(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre) {
+    pnlInformacionCiudad(final Sistema unModelo,final descansoApp.dominio.Ciudad unaCiudad,final JFrame unPadre) {
         initComponents();
         modelo = unModelo;
         ciudad = unaCiudad;
@@ -237,7 +258,7 @@ class pnlInformacionCiudad extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(pnl);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,18 +270,18 @@ class pnlInformacionCiudad extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblAnteriorMouseClicked() {//GEN-FIRST:event_lblAnteriorMouseClicked
+    private void lblAnteriorMouseClicked() { //GEN-FIRST:event_lblAnteriorMouseClicked
         if (contador == 0) {
             contador = listaImagenes.size() - 1;
         } else {
             contador--;
         }
         lblGaleria.setIcon(listaImagenes.get(contador));
-    }//GEN-LAST:event_lblAnteriorMouseClicked
+    } //GEN-LAST:event_lblAnteriorMouseClicked
 
-    private void lblSiguienteMouseClicked() {//GEN-FIRST:event_lblSiguienteMouseClicked
+    private void lblSiguienteMouseClicked() { //GEN-FIRST:event_lblSiguienteMouseClicked
         if (contador == listaImagenes.size() - 1) {
             contador = 0;
         } else {
@@ -268,97 +289,69 @@ class pnlInformacionCiudad extends javax.swing.JPanel {
         }
 
         lblGaleria.setIcon(listaImagenes.get(contador));
-    }//GEN-LAST:event_lblSiguienteMouseClicked
+    } //GEN-LAST:event_lblSiguienteMouseClicked
 
-    private void lblDondeDorimirMouseEntered() {//GEN-FIRST:event_lblDondeDorimirMouseEntered
-       
-    }//GEN-LAST:event_lblDondeDorimirMouseEntered
+    private void lblDondeDorimirMouseEntered() { //GEN-FIRST:event_lblDondeDorimirMouseEntered
+    } //GEN-LAST:event_lblDondeDorimirMouseEntered
 
-    private void lblDondeDorimirMouseExited() {//GEN-FIRST:event_lblDondeDorimirMouseExited
+    private void lblDondeDorimirMouseExited() { //GEN-FIRST:event_lblDondeDorimirMouseExited
         lblDondeDorimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnDondeDormir.png")));
-    }//GEN-LAST:event_lblDondeDorimirMouseExited
+    } //GEN-LAST:event_lblDondeDorimirMouseExited
 
-    private void lblDondeComerMouseEntered() {//GEN-FIRST:event_lblDondeComerMouseEntered
-       
-    }//GEN-LAST:event_lblDondeComerMouseEntered
+    private void lblDondeComerMouseEntered() { //GEN-FIRST:event_lblDondeComerMouseEntered
+    } //GEN-LAST:event_lblDondeComerMouseEntered
 
-    private void lblDondeComerMouseExited() {//GEN-FIRST:event_lblDondeComerMouseExited
+    private void lblDondeComerMouseExited() { //GEN-FIRST:event_lblDondeComerMouseExited
         lblDondeComer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnDondeComer.png")));
-    }//GEN-LAST:event_lblDondeComerMouseExited
+    } //GEN-LAST:event_lblDondeComerMouseExited
 
-    private void lblQueHacerMouseEntered() {//GEN-FIRST:event_lblQueHacerMouseEntered
-       
-    }//GEN-LAST:event_lblQueHacerMouseEntered
+    private void lblQueHacerMouseEntered() { //GEN-FIRST:event_lblQueHacerMouseEntered
+    } //GEN-LAST:event_lblQueHacerMouseEntered
 
-    private void lblQueHacerMouseExited() {//GEN-FIRST:event_lblQueHacerMouseExited
+    private void lblQueHacerMouseExited() { //GEN-FIRST:event_lblQueHacerMouseExited
         lblQueHacer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnQueHacer.png")));
-    }//GEN-LAST:event_lblQueHacerMouseExited
+    } //GEN-LAST:event_lblQueHacerMouseExited
 
-    private void lblQueEstaCercaMouseEntered() {//GEN-FIRST:event_lblQueEstaCercaMouseEntered
-      
-    }//GEN-LAST:event_lblQueEstaCercaMouseEntered
+    private void lblQueEstaCercaMouseEntered() { //GEN-FIRST:event_lblQueEstaCercaMouseEntered
+    } //GEN-LAST:event_lblQueEstaCercaMouseEntered
 
-    private void lblQueEstaCercaMouseExited() {//GEN-FIRST:event_lblQueEstaCercaMouseExited
+    private void lblQueEstaCercaMouseExited() { //GEN-FIRST:event_lblQueEstaCercaMouseExited
         lblQueEstaCerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnQueEstaCerca.png")));
-    }//GEN-LAST:event_lblQueEstaCercaMouseExited
+    } //GEN-LAST:event_lblQueEstaCercaMouseExited
 
-    private void lblDondeDorimirMouseClicked() {//GEN-FIRST:event_lblDondeDorimirMouseClicked
+    private void lblDondeDorimirMouseClicked() { //GEN-FIRST:event_lblDondeDorimirMouseClicked
         padre.remove(this);
         padre.add(new pnlDondeQue(modelo, ciudad, padre, alojamiento));
         padre.pack();
-    }//GEN-LAST:event_lblDondeDorimirMouseClicked
+    } //GEN-LAST:event_lblDondeDorimirMouseClicked
 
-    private void lblDondeComerMouseClicked() {//GEN-FIRST:event_lblDondeComerMouseClicked
+    private void lblDondeComerMouseClicked() { //GEN-FIRST:event_lblDondeComerMouseClicked
         padre.remove(this);
         padre.add(new pnlDondeQue(modelo, ciudad, padre, estGastronomico));
         padre.pack();
-    }//GEN-LAST:event_lblDondeComerMouseClicked
+    } //GEN-LAST:event_lblDondeComerMouseClicked
 
-    private void lblQueHacerMouseClicked() {//GEN-FIRST:event_lblQueHacerMouseClicked
+    private void lblQueHacerMouseClicked() { //GEN-FIRST:event_lblQueHacerMouseClicked
         padre.remove(this);
         padre.add(new pnlDondeQue(modelo, ciudad, padre, actividad));
         padre.pack();
-    }//GEN-LAST:event_lblQueHacerMouseClicked
+    } //GEN-LAST:event_lblQueHacerMouseClicked
 
-    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() { //GEN-FIRST:event_lblVolverMouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();
-    }//GEN-LAST:event_lblVolverMouseClicked
+    } //GEN-LAST:event_lblVolverMouseClicked
 
-    private void lblQueEstaCercaMouseClicked() {//GEN-FIRST:event_lblQueEstaCercaMouseClicked
+    private void lblQueEstaCercaMouseClicked() { //GEN-FIRST:event_lblQueEstaCercaMouseClicked
         padre.remove(this);
-        padre.add(new pnlMapas(modelo,ciudad ,padre));
+        padre.add(new pnlMapas(modelo, ciudad, padre));
         padre.pack();
-    }//GEN-LAST:event_lblQueEstaCercaMouseClicked
+    } //GEN-LAST:event_lblQueEstaCercaMouseClicked
 
     private void cargar() {
         lblNombreCiudad.setText(ciudad.getNombre());
         txtIntroduccion.setText(ciudad.getDescripcion());
         txtInfoGral.setText(ciudad.getInfoGral());
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAnterior;
-    private javax.swing.JLabel lblDondeComer;
-    private javax.swing.JLabel lblDondeDorimir;
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblGaleria;
-    private javax.swing.JLabel lblNombreCiudad;
-    private javax.swing.JLabel lblQueEstaCerca;
-    private javax.swing.JLabel lblQueHacer;
-    private javax.swing.JLabel lblRepercusiones;
-    private javax.swing.JLabel lblSiguiente;
-    private javax.swing.JLabel lblVolver;
-    private javax.swing.JPanel pnl;
-    private javax.swing.JPanel pnlContenedor;
-    private javax.swing.JScrollPane scroll1;
-    private javax.swing.JScrollPane scroll2;
-    private javax.swing.JTextArea txtInfoGral;
-    private javax.swing.JTextArea txtIntroduccion;
-    // End of variables declaration//GEN-END:variables
 }

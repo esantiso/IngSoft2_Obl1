@@ -10,6 +10,12 @@ public class pnlInicio extends javax.swing.JPanel {
 
     private final Sistema modelo;
     private final JFrame padre;
+    private javax.swing.JLabel lblBuscador;
+    private javax.swing.JLabel lblBuscar;
+    private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblMisViajes;
+    private javax.swing.JLabel lblNuevoViaje;
+    private javax.swing.JTextField txtBuscador;
 
     public pnlInicio(Sistema unModelo, JFrame miPadre) {
         initComponents();
@@ -93,49 +99,49 @@ public class pnlInicio extends javax.swing.JPanel {
         lblImagen.setVerifyInputWhenFocusTarget(false);
         add(lblImagen);
         lblImagen.setBounds(0, 0, 840, 500);
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void lblNuevoViajeMouseEntered() {//GEN-FIRST:event_lblNuevoViajeMouseEntered
+    private void lblNuevoViajeMouseEntered() { //GEN-FIRST:event_lblNuevoViajeMouseEntered
         lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViajeON.png")));
-    }//GEN-LAST:event_lblNuevoViajeMouseEntered
+    } //GEN-LAST:event_lblNuevoViajeMouseEntered
 
-    private void lblNuevoViajeMouseExited() {//GEN-FIRST:event_lblNuevoViajeMouseExited
+    private void lblNuevoViajeMouseExited() { //GEN-FIRST:event_lblNuevoViajeMouseExited
         lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViaje.png")));
-    }//GEN-LAST:event_lblNuevoViajeMouseExited
+    } //GEN-LAST:event_lblNuevoViajeMouseExited
 
-    private void lblMisViajesMouseEntered() {//GEN-FIRST:event_lblMisViajesMouseEntered
+    private void lblMisViajesMouseEntered() { //GEN-FIRST:event_lblMisViajesMouseEntered
         lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajesON.png")));
-    }//GEN-LAST:event_lblMisViajesMouseEntered
+    } //GEN-LAST:event_lblMisViajesMouseEntered
 
-    private void lblMisViajesMouseExited() {//GEN-FIRST:event_lblMisViajesMouseExited
+    private void lblMisViajesMouseExited() { //GEN-FIRST:event_lblMisViajesMouseExited
         lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajes.png")));
-    }//GEN-LAST:event_lblMisViajesMouseExited
+    } //GEN-LAST:event_lblMisViajesMouseExited
 
-    private void lblNuevoViajeMouseClicked() {//GEN-FIRST:event_lblNuevoViajeMouseClicked
-        PopUp p= new PopUp();
-        p.add(new pnlNuevoViaje(modelo, p, null));
-        p.pack();
-        p.setLocationRelativeTo(null);
-        p.setVisible(true);
-    }//GEN-LAST:event_lblNuevoViajeMouseClicked
+    private void lblNuevoViajeMouseClicked() { //GEN-FIRST:event_lblNuevoViajeMouseClicked
+        final PopUp popUp = new PopUp();
+        popUp.add(new pnlNuevoViaje(modelo, popUp, null));
+        popUp.pack();
+        popUp.setLocationRelativeTo(null);
+        popUp.setVisible(true);
+    } //GEN-LAST:event_lblNuevoViajeMouseClicked
 
-    private void lblMisViajesMouseClicked() {//GEN-FIRST:event_lblMisViajesMouseClicked
-        PopUp p= new PopUp();
-        p.add(new pnlMisViajes(modelo, p));
-        p.pack();
-        p.setLocationRelativeTo(null);
-        p.setVisible(true);
-    }//GEN-LAST:event_lblMisViajesMouseClicked
+    private void lblMisViajesMouseClicked() { //GEN-FIRST:event_lblMisViajesMouseClicked
+        final PopUp popUp = new PopUp();
+        popUp.add(new pnlMisViajes(modelo, popUp));
+        popUp.pack();
+        popUp.setLocationRelativeTo(null);
+        popUp.setVisible(true);
+    } //GEN-LAST:event_lblMisViajesMouseClicked
 
-    private void lblBuscarMouseClicked() {//GEN-FIRST:event_lblBuscarMouseClicked
+    private void lblBuscarMouseClicked() { //GEN-FIRST:event_lblBuscarMouseClicked
         buscar();
-    }//GEN-LAST:event_lblBuscarMouseClicked
+    } //GEN-LAST:event_lblBuscarMouseClicked
 
-    private void txtBuscadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscadorKeyReleased
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+    private void txtBuscadorKeyReleased(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtBuscadorKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             buscar();
         }
-    }//GEN-LAST:event_txtBuscadorKeyReleased
+    } //GEN-LAST:event_txtBuscadorKeyReleased
 
     private void buscar() {
         if (txtBuscador.getText().length() <= 3) {
@@ -146,13 +152,4 @@ public class pnlInicio extends javax.swing.JPanel {
             padre.pack();
         }
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblBuscador;
-    private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblImagen;
-    private javax.swing.JLabel lblMisViajes;
-    private javax.swing.JLabel lblNuevoViaje;
-    private javax.swing.JTextField txtBuscador;
-    // End of variables declaration//GEN-END:variables
 }

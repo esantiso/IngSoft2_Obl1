@@ -10,8 +10,12 @@ class pnlMisViajes extends javax.swing.JPanel {
 
     private final Sistema modelo;
     private final JFrame miVentana;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblNoHay;
+    private javax.swing.JPanel pnlResultados;
+    private javax.swing.JScrollPane scroll;
 
-    public pnlMisViajes(Sistema unModelo, JFrame unContenedor) {
+    pnlMisViajes(final Sistema unModelo, final JFrame unContenedor) {
         initComponents();
         pnlResultados.setOpaque(false);
         pnlResultados.setLayout(new BoxLayout(pnlResultados, BoxLayout.PAGE_AXIS));
@@ -41,7 +45,7 @@ class pnlMisViajes extends javax.swing.JPanel {
         scroll.setMinimumSize(new java.awt.Dimension(440, 195));
         scroll.setPreferredSize(new java.awt.Dimension(440, 195));
 
-        javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
+        final javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
         pnlResultados.setLayout(pnlResultadosLayout);
         pnlResultadosLayout.setHorizontalGroup(
             pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,22 +67,22 @@ class pnlMisViajes extends javax.swing.JPanel {
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/MisViajes.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 280));
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
     private void cargarViajes() {
         pnlResultados.removeAll();
         pnlResultados.repaint();
 
-        ArrayList<Viaje> resultados = modelo.getListaViajes();
+        final ArrayList<Viaje> resultados = modelo.getListaViajes();
 
-        int cantResultados = resultados.size();
+        final int cantResultados = resultados.size();
         if (cantResultados > 0) {
             lblNoHay.setVisible(false);
 
-            for (Viaje resultado : resultados) {
-                pResultadoMisViajes p = new pResultadoMisViajes(modelo, resultado, miVentana, this);
+            for (final Viaje resultado : resultados) {
+                final pResultadoMisViajes pResultadoMisViajes = new pResultadoMisViajes(modelo, resultado, miVentana, this);
 
-                pnlResultados.add(p);
+                pnlResultados.add(pResultadoMisViajes);
             }
 
             pnlResultados.setVisible(true);
@@ -88,10 +92,4 @@ class pnlMisViajes extends javax.swing.JPanel {
             lblNoHay.setVisible(true);
         }
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblFondo;
-    private javax.swing.JLabel lblNoHay;
-    private javax.swing.JPanel pnlResultados;
-    private javax.swing.JScrollPane scroll;
-    // End of variables declaration//GEN-END:variables
 }
