@@ -18,18 +18,15 @@ public class Informacion {
 
         ArrayList<Ciudad> ret = new ArrayList<>();
 
-        Iterator<String> it = cdades.iterator();
-        while (it.hasNext()) {
+        for (String cdade : cdades) {
             nombre = "";
             des = "";
             info = "";
 
-            String ciudad = it.next();
+            String ciudad = cdade;
             String[] txtCiudad = ciudad.split("\n");
 
-            for (int i = 0; i < txtCiudad.length; i++) {
-                String linea = txtCiudad[i];
-
+            for (String linea : txtCiudad) {
                 if (averiguarParte(linea) == -2) {
                     if (!linea.equals("")) {
                         switch (parte) {
@@ -38,7 +35,7 @@ public class Informacion {
                                 break;
                             case 1:
                                 if (linea.equals("-/")) des += "\n";
-                                else  des += linea;
+                                else des += linea;
                                 break;
                             case 2:
                                 info += linea;
@@ -58,11 +55,11 @@ public class Informacion {
             c.setDescripcion(des);
             c.setInfoGral(info);
 
-            for (int i = 0; i < listaImg.size(); i++) {
-                c.agregarImagen(listaImg.get(i));
+            for (String aListaImg : listaImg) {
+                c.agregarImagen(aListaImg);
             }
 
-           
+
             agregarCAs(c);
             ret.add(c);
         }
@@ -96,15 +93,13 @@ public class Informacion {
         String[] comerciosA = BaseDatos.comerciosActividades().split("#end");
 
         //Itero entre los comercios y actividades
-        for (int i = 0; i < comerciosA.length; i++) {
+        for (String aComerciosA : comerciosA) {
             String[] datos = {"", "", "", "", "", "", "", "", ""};
             ArrayList<String> listaImg = new ArrayList<>();
 
-            String[] txtCA = comerciosA[i].split("\n");
+            String[] txtCA = aComerciosA.split("\n");
             //Itero dentro del texto del comercio-actividad
-            for (int j = 0; j < txtCA.length; j++) {
-                String linea = txtCA[j];
-
+            for (String linea : txtCA) {
                 if (averiguarParte2(linea) == -2) {
                     if (linea.length() > 1) {
                         if (parte == 9) {
@@ -140,9 +135,8 @@ public class Informacion {
             cA.setWeb(datos[7]);
             cA.setPrecio(datos[8]);
 
-            Iterator<String> it = listaImg.iterator();
-            while (it.hasNext()) {
-                cA.agregarImagen(it.next());
+            for (String aListaImg : listaImg) {
+                cA.agregarImagen(aListaImg);
             }
 
             c.agregarComercioActividad(cA.getTipo(), cA);

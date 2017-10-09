@@ -6,13 +6,13 @@ import javax.swing.JPanel;
 import descansoApp.dominio.ComercioActividad;
 import descansoApp.dominio.Sistema;
 
-public class pResultadoDondeQue extends javax.swing.JPanel {
+class pResultadoDondeQue extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private ComercioActividad cA;
-    private JPanel padre;
-    private JFrame ventana;
-    private descansoApp.dominio.Ciudad ciudad;
+    private final Sistema modelo;
+    private final ComercioActividad cA;
+    private final JPanel padre;
+    private final JFrame ventana;
+    private final descansoApp.dominio.Ciudad ciudad;
    
     public pResultadoDondeQue(Sistema unModelo, ComercioActividad unCA,  JFrame unaVentana, JPanel unPadre, descansoApp.dominio.Ciudad unaCiudad) {
         initComponents();
@@ -49,7 +49,7 @@ public class pResultadoDondeQue extends javax.swing.JPanel {
         lblNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblNombreMouseClicked(evt);
+                lblNombreMouseClicked();
             }
         });
 
@@ -83,7 +83,7 @@ public class pResultadoDondeQue extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
+    private void lblNombreMouseClicked() {//GEN-FIRST:event_lblNombreMouseClicked
         ventana.remove(padre);
         ventana.add(new pnlInformacionComercioActividad(modelo, cA, ventana,ciudad));
         ventana.pack();

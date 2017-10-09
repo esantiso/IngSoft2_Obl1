@@ -4,13 +4,15 @@ import java.io.Serializable;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+import static descansoApp.herramientas.Utilidades.soloFecha;
+
 
 public class Viaje implements Serializable {
 
     private String nombre;
     private Calendar fechaI;
     private Calendar fechaF;
-    private ArrayList<Evento> itinerario;
+    private final ArrayList<Evento> itinerario;
 
     public Viaje() {
         nombre = "";
@@ -48,15 +50,6 @@ public class Viaje implements Serializable {
             throw new Exception("La fecha de inicio del viaje debe ser la actual o una futura.");
 
         }
-    }
-      public Calendar soloFecha(Calendar f) {
-        f.set(Calendar.HOUR, 0);
-        f.set(Calendar.HOUR_OF_DAY, 0);
-        f.set(Calendar.MINUTE, 0);
-        f.set(Calendar.SECOND, 0);
-        f.set(Calendar.MILLISECOND, 0);
-
-        return f;
     }
 
     public Calendar getFechaF() {
@@ -98,8 +91,7 @@ public class Viaje implements Serializable {
 
     @Override
     public String toString() {
-        String ret = "";
-        ret = nombre;
+        String ret = nombre;
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String fI = formatter.format(fechaI.getTime());

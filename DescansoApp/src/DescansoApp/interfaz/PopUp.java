@@ -1,6 +1,6 @@
 package descansoApp.interfaz;
 
-public class PopUp extends javax.swing.JFrame {
+class PopUp extends javax.swing.JFrame {
 
     public PopUp() {
         initComponents();

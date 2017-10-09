@@ -3,10 +3,10 @@ package descansoApp.interfaz;
 import javax.swing.JFrame;
 import descansoApp.dominio.Sistema;
 
-public class pnlMapas extends javax.swing.JPanel {
-    private Sistema modelo;
-    private descansoApp.dominio.Ciudad ciudad;
-    private JFrame padre;
+class pnlMapas extends javax.swing.JPanel {
+    private final Sistema modelo;
+    private final descansoApp.dominio.Ciudad ciudad;
+    private final JFrame padre;
     
     public pnlMapas(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre)  {
         initComponents();

@@ -9,10 +9,10 @@ public class Ciudad implements Serializable {
     private String nombre;
     private String descripcion;
     private String infoGral;
-    private ArrayList<ImageIcon> imagenes;
-    private ArrayList<ComercioActividad> actividades;
-    private ArrayList<ComercioActividad> estGastronomicos;
-    private ArrayList<ComercioActividad> alojamientos;
+    private final ArrayList<ImageIcon> imagenes;
+    private final ArrayList<ComercioActividad> actividades;
+    private final ArrayList<ComercioActividad> estGastronomicos;
+    private final ArrayList<ComercioActividad> alojamientos;
     
     public String getNombre() {
         return nombre;
@@ -86,7 +86,7 @@ public class Ciudad implements Serializable {
         alojamientos = new ArrayList<>();
     }
     
-    public Ciudad(String unNombre, String unaInfo) {
+    public Ciudad(String unNombre) {
         nombre = unNombre;
         infoGral = "";
         imagenes = new ArrayList<>();

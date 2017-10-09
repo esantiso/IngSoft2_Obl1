@@ -15,7 +15,7 @@ public class ComercioActividad implements Serializable, Comparable<ComercioActiv
     private String telefono;
     private String web;
     private String precio;
-    private ArrayList<ImageIcon> imagenes;
+    private final ArrayList<ImageIcon> imagenes;
 
     public ComercioActividad() {
         this.nombre = "";

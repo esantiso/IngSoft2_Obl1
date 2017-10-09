@@ -6,27 +6,30 @@ import javax.swing.JOptionPane;
 import descansoApp.dominio.Evento;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
-import descansoApp.herramientas.EsNumero;
 
-public class pnlEvento extends javax.swing.JPanel {
+class pnlEvento extends javax.swing.JPanel {
 
-    private Viaje viaje;
-    private Evento modEvento;
-    private descansoApp.dominio.Ciudad ciudad;
-    private JFrame miVentana;
-    private Sistema modelo;
+    private final Viaje viaje;
+    private final Evento modEvento;
+    private final descansoApp.dominio.Ciudad ciudad;
+    private final JFrame miVentana;
+    private final Sistema modelo;
 
-    public pnlEvento(Sistema unModelo, Viaje unViaje, descansoApp.dominio.Ciudad unaCiudad, Evento unEvento, JFrame unContenedor) {
+    public pnlEvento(Sistema unModelo, Viaje unViaje, descansoApp.dominio.Ciudad unaCiudad, descansoApp.dominio.ComercioActividad Ca, Evento unEvento, JFrame unContenedor) {
         initComponents();
         modelo = unModelo;
         viaje = unViaje;
         modEvento = unEvento;
         ciudad = unaCiudad;
         miVentana = unContenedor;
-
+        txtUbicacion.setEnabled(false);
+        dChooserFechaI.getDateEditor().setEnabled(false);
+        dChooserFechaF.getDateEditor().setEnabled(false);
+        
         if (modEvento == null) {
             lblEliminar1.setVisible(false);
             lblVolver.setVisible(false);
+            txtUbicacion.setText(Ca.getUbicacion());
         } else {
             lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/ModificarEvento.png")));
             txtNombre.setText(modEvento.getNombre());
@@ -36,8 +39,8 @@ public class pnlEvento extends javax.swing.JPanel {
             txtHoraFHoras.setText("" + modEvento.getFechaHoraF().get(Calendar.HOUR));
             txtHoraFMinutos.setText("" + modEvento.getFechaHoraF().get(Calendar.MINUTE));
             txtUbicacion.setText(modEvento.getUbicacion());
-            dChosserFechaI.setCalendar(modEvento.getFechaHoraI());
-            dChosserFechaF.setCalendar(modEvento.getFechaHoraF());
+            dChooserFechaI.setCalendar(modEvento.getFechaHoraI());
+            dChooserFechaF.setCalendar(modEvento.getFechaHoraF());
         }
     }
 
@@ -48,8 +51,8 @@ public class pnlEvento extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
         txtNombre = new javax.swing.JTextField();
-        dChosserFechaI = new com.toedter.calendar.JDateChooser();
-        dChosserFechaF = new com.toedter.calendar.JDateChooser();
+        dChooserFechaI = new com.toedter.calendar.JDateChooser();
+        dChooserFechaF = new com.toedter.calendar.JDateChooser();
         txtHoraIMinutos = new javax.swing.JFormattedTextField();
         txtUbicacion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -85,13 +88,18 @@ public class pnlEvento extends javax.swing.JPanel {
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 130, 18));
-        add(dChosserFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 130, -1));
-        add(dChosserFechaF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
+        add(dChooserFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 130, -1));
+        add(dChooserFechaF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
 
         txtHoraIMinutos.setBorder(null);
         txtHoraIMinutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHoraIMinutosActionPerformed(evt);
+            }
+        });
+        txtHoraIMinutos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHoraIMinutosKeyTyped(evt);
             }
         });
         add(txtHoraIMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 19, 18));
@@ -116,6 +124,11 @@ public class pnlEvento extends javax.swing.JPanel {
                 txtHoraFHorasActionPerformed(evt);
             }
         });
+        txtHoraFHoras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHoraFHorasKeyTyped(evt);
+            }
+        });
         add(txtHoraFHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 19, 18));
 
         txtHoraIHoras.setBorder(null);
@@ -124,12 +137,22 @@ public class pnlEvento extends javax.swing.JPanel {
                 txtHoraIHorasActionPerformed(evt);
             }
         });
+        txtHoraIHoras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHoraIHorasKeyTyped(evt);
+            }
+        });
         add(txtHoraIHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 19, 18));
 
         txtHoraFMinutos.setBorder(null);
         txtHoraFMinutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHoraFMinutosActionPerformed(evt);
+            }
+        });
+        txtHoraFMinutos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHoraFMinutosKeyTyped(evt);
             }
         });
         add(txtHoraFMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 19, 18));
@@ -210,9 +233,8 @@ public class pnlEvento extends javax.swing.JPanel {
     }//GEN-LAST:event_lblGuardarMouseExited
 
     private void lblGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseClicked
-        if (txtNombre.getText().length() > 0 && txtUbicacion.getText().length() > 0 && txtDescripcion.getText().length() > 0
-                && txtHoraIHoras.getText().length() > 0 && txtHoraIMinutos.getText().length() > 0 && txtHoraFHoras.getText().length() > 0
-                && txtHoraFMinutos.getText().length() > 0 && dChosserFechaI != null && dChosserFechaF != null) {
+        if (txtNombre.getText().length() > 0 && txtHoraIHoras.getText().length() > 0 && txtHoraIMinutos.getText().length() > 0 && txtHoraFHoras.getText().length() > 0
+                && txtHoraFMinutos.getText().length() > 0 && dChooserFechaI != null && dChooserFechaF != null) {
 
             Evento evento;
             if (modEvento == null) {
@@ -238,8 +260,8 @@ public class pnlEvento extends javax.swing.JPanel {
 
                 if ((hIHoras >= 0 && hIHoras <= 23) && (hIMinutos >= 0 && hIMinutos <= 59) && (hFHoras >= 0 && hFHoras <= 23) && (hFMinutos >= 0 && hFMinutos <= 59)) {
 
-                    Calendar cFechaI = dChosserFechaI.getCalendar();
-                    Calendar cFechaF = dChosserFechaF.getCalendar();
+                    Calendar cFechaI = dChooserFechaI.getCalendar();
+                    Calendar cFechaF = dChooserFechaF.getCalendar();
 
                     cFechaI.set(Calendar.HOUR_OF_DAY, hIHoras);
                     cFechaI.set(Calendar.MINUTE, hIMinutos);
@@ -271,12 +293,11 @@ public class pnlEvento extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lblGuardarMouseClicked
 
-    public boolean esNumero(String texto) {
+    private boolean esNumero(String texto) {
         boolean correcto;
-        int num;
 
         try {
-            num = Integer.parseInt(texto);
+            Integer.parseInt(texto);
             correcto = true;
         } catch (NumberFormatException e) {
             correcto = false;
@@ -310,10 +331,46 @@ public class pnlEvento extends javax.swing.JPanel {
         miVentana.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 
+    private void txtHoraIHorasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraIHorasKeyTyped
+        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }else if(txtHoraIHoras.getText().length()>=2) {  
+        evt.consume();
+    }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoraIHorasKeyTyped
+
+    private void txtHoraIMinutosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraIMinutosKeyTyped
+                char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }else if(txtHoraIMinutos.getText().length()>=2) {  
+        evt.consume();
+    }            // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoraIMinutosKeyTyped
+
+    private void txtHoraFHorasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraFHorasKeyTyped
+                        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }else if(txtHoraFHoras.getText().length()>=2) {  
+        evt.consume();
+    }       // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoraFHorasKeyTyped
+
+    private void txtHoraFMinutosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraFMinutosKeyTyped
+                char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }else if(txtHoraFMinutos.getText().length()>=2) {  
+        evt.consume();
+    }               // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoraFMinutosKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser dChosserFechaF;
-    private com.toedter.calendar.JDateChooser dChosserFechaI;
+    private com.toedter.calendar.JDateChooser dChooserFechaF;
+    private com.toedter.calendar.JDateChooser dChooserFechaI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

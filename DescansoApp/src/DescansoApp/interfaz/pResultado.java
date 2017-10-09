@@ -4,12 +4,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import descansoApp.dominio.Sistema;
 
-public class pResultado extends javax.swing.JPanel {
+class pResultado extends javax.swing.JPanel {
 
-    private JFrame ventana;
-    private JPanel padre;
-    private Sistema modelo;
-    private descansoApp.dominio.Ciudad ciudad;
+    private final JFrame ventana;
+    private final JPanel padre;
+    private final Sistema modelo;
+    private final descansoApp.dominio.Ciudad ciudad;
     
     public pResultado(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unaVentana, JPanel unPadre) {
         initComponents();

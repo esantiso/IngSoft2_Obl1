@@ -6,7 +6,7 @@ import descansoApp.dominio.Ciudad;
 
 public class Buscador {
 
-    public ArrayList<Ciudad> ciudades;
+    private final ArrayList<Ciudad> ciudades;
 
     public Buscador(ArrayList<Ciudad> lista) {
         ciudades = lista;
@@ -17,10 +17,7 @@ public class Buscador {
         palabra = palabra.trim();
         ArrayList<Ciudad> ret = new ArrayList<>();
 
-        Iterator<Ciudad> it = ciudades.iterator();
-        while (it.hasNext()) {
-            Ciudad c = it.next();
-
+        for (Ciudad c : ciudades) {
             String s = c.getNombre();
             s = s.toLowerCase();
             s = s.trim();

@@ -1,6 +1,6 @@
 package descansoApp.interfaz;
 
-public class pResultadoIt2 extends javax.swing.JPanel {
+class pResultadoIt2 extends javax.swing.JPanel {
 
     public pResultadoIt2(String unaFecha) {
         initComponents();

@@ -10,7 +10,6 @@ import descansoApp.herramientas.TipoCA;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,7 +28,7 @@ import org.xml.sax.SAXException;
 public class XMLReader {
     
     public static ArrayList<Ciudad> cargarCiudades() {
-        ArrayList<Ciudad> ciudadList = new ArrayList<Ciudad>();
+        ArrayList<Ciudad> ciudadList = new ArrayList<>();
         String filePath = "./src/resources/XMLPrueba.xml";
         
         File xmlFile = new File(filePath);
@@ -195,7 +194,7 @@ public class XMLReader {
 
     private static String getTagValue(String tag, Element element) {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
-        Node node = (Node) nodeList.item(0);
+        Node node = nodeList.item(0);
         return node.getNodeValue();
     }
 

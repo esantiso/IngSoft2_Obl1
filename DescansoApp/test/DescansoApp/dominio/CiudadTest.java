@@ -1,12 +1,7 @@
 package descansoApp.dominio;
 
-import descansoApp.dominio.ComercioActividad;
-import descansoApp.dominio.Ciudad;
 import descansoApp.herramientas.TipoCA;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class CiudadTest {
     
@@ -14,7 +9,7 @@ public class CiudadTest {
     public void testGetNombre() {
         System.out.println("Get Nombre");
         String nombre = "Fray Bentos";
-        Ciudad instance = new Ciudad(nombre, "");
+        Ciudad instance = new Ciudad(nombre);
         
         String expResult = "Fray Bentos";
         String result = instance.getNombre();
@@ -60,7 +55,7 @@ public class CiudadTest {
     public void testGetInfoGral() {
         System.out.println("Get Info Gral");
         String infoGral = "Informacion";
-        Ciudad instance = new Ciudad("",infoGral);
+        Ciudad instance = new Ciudad("");
        
         
         String expResult = "Informacion";

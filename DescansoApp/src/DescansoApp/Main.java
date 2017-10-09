@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import descansoApp.Informacion;
 import descansoApp.dominio.Ciudad;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.XMLReader;
@@ -17,7 +16,7 @@ import descansoApp.interfaz.pnlInicio;
 
 public class Main {
 
-    public static Sistema modelo;
+    private static Sistema modelo;
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         modelo = cargarModelo();
@@ -30,7 +29,7 @@ public class Main {
     }
 
     //Método para cargar el sistema
-    public static Sistema cargarModelo() throws IOException {
+    private static Sistema cargarModelo() throws IOException {
         Sistema unModelo;
 
         try {
@@ -45,8 +44,9 @@ public class Main {
             unModelo = new Sistema();
 
             ArrayList<Ciudad> cdads = XMLReader.cargarCiudades();//Informacion.ciudades();
-            for (int i=0; i < cdads.size(); i++)
-                unModelo.agregarCiudad(cdads.get(i));
+            for (Ciudad cdad : cdads) {
+                unModelo.agregarCiudad(cdad);
+            }
         }
 
         return unModelo;

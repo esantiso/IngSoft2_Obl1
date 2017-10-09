@@ -6,11 +6,11 @@ import javax.swing.JOptionPane;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
 
-public class pnlNuevoViaje extends javax.swing.JPanel {
+class pnlNuevoViaje extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private JFrame miVentana;
-    private Viaje modViaje;
+    private final Sistema modelo;
+    private final JFrame miVentana;
+    private final Viaje modViaje;
 
     public pnlNuevoViaje(Sistema unModelo, JFrame unContenedor, Viaje modificarViaje) {
         initComponents();
@@ -18,7 +18,9 @@ public class pnlNuevoViaje extends javax.swing.JPanel {
         miVentana = unContenedor;
         modViaje = modificarViaje;
         lblBoton.setVisible(true);
-
+        dChooserFechaI.getDateEditor().setEnabled(false);
+        dChooserFechaF.getDateEditor().setEnabled(false);
+        
         if (modViaje == null) {      
             lblVolver.setVisible(false);
         } else {

@@ -8,8 +8,8 @@ import descansoApp.dominio.Sistema;
 
 public class pnlInicio extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private JFrame padre;
+    private final Sistema modelo;
+    private final JFrame padre;
 
     public pnlInicio(Sistema unModelo, JFrame miPadre) {
         initComponents();
@@ -46,7 +46,7 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblNuevoViaje);
-        lblNuevoViaje.setBounds(230, 250, 130, 40);
+        lblNuevoViaje.setBounds(200, 250, 130, 40);
 
         lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajes.png"))); // NOI18N
         lblMisViajes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -62,7 +62,7 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblMisViajes);
-        lblMisViajes.setBounds(520, 250, 132, 40);
+        lblMisViajes.setBounds(510, 250, 132, 40);
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Lupa.png"))); // NOI18N
         lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -72,7 +72,7 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblBuscar);
-        lblBuscar.setBounds(600, 180, 20, 20);
+        lblBuscar.setBounds(580, 180, 20, 20);
 
         txtBuscador.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtBuscador.setBorder(null);
@@ -82,13 +82,13 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(txtBuscador);
-        txtBuscador.setBounds(250, 180, 340, 22);
+        txtBuscador.setBounds(230, 180, 340, 22);
 
         lblBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Buscador.png"))); // NOI18N
         add(lblBuscador);
-        lblBuscador.setBounds(220, 80, 440, 160);
+        lblBuscador.setBounds(200, 80, 440, 160);
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/FondoInicio.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo1.1.jpg.png"))); // NOI18N
         lblImagen.setPreferredSize(new java.awt.Dimension(800, 450));
         lblImagen.setVerifyInputWhenFocusTarget(false);
         add(lblImagen);

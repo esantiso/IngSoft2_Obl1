@@ -6,7 +6,7 @@ import descansoApp.dominio.Sistema;
 
 public class Principal extends javax.swing.JFrame {
 
-    private Sistema modelo;
+    private final Sistema modelo;
     
     public Principal(Sistema unModelo) {
         initComponents();
@@ -22,7 +22,7 @@ public class Principal extends javax.swing.JFrame {
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
+                formWindowClosing();
             }
         });
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -31,7 +31,7 @@ public class Principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing() {//GEN-FIRST:event_formWindowClosing
         try {
             Main.guardarModelo(modelo);
         } catch (IOException e) { }

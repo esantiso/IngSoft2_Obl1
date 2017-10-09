@@ -4,7 +4,6 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -13,14 +12,14 @@ import descansoApp.dominio.ComercioActividad;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
 
-public class pnlInformacionComercioActividad extends javax.swing.JPanel {
+class pnlInformacionComercioActividad extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private ComercioActividad cA;
-    private JFrame padre;
-    private ArrayList<ImageIcon> listaImagenes;
+    private final Sistema modelo;
+    private final ComercioActividad cA;
+    private final JFrame padre;
+    private final ArrayList<ImageIcon> listaImagenes;
     private int contador = 0;
-    private descansoApp.dominio.Ciudad ciudad;
+    private final descansoApp.dominio.Ciudad ciudad;
 
     public pnlInformacionComercioActividad(Sistema unModelo, ComercioActividad unCA, JFrame unPadre, descansoApp.dominio.Ciudad unaCiudad) {
         initComponents();
@@ -33,9 +32,8 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblGaleria.setIcon(listaImagenes.get(0));
 
         if (!modelo.getListaViajes().isEmpty()) {
-            Iterator<Viaje> itViaje = modelo.getListaViajes().iterator();
-            while (itViaje.hasNext()) {
-                Viaje viaje = itViaje.next();
+            for (Viaje viaje : modelo.getListaViajes()) {
+                //noinspection unchecked
                 comboViajes.addItem(viaje);
             }
         } else {
@@ -127,16 +125,12 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         jPanel1.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 770, 90));
 
         lblNombreEst.setFont(new java.awt.Font("Arial", 0, 26)); // NOI18N
+        lblNombreEst.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreEst.setText("Nombre Establecimiento");
         jPanel1.add(lblNombreEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, 400, 30));
 
         lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnGaleriader.png"))); // NOI18N
         lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSiguienteMouseClicked(evt);
-            }
-        });
         jPanel1.add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, -1, 20));
 
         jPanel1.add(comboViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 260, 22));
@@ -145,7 +139,7 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
+                lblVolverMouseClicked();
             }
         });
         jPanel1.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 38, 30, 30));
@@ -154,7 +148,7 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblAnterior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAnteriorMouseClicked(evt);
+                lblAnteriorMouseClicked();
             }
         });
         jPanel1.add(lblAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
@@ -266,13 +260,13 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBotonMouseClicked(evt);
+                lblBotonMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblBotonMouseEntered(evt);
+                lblBotonMouseEntered();
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblBotonMouseExited(evt);
+                lblBotonMouseExited();
             }
         });
         jPanel1.add(lblBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 37, -1, 30));
@@ -283,7 +277,7 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblpagina.setMaximumSize(new java.awt.Dimension(999, 999));
         lblpagina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblpaginaMouseClicked(evt);
+                lblpaginaMouseClicked();
             }
         });
         jPanel1.add(lblpagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 318, 340, 20));
@@ -292,7 +286,7 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblVolver1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolver1MouseClicked(evt);
+                lblVolver1MouseClicked();
             }
         });
         jPanel1.add(lblVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 38, 30, 30));
@@ -314,13 +308,13 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
         padre.remove(this);
         padre.add(new pnlDondeQue(modelo,ciudad , padre, cA.getTipo()));
         padre.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 
-    private void lblAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnteriorMouseClicked
+    private void lblAnteriorMouseClicked() {//GEN-FIRST:event_lblAnteriorMouseClicked
         if (contador == 0) {
             contador = listaImagenes.size() - 1;
         } else {
@@ -329,33 +323,23 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         lblGaleria.setIcon(listaImagenes.get(contador));
     }//GEN-LAST:event_lblAnteriorMouseClicked
 
-    private void lblSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSiguienteMouseClicked
-        if (contador == listaImagenes.size() - 1) {
-            contador = 0;
-        } else {
-            contador++;
-        }
-
-        lblGaleria.setIcon(listaImagenes.get(contador));
-    }//GEN-LAST:event_lblSiguienteMouseClicked
-
-    private void lblBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseClicked
+    private void lblBotonMouseClicked() {//GEN-FIRST:event_lblBotonMouseClicked
         PopUp p = new PopUp();
-        p.add(new pnlEvento(modelo, (Viaje) comboViajes.getSelectedItem(), ciudad, null, p));
+        p.add(new pnlEvento(modelo, (Viaje) comboViajes.getSelectedItem(), ciudad,this.cA, null, p));
         p.pack();
         p.setLocationRelativeTo(null);
         p.setVisible(true);
     }//GEN-LAST:event_lblBotonMouseClicked
 
-    private void lblBotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseEntered
+    private void lblBotonMouseEntered() {//GEN-FIRST:event_lblBotonMouseEntered
         
     }//GEN-LAST:event_lblBotonMouseEntered
 
-    private void lblBotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseExited
+    private void lblBotonMouseExited() {//GEN-FIRST:event_lblBotonMouseExited
        
     }//GEN-LAST:event_lblBotonMouseExited
 
-    private void lblpaginaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblpaginaMouseClicked
+    private void lblpaginaMouseClicked() {//GEN-FIRST:event_lblpaginaMouseClicked
         try {
             URI ruta= new URI(cA.getWeb());
             if(java.awt.Desktop.isDesktopSupported()){
@@ -372,7 +356,7 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lblpaginaMouseClicked
 
-    private void lblVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolver1MouseClicked
+    private void lblVolver1MouseClicked() {//GEN-FIRST:event_lblVolver1MouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();

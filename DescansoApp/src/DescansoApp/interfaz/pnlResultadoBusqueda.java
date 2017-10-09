@@ -1,20 +1,22 @@
 package descansoApp.interfaz;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.*;
+
+import descansoApp.dominio.Ciudad;
 import descansoApp.dominio.Sistema;
 import descansoApp.herramientas.Buscador;
 
-public class pnlResultadoBusqueda extends javax.swing.JPanel {
+class pnlResultadoBusqueda extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private JFrame padre;
+    private final Sistema modelo;
+    private final JFrame padre;
 
     public pnlResultadoBusqueda(Sistema unModelo, JFrame unPadre, String palabra) {
         initComponents();
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo.png")));
+        //lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo.png")));
         pnlResultados.setOpaque(false);
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
@@ -79,6 +81,7 @@ public class pnlResultadoBusqueda extends javax.swing.JPanel {
         add(lblNoHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 130, -1, -1));
 
         lblTitulo.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("Resultados de la búsqueda");
         add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 38, -1, -1));
 
@@ -97,7 +100,8 @@ public class pnlResultadoBusqueda extends javax.swing.JPanel {
 
         add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 770, 370));
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo.png"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo2.1.jpg.png"))); // NOI18N
+        lblFondo.setPreferredSize(new java.awt.Dimension(840, 500));
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -143,11 +147,11 @@ public class pnlResultadoBusqueda extends javax.swing.JPanel {
         if (cantResultados > 0) {
             scroll.setVisible(true);
             lblNoHay.setVisible(false);
-            
-            for (int i = 0; i < cantResultados; i++) {
-                pResultado pr = new pResultado(modelo, resultados.get(i), padre, this);
-                
-                pnlResultados.setLayout(new java.awt.BorderLayout());
+
+            for (Ciudad resultado : resultados) {
+                pResultado pr = new pResultado(modelo, resultado, padre, this);
+
+                pnlResultados.setLayout(new BorderLayout());
                 pnlResultados.add(pr);
                 pr.setVisible(true);
                 pnlResultados.setVisible(true);

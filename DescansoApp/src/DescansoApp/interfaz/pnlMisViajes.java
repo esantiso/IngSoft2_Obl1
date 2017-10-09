@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
 
-public class pnlMisViajes extends javax.swing.JPanel {
+class pnlMisViajes extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private JFrame miVentana;
+    private final Sistema modelo;
+    private final JFrame miVentana;
 
     public pnlMisViajes(Sistema unModelo, JFrame unContenedor) {
         initComponents();
@@ -76,8 +76,8 @@ public class pnlMisViajes extends javax.swing.JPanel {
         if (cantResultados > 0) {
             lblNoHay.setVisible(false);
 
-            for (int i = 0; i < cantResultados; i++) {
-                pResultadoMisViajes p = new pResultadoMisViajes(modelo, resultados.get(i), miVentana, this);
+            for (Viaje resultado : resultados) {
+                pResultadoMisViajes p = new pResultadoMisViajes(modelo, resultado, miVentana, this);
 
                 pnlResultados.add(p);
             }

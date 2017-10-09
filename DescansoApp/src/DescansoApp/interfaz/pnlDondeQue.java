@@ -9,13 +9,13 @@ import descansoApp.dominio.ComercioActividad;
 import descansoApp.dominio.Sistema;
 import descansoApp.herramientas.TipoCA;
 
-public class pnlDondeQue extends javax.swing.JPanel {
+class pnlDondeQue extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private descansoApp.dominio.Ciudad ciudad;
-    private JFrame padre;
-    ArrayList<ComercioActividad> lista;
-    ArrayList<String> filtros;
+    private final Sistema modelo;
+    private final descansoApp.dominio.Ciudad ciudad;
+    private final JFrame padre;
+    private ArrayList<ComercioActividad> lista;
+    private final ArrayList<String> filtros;
 
     public pnlDondeQue(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre, TipoCA unTipo) {
         initComponents();
@@ -92,7 +92,7 @@ public class pnlDondeQue extends javax.swing.JPanel {
         lstFiltros.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstFiltros.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lstFiltros.setOpaque(false);
-        lstFiltros.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        lstFiltros.setSelectionBackground(new java.awt.Color(51, 255, 0));
         lstFiltros.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstFiltrosValueChanged(evt);
@@ -120,6 +120,7 @@ public class pnlDondeQue extends javax.swing.JPanel {
         add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 620, 370));
 
         lblTitulo.setFont(new java.awt.Font("Arial", 0, 26)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("TITULO");
         add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, 240, 30));
 
@@ -132,7 +133,8 @@ public class pnlDondeQue extends javax.swing.JPanel {
         });
         add(lblVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 38, 30, 30));
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo.png"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Fondo2.1.jpg.png"))); // NOI18N
+        lblFondo.setPreferredSize(new java.awt.Dimension(840, 500));
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -140,9 +142,7 @@ public class pnlDondeQue extends javax.swing.JPanel {
         pnlResultados.removeAll();
         pnlResultados.repaint();
 
-        Iterator<ComercioActividad> it = lista.iterator();
-        while (it.hasNext()) {
-            ComercioActividad actual = it.next();
+        for (ComercioActividad actual : lista) {
             if (filtros.get(lstFiltros.getSelectedIndex()).equals(actual.getCategoria())) {
                 pResultadoDondeQue p = new pResultadoDondeQue(modelo, actual, padre, this, ciudad);
                 pnlResultados.add(p);
@@ -170,9 +170,9 @@ public class pnlDondeQue extends javax.swing.JPanel {
 
         int cantResultados = lista.size();
         if (cantResultados > 0) {
-            for (int i = 0; i < cantResultados; i++) {
-                if (!filtros.contains(lista.get(i).getCategoria())) {
-                    filtros.add(lista.get(i).getCategoria());
+            for (ComercioActividad aLista : lista) {
+                if (!filtros.contains(aLista.getCategoria())) {
+                    filtros.add(aLista.getCategoria());
                 }
             }
         } 

@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import static descansoApp.herramientas.Utilidades.soloFecha;
+
 
 public class Evento implements Serializable, Comparable<Evento> {
 
@@ -88,16 +90,6 @@ public class Evento implements Serializable, Comparable<Evento> {
         } else {
             throw new Exception("La fecha de inicio del evento debe ser la actual o una futura.");
         }
-    }
-    
-      public Calendar soloFecha(Calendar f) {
-        f.set(Calendar.HOUR, 0);
-        f.set(Calendar.HOUR_OF_DAY, 0);
-        f.set(Calendar.MINUTE, 0);
-        f.set(Calendar.SECOND, 0);
-        f.set(Calendar.MILLISECOND, 0);
-
-        return f;
     }
 
     public String getDescripcion() {

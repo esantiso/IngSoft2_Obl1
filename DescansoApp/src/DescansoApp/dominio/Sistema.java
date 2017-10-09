@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Sistema  implements Serializable{
-    private ArrayList<Viaje> listaViajes;
-    private ArrayList<Ciudad> listaCiudades;
+    private final ArrayList<Viaje> listaViajes;
+    private final ArrayList<Ciudad> listaCiudades;
     
     public Sistema(){
         listaViajes = new ArrayList<>();

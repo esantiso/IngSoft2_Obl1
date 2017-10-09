@@ -5,12 +5,12 @@ import descansoApp.dominio.Evento;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
 
-public class pnlInformacionEvento extends javax.swing.JPanel {
+class pnlInformacionEvento extends javax.swing.JPanel {
 
-    private Evento evento;
-    private JFrame miVentana;
-    private Viaje viaje;
-    private Sistema modelo;
+    private final Evento evento;
+    private final JFrame miVentana;
+    private final Viaje viaje;
+    private final Sistema modelo;
     
     public pnlInformacionEvento(Sistema unModelo, Viaje unViaje, Evento unEvento, JFrame unContenedor) {
       

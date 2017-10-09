@@ -5,12 +5,12 @@ import javax.swing.JPanel;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
 
-public class pResultadoMisViajes extends javax.swing.JPanel {
+class pResultadoMisViajes extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private Viaje viaje;
-    private JFrame miVentana;
-    private JPanel miPanel;
+    private final Sistema modelo;
+    private final Viaje viaje;
+    private final JFrame miVentana;
+    private final JPanel miPanel;
     
     public pResultadoMisViajes(Sistema unModelo, Viaje unViaje, JFrame unContenedorPrincipal, JPanel miContenedor) {
         initComponents();
@@ -39,7 +39,7 @@ public class pResultadoMisViajes extends javax.swing.JPanel {
         lblNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblNombreMouseClicked(evt);
+                lblNombreMouseClicked();
             }
         });
 
@@ -50,7 +50,7 @@ public class pResultadoMisViajes extends javax.swing.JPanel {
         lblEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEditarMouseClicked(evt);
+                lblEditarMouseClicked();
             }
         });
 
@@ -77,13 +77,13 @@ public class pResultadoMisViajes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEditarMouseClicked
+    private void lblEditarMouseClicked() {//GEN-FIRST:event_lblEditarMouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlNuevoViaje(modelo, miVentana, viaje));
         miVentana.pack();
     }//GEN-LAST:event_lblEditarMouseClicked
 
-    private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
+    private void lblNombreMouseClicked() {//GEN-FIRST:event_lblNombreMouseClicked
         miVentana.remove(miPanel);
         miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
         miVentana.pack();

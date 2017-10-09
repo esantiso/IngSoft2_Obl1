@@ -1,7 +1,5 @@
 package descansoApp.dominio;
 
-import descansoApp.dominio.Evento;
-import descansoApp.dominio.Ciudad;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import org.junit.Test;
@@ -182,7 +180,7 @@ public class EventoTest {
     @Test
     public void testGetCiudad() {
         System.out.println("Get Ciudad");
-        Ciudad c= new Ciudad("Fray Bentos", null);
+        Ciudad c= new Ciudad("Fray Bentos");
         Evento instance = new Evento("", null, null,"", "", c);
         
         Ciudad expResult = c;

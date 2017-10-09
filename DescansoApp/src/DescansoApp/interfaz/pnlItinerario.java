@@ -10,11 +10,11 @@ import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
 
 
-public class pnlItinerario extends javax.swing.JPanel {
+class pnlItinerario extends javax.swing.JPanel {
 
-    private Sistema modelo;
-    private Viaje viaje;
-    private JFrame miVentana;
+    private final Sistema modelo;
+    private final Viaje viaje;
+    private final JFrame miVentana;
 
     public pnlItinerario(Sistema unModelo, Viaje unViaje, JFrame unContenedor) {
         initComponents();
@@ -50,7 +50,7 @@ public class pnlItinerario extends javax.swing.JPanel {
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
+                lblVolverMouseClicked();
             }
         });
         add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
@@ -86,14 +86,14 @@ public class pnlItinerario extends javax.swing.JPanel {
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblVolverMouseClicked() {//GEN-FIRST:event_lblVolverMouseClicked
         miVentana.remove(this);
         miVentana.add(new pnlMisViajes(modelo, miVentana));
         miVentana.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 
-    public void cargarItinerario() {
-         int cantResultados = 0;
+    private void cargarItinerario() {
+        int cantResultados;
         pnlResultados.removeAll();
         pnlResultados.repaint();
 
@@ -134,7 +134,7 @@ public class pnlItinerario extends javax.swing.JPanel {
         }
     }
     
-     public boolean fechasIguales(Calendar f1, Calendar f2){
+     private boolean fechasIguales(Calendar f1, Calendar f2){
         if (f1 == null && f2 != null) return false;
         if (f1 != null && f2 == null) return false;
         
